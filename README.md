@@ -2,6 +2,7 @@
 group2 project about chicago fire for digital heritage class 
 
 🔹 Open-source GeoGuessr-style Projects we Could Clone
+
 [GeoGuessr Clone](https://github.com/jzmoya/geoguessr-clone)  (GeoGuessr Clone by Jose Moya)
  → basic implementation using Google Street View (you could swap with static historic images).
 
@@ -16,6 +17,7 @@ group2 project about chicago fire for digital heritage class
 
 
  🔹 Frameworks & Libraries for Map Games
+ 
 Leaflet.js
 → lightweight, open-source JS library for interactive maps.
 → great for overlaying historical maps, markers, and quizzes.
@@ -35,6 +37,9 @@ Phaser.js (if you want more “gamey” feel)
 🔹 Tech Stack Suggestion (simple, student-friendly)
 
 Frontend: Leaflet.js (interactive maps) + Vanilla JS or React.
+
 Data: GeoJSON with locations of destroyed/survived buildings.
+
 Backend (optional): Node.js/Express if you want leaderboards, otherwise static hosting is enough.
+
 Hosting: GitHub Pages, Netlify, or Vercel.
