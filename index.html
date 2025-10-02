@@ -1,41 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <title>My Leaflet Map</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
-
-  <style>
-    #map {
-      height: 100vh;  /* Full screen */
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicago Fire Start Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
+
 <body>
-  <div id="map"></div>
-
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    // Initialize map
-    var map = L.map('map').setView([45.07, 7.69], 13); // Turin, Italy :)
-
-    // Add tile layer (OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Add a marker
-    L.marker([45.07, 7.69]).addTo(map)
-      .bindPopup('Hello from Turin!')
-      .openPopup();
-  </script>
+    <div class="background">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                    <div class="p-4 rounded shadow bg-white bg-opacity-50 text-center mb-4">
+                        <h1 class="mb-2">The Chicago Fire</h1>
+                        <h2 class="mb-4">By the eyes of Horace White</h2>
+                        <div class="row mb-12">
+                            <div class="col-12 col-md-12">
+                                <div class="verse">
+                                    <p>It was too vast, too swift,<br>
+                                        The fire that swept the night.<br>
+                                        Dreams vanished in the drift,<br>
+                                        Lost in the burning light.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class="verse">
+                                    <p>Through ashes hope would rise,<br>
+                                        From embers life would grow.<br>
+                                        Beneath the smoky skies,<br>
+                                        Courage began to show.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class="verse">
+                                    <p>The city found its dawn,<br>
+                                        The flames could not erase.<br>
+                                        Chicago, battered, drawn,<br>
+                                        Still stood with strength and grace.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="museum.html" class="btn btn-success btn-lg mt-3">Let's Start</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS (опционально) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
