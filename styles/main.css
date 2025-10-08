@@ -1,5 +1,5 @@
 body {
-  background-image: url('fire_background.png');
+  background-image: url('/images/fire_background.png');
   background-size: 100vw auto;
   /* ширина картинки равна ширине окна, высота автоматически */
   background-repeat: no-repeat;
