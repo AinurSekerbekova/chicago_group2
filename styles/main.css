@@ -72,7 +72,7 @@ body::before {
 }
 
 @media (max-width: 768px) {
-  #map, #next-to-map {
+  #map, #next_to_map {
     height: 40vh !important;
   }
 }
