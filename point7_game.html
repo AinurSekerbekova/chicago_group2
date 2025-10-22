@@ -26,18 +26,24 @@
       </div>
 
       <div class="col-12 col-md-6">
-        <video src="videos/fireplace.mp4" id="next_to_map" class="img-fluid rounded shadow"
-          style="max-height: 50vh; width: 100%; object-fit: cover;" autoplay muted loop playsinline controls></video>
-      </div>
+          <iframe id="next-to-map" class="w-100 rounded shadow-sm"  style="height: 50vh; border: 0;" loading="lazy"
+            allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!4v1719953826195!6m8!1m7!1sCAoSLEFGMVFpcE5SbEpwZXpRV2tVQXJGT1Nfd0FfUGZLdWkwb3ZMT0htOVVMSjVC!2m2!1d41.9115!2d-87.6315!3f90!4f0!5f0.7820865974627469">
+          </iframe>
+        </div>
     </div>
 
-    <div id="result-container" class="container my-5 py-2 rounded shadow bg-white bg-opacity-50">
+    <div id="result-container" class="speech-bubble container my-5 py-2 ">
       <h2>Can you guess where this is?</h2>
       <div id="result" class=" py-2 mt-3">
         <br>
       </div>
     </div>
   </div>
+
+<div class="assistant" id="assistant">
+  <img src="images/narrators.png" alt="Narrators">
+</div>
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
@@ -76,7 +82,6 @@
       // Select the container 
       var resultText = document.querySelector('#result');
 
-      
       // Change border color based on distance
       if (distanceMeters < 500 && distanceMeters > 20) {
         resultContainer.style.border = '4px solid #00c853';
@@ -103,13 +108,12 @@
         const nextButton = document.createElement('a');
         nextButton.id = 'next-button';
         nextButton.className = 'btn btn-warning shadow-sm';
-        nextButton.href = 'final_page.html';
+        nextButton.href = 'point7_essay.html';
         nextButton.textContent = 'Next Challenge';
 
         result.appendChild(nextButton);
       }
     }
-
     // Haversine formula to calculate distance between two lat/lon points
     function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
       var R = 6371; // Радиус Земли в км
