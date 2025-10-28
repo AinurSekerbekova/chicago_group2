@@ -1,0 +1,219 @@
+body {
+  background: #1a1a1a;
+  background-image: url('../images/fire_background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  color: #fff;
+  font-family: 'Merriweather', serif;
+  letter-spacing: 0.6px;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: 'Cinzel', serif;
+  color: #ffd580;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-shadow: 2px 3px 6px #000, 0 0 12px #d94e1f;
+  /* chalk/drawn effect */
+}
+
+.container, .main-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  width: 94vw;
+  margin: 2rem auto;
+  padding: 2.7rem 2rem 2rem 2rem;
+  border-radius: 18px;
+  background: rgba(40, 30, 10, 0.55);
+  box-shadow: 0 0 22px rgba(40, 10, 0, 0.5);
+  border: 2px dashed #f29f05;
+}
+
+.btn-warning,
+button,
+.next-page, .answer-btn {
+  background: linear-gradient(135deg, #d94e1f, #f29f05 80%);
+  color: #1a1a1a;
+  font-family: 'Cinzel', serif;
+  font-size: 1.18rem;
+  padding: 0.8em 2em;
+  border-radius: 14px;
+  border: none;
+  margin: 0.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-warning:hover,
+button:hover,
+.next-page:hover, .answer-btn:hover {
+  transform: scale(1.07) rotate(-1.2deg);
+  box-shadow: 0 0 22px 6px rgba(242,159,5,0.36);
+  background: linear-gradient(120deg, #f29f05, #d94e1f 75%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 0;
+  pointer-events: none;
+}
+
+#result-container {
+  border-radius: 14px;
+  padding: 2rem 1.4rem;
+  background: rgba(44, 44, 44, 0.85);
+  box-shadow: 0 8px 26px rgba(140, 60, 12, 0.27);
+  backdrop-filter: blur(7px);
+  margin-top: 1.5rem;
+  border: 2.2px solid #f29f05;
+}
+
+#result {
+  font-size: 1.2rem;
+  font-family: 'Merriweather', serif;
+  color: #ffd580;
+  margin: 1rem 0 1.3rem 0;
+  font-weight: 600;
+  text-shadow: 0 2px 7px #1a1a1a;
+}
+
+#result-container h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.1rem;
+  text-align: center;
+  letter-spacing: 1.2px;
+  color: #fffbe8;
+  text-shadow: 0 0 19px #d94e1f, 0 0 9px #000;
+}
+
+/* Quiz, MC options */
+.quiz-options label,
+.quiz-options .option {
+  display: block;
+  margin: 0.5em 0 1em 0;
+  font-family: 'Merriweather', serif;
+  color: #ffd580;
+  padding: 0.4em 1.2em;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.quiz-options label:hover,
+.quiz-options .option:hover {
+  background: #fffbe8;
+  color: #d94e1f;
+}
+
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+  .container, .main-content {
+    padding: 1.2rem 0.7rem;
+    max-width: 99vw;
+  }
+  h1, h2 {
+    font-size: 1.2rem;
+    margin: 0.7rem 0;
+  }
+  #map, #next_to_map {
+    height: 46vw !important;
+    min-height: 33vh;
+  }
+}
+
+/* Pop-up "assistant" floating avatar */
+.assistant {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 180px;
+  z-index: 9999;
+  cursor: pointer;
+  animation: float 2.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #f29f05);
+}
+
+/* pop-up person image */
+.assistant img {
+  width: 100%;
+  border-radius: 17px;
+  pointer-events: none;
+  border: 2px solid #ffd580;
+}
+
+.speech-bubble {
+  background: url('images/speech.png') no-repeat center/contain;
+  min-height: 60px;
+  min-width: 120px;
+  margin: 0.7em 1em;
+}
+
+/* Animation effects */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(15px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px);}
+  50% { transform: translateY(-14px);}
+}
+
+/* Letter/media scene boxes */
+.letter-quote, .media-block, .bibliography-links {
+  background: rgba(140, 60, 12, 0.2);
+  border-radius: 11px;
+  box-shadow: 0 1.5px 6px #f29f05;
+  margin: 1rem auto;
+  padding: 1rem 1.7rem;
+  color: #fffbe8;
+  font-family: 'Merriweather', serif;
+}
+
+/* Bibliography page styles */
+.bibliography-links a {
+  color: #ffd580;
+  text-decoration: underline;
+  font-family: 'Cinzel', serif;
+  margin-right: 1.2em;
+  word-break: break-word;
+  transition: color 0.2s;
+}
+
+.bibliography-links a:hover {
+  color: #d94e1f;
+}
+
+/* Custom scrollbars */
+body::-webkit-scrollbar {
+  width: 12px;
+  background: #111;
+}
+body::-webkit-scrollbar-thumb {
+  background: #d94e1f;
+  border-radius: 9px;
+}
+
+/* Letter links and media scene */
+.full-letter-link {
+  background: rgba(255, 243, 204, 0.37);
+  border-radius: 7px;
+  padding: 0.5em 1em;
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+}
