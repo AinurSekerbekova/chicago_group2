@@ -46,7 +46,7 @@ body::before {
 }
 
 
-/* styles for results of guessing game START */
+/* styles for results of map game START */
 #result-container {
   border-radius: 12px;
   padding: 1.5rem;
@@ -71,7 +71,7 @@ body::before {
   letter-spacing: 1px;
   color: #222;
 }
-/* styles for results of guessing game END */
+/* styles for results of map game END */
 
 
 /* For   */
