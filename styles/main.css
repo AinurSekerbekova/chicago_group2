@@ -118,3 +118,23 @@ iframe {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-5px); }
   }
+
+  /* styles for appearing speech START */
+
+#result {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  white-space: pre-wrap; /* сохраняет переносы */
+  min-height: 4em;
+  transition: opacity 0.3s ease;
+}
+
+.speech-bubble {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+  /* styles for appearing speech END */
