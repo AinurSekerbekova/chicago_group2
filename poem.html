@@ -115,22 +115,26 @@
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('startIntro').addEventListener('click', function() {
-      var ainurModal = new bootstrap.Modal(document.getElementById('ainurModal'));
-      ainurModal.show();
-    });
-    // Optionally trigger intro automatically on load
-    // window.addEventListener('DOMContentLoaded', function() {
-    //   var ainurModal = new bootstrap.Modal(document.getElementById('ainurModal'));
-    //   ainurModal.show();
-    // });
-    // Add redirect or next step after overview modal if needed
-    document.getElementById('startGameBtn').addEventListener('click', function() {
-  window.location.href = "point1_essay.html";
-});
 
+  <!-- Corrected script: DOMContentLoaded and no stray braces -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const startIntroBtn = document.getElementById('startIntro');
+      if (startIntroBtn) {
+        startIntroBtn.addEventListener('click', function() {
+          var ainurModal = new bootstrap.Modal(document.getElementById('ainurModal'));
+          ainurModal.show();
+        });
+      }
+
+      const startGameBtn = document.getElementById('startGameBtn');
+      if (startGameBtn) {
+        startGameBtn.addEventListener('click', function() {
+          // Redirect to the first game page
+          window.location.href = "point1_essay.html";
+        });
+      }
+    });
   </script>
 </body>
 </html>
-
