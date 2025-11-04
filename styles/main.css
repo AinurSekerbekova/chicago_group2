@@ -137,4 +137,13 @@ iframe {
   animation: fadeIn 1s ease-in-out;
 }
 
+#collectionModal::-webkit-scrollbar {
+  width: 6px;
+}
+#collectionModal::-webkit-scrollbar-thumb {
+  background: #ffc107;
+  border-radius: 3px;
+}
+
+
   /* styles for appearing speech END */
