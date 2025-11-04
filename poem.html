@@ -1,93 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chicago Fire Game Intro Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
-        rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8">
+  <title>The Chicago Fire: Game Introduction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f7f2e7;
+      font-family: 'Merriweather', serif;
+    }
+    .container-intro {
+      max-width: 650px;
+    }
+    .modal-content {
+      background: #fffbe9;
+      border-radius: 15px;
+    }
+    .rounded-circle { border: 3px solid #c7a97a; }
+    .narrator-group img { box-shadow: 0 2px 10px rgba(0,0,0,.10); }
+  </style>
 </head>
-
 <body>
-    <div class="container py-5  my-5 rounded shadow bg-white bg-opacity-100 text-center">
-        <h1>The Chicago Fire</h1>
-        <h2>By the eyes of 7 witnesses</h2>
-        <div class="row fw-bold">
-            <p>Welcome to "Time Traveling Through Chicago," a unique interactive experience that guides you through the dramatic events of the Great Chicago Fire of 1871.</p>
-  <p>
-    This game invites you to explore the city's past and present, solve challenges rooted in history, and engage with the voices of those who witnessed one of America's most devastating urban disasters.
-  </p>
+  <div class="container py-5 my-4 rounded container-intro shadow bg-white bg-opacity-100 text-center">
+    <h1>The Chicago Fire</h1>
+    <h2>By the eyes of 7 witnesses</h2>
+    <p>
+      Welcome to "Time Traveling Through Chicago," a unique interactive experience guided by voices who witnessed the events of the Great Chicago Fire. 
+      Begin your journey and let our narrators show you how your actions will connect past and present.
+    </p>
+    <button class="btn btn-warning shadow-sm" id="startIntro">Meet the Narrators</button>
+  </div>
 
-  <h3>Game Overview</h3>
-  <p>
-    Players journey through modern Chicago, identifying the original locations that played crucial roles during the fire.
-  </p>
-  <p>
-    Each correct guess transforms the cityscape, letting you witness scenes from 1871 and listen to survivor narrations.
-  </p>
-  <p>
-    As you play, you collect six survivor letters, each telling a piece of Chicago’s collective memory, culminating in a final reward: the iconic Water Tower, a symbol of resilience and remembrance.
-  </p>
-  <p>
-    Throughout your journey, you'll face moral choices, uncover historic clues, and reconstruct scenes of loss, courage, and rebirth.
-  </p>
-
-  <h3>Interactive Features</h3>
-  <ul>
-    <li>Guess modern and historic Chicago locations using photo clues and maps, traversing past and present.</li>
-    <li>Experience "time rift" moments, unlocking survivor letters and visual transformations.</li>
-    <li>Collect letters and piece together the story of Chicago’s destruction and regrowth.</li>
-  </ul>
-
-  <h3>The Narrators: Meet the Creators</h3>
-  <p>
-    Your journey is guided by four narrators: Ainur, Tarlan, Ehsan, and Tommaso; who are also the creative minds behind the game.
-    Each narrator brings a unique perspective, weaving together historical fact, personal reflection, and interactive storytelling.
-  </p>
-  <ul>
-    <li>
-      <strong>Ainur:</strong> Animates the story with deep empathy and a sharp eye for historical detail. Expect a narrator who highlights personal struggles and the emotional resilience of Chicagoans.
-    </li>
-    <li>
-      <strong>Tarlan:</strong> Brings technical mastery and a thoughtful narrative voice. As your guide, they encourage you to examine the evidence and make sense of the city’s transformations.
-    </li>
-    <li>
-      <strong>Ehsan:</strong> Emphasizes discovery and problem-solving. Expect insightful questions, a passion for piecing together evidence, and support as you reconstruct each harrowing event.
-    </li>
-    <li>
-      <strong>Tommaso:</strong> Offers a reflective and philosophical touch, tying individual stories to broader themes of memory and collective survival. The narration helps you think about how past choices echo into the present.
-    </li>
-  </ul>
-  
-  <p>
-    Each narrator appears in-game as an illustrated guide, offering clues, commentary, and encouragement as you uncover Chicago’s hidden history. Together, they provide a richly collaborative voice—bridging the past and present and inviting you to preserve memory, cultivate empathy, and shape your version of the city’s story.
-  </p>
-
-  <h3>Start Your Journey</h3>
-  <p>
-    Explore the past. Learn from its lessons. Shape the memory.<br>
-    Access the project and learn more at: 
-    <a href="https://github.com/AinurSekerbekova/chicago_group2.git" target="_blank">
-      https://github.com/AinurSekerbekova/chicago_group2.git
-    </a>
-  </p>
-  <p>
-    Step into the city’s history; your actions can rebuild what was lost and ensure that the voices of Chicago’s survivors are never forgotten.
-  </p>
-            </div>
-            <div class="col-9"></div>
-            <div class="col-3 text-center" >
-                <a href="point1_map_game.html" class="btn btn-warning shadow-sm">Let's start the story</a>
-            </div>
-
+  <!-- Ainur Modal -->
+  <div class="modal fade" id="ainurModal" tabindex="-1" aria-labelledby="ainurLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <img src="images/avatar/ainur_avatar.jpg" alt="Ainur Avatar" class="my-3 rounded-circle" style="width:140px;">
+          <h5 id="ainurLabel" class="modal-title mb-3">Ainur</h5>
+          <p>Hi! I'm Ainur. I bring empathy and an eye for historical detail, guiding you through the personal struggles and resilience of Chicagoans during the fire.</p>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#tarlanModal">Next</button>
         </div>
+      </div>
     </div>
-    <!-- Bootstrap JS (опционально) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </div>
 
+  <!-- Tarlan Modal -->
+  <div class="modal fade" id="tarlanModal" tabindex="-1" aria-labelledby="tarlanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <img src="images/avatar/tarlan_avatar.jpg" alt="Tarlan Avatar" class="my-3 rounded-circle" style="width:140px;">
+          <h5 id="tarlanLabel" class="modal-title mb-3">Tarlan</h5>
+          <p>Hello! I’m Tarlan. My focus is on technical mastery and a thoughtful narrative. I’ll help you make sense of clues and see the city's transformations.</p>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#ehsanModal">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ehsan Modal -->
+  <div class="modal fade" id="ehsanModal" tabindex="-1" aria-labelledby="ehsanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <img src="images/avatar/ehsan_avatar.jpg" alt="Ehsan Avatar" class="my-3 rounded-circle" style="width:140px;">
+          <h5 id="ehsanLabel" class="modal-title mb-3">Ehsan</h5>
+          <p>Greetings! I’m Ehsan. Discovery and problem-solving are my strengths. Expect questions and evidence, and I’ll support your journey through each event.</p>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#tommasoModal">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tommaso Modal -->
+  <div class="modal fade" id="tommasoModal" tabindex="-1" aria-labelledby="tommasoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <img src="images/avatar/tommaso_avatar.jpg" alt="Tommaso Avatar" class="my-3 rounded-circle" style="width:140px;">
+          <h5 id="tommasoLabel" class="modal-title mb-3">Tommaso</h5>
+          <p>Welcome! I’m Tommaso, your reflective guide. I’ll help you connect individual stories to themes of memory and survival, exploring how the past shapes today.</p>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#overviewModal">All Together</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group Overview Modal -->
+  <div class="modal fade" id="overviewModal" tabindex="-1" aria-labelledby="overviewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <div class="d-flex justify-content-center mb-3 narrator-group">
+            <img src="images/avatar/ainur_avatar.jpg" alt="Ainur" class="rounded-circle mx-1" style="width:65px;">
+            <img src="images/avatar/tarlan_avatar.jpg" alt="Tarlan" class="rounded-circle mx-1" style="width:65px;">
+            <img src="images/avatar/ehsan_avatar.jpg" alt="Ehsan" class="rounded-circle mx-1" style="width:65px;">
+            <img src="images/avatar/tommaso_avatar.jpg" alt="Tommaso" class="rounded-circle mx-1" style="width:65px;">
+          </div>
+          <h5 id="overviewLabel" class="modal-title mb-2">Welcome to the Experience</h5>
+          <p>
+            Together, we invite you to experience the Great Chicago Fire. You’ll start in present-day Chicago, solve clues to find historic locations, and watch as each correct guess transforms the cityscape—letting you witness scenes from 1871 and listen to survivor stories. Your choices reveal loss, courage, and rebirth, tying the past to the present.
+          </p>
+          <p>
+            As you journey, your actions turn modern Chicago into its historic self. Guess today’s locations, and watch them change before your eyes! Piece together survivor letters and unlock the Water Tower—your symbol of remembrance.
+          </p>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="startGameBtn">Start My Journey!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('startIntro').addEventListener('click', function() {
+      var ainurModal = new bootstrap.Modal(document.getElementById('ainurModal'));
+      ainurModal.show();
+    });
+    // Optionally trigger intro automatically on load
+    // window.addEventListener('DOMContentLoaded', function() {
+    //   var ainurModal = new bootstrap.Modal(document.getElementById('ainurModal'));
+    //   ainurModal.show();
+    // });
+    // Add redirect or next step after overview modal if needed
+    document.getElementById('startGameBtn').addEventListener('click', function() {
+      // window.location.href = "your_next_page.html";
+    });
+  </script>
+</body>
 </html>
+
