@@ -53,7 +53,9 @@
         if (photo.dataset.correct === "true") {
           result.textContent = "✅ Correct! This is the Chicago History Museum.";
           result.style.color = "green";
-          nextButton.classList.remove('d-none');
+          nextButton.classList.remove('d-none')
+          const buildingName = photo.dataset.name;
+          addToCollection(buildingName);
         } else {
           result.textContent = "❌ Try again!";
           result.style.color = "red";
@@ -63,6 +65,8 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts/myCollection.js"></script>
+
 </body>
 
 </html>
