@@ -47,7 +47,17 @@
           </p>
           <p>
             Your first letter from Jonas Hutchinson<br>
-            <a href="letter_pdfs/Jonas_Hutchinson.pdf" target="_blank">Open PDF</a>
+            <a href="letter_pdfs/Jonas_Hutchinson.pdf" 
+   target="_blank" 
+   onclick="addToCollection({
+     name: 'Jonas Hutchinson Letter',
+     type: 'letter',
+     file: 'letter_pdfs/Jonas_Hutchinson.pdf',
+     location: 'Courthouse Square'
+   })">
+  Open PDF
+</a>
+
           </p>
           <a href="point3_map_game.html" class="btn btn-success m-4">Next place</a>
         </div>
@@ -61,15 +71,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- ✅ Add this AFTER loading myCollection.js -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      addToCollection({
-        name: 'Jonas Hutchinson Letter',
-        type: 'letter',
-        file: 'letter_pdfs/Jonas_Hutchinson.pdf',
-        location: 'Courthouse Square'
-      });
-    });
-  </script>
 </body>
 </html>
