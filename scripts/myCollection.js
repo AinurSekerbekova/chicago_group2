@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCollection();
   });
 
+  // ✅ Render the saved collection
   function renderCollection() {
     const grid = document.getElementById("collectionGrid");
     const collection = JSON.parse(localStorage.getItem("myCollection")) || [];
@@ -58,15 +59,22 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "bg-secondary bg-opacity-25 p-2 rounded text-center";
       card.style.width = "130px";
+
+      // ✅ Make card clickable if it has a file (like a PDF)
+      const linkStart = item.file ? `<a href="${item.file}" target="_blank" class="text-decoration-none text-light">` : "";
+      const linkEnd = item.file ? "</a>" : "";
+
       card.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" class="img-fluid rounded mb-2" style="height:80px; object-fit:cover;">
-        <p class="small m-0">${item.name}</p>
+        ${linkStart}
+          ${item.image ? `<img src="${item.image}" alt="${item.name}" class="img-fluid rounded mb-2" style="height:80px; object-fit:cover;">` : ""}
+          <p class="small m-0">${item.name}</p>
+        ${linkEnd}
       `;
       grid.appendChild(card);
     });
   }
 
-  // Add item to collection (stores both name and image)
+  // ✅ Add new item to collection
   window.addToCollection = function (item) {
     const collection = JSON.parse(localStorage.getItem("myCollection")) || [];
     const exists = collection.some(c => c.name === item.name);
