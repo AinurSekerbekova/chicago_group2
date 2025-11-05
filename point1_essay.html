@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -42,30 +41,36 @@
              style="background: rgba(255,255,255,0.5); min-height: 50vh; max-height: 50vh; overflow-y: auto; position: relative;">
           <h2>LaSalle Street from Courthouse Square; Louis Kurz for Jevne & Almini, 1866-67 (ichi-63070)</h2>
           <p>
-            As this view attests, the west side of LaSalle between Washington and Randolph underwent many changes between the 1850s and the 1860s.  The Metropolitan Block is still on the northwest corner of LaSalle and Randolph, but LaSalle between Washington and Randolph is now filled with new office buildings.  Their primary tenants were banks and insurance brokers.
+            As this view attests, the west side of LaSalle between Washington and Randolph underwent many changes between the 1850s and the 1860s.
+            The Metropolitan Block is still on the northwest corner of LaSalle and Randolph, but LaSalle between Washington and Randolph is now
+            filled with new office buildings. Their primary tenants were banks and insurance brokers.
           </p>
-          <p>Your first letter from Jonas Hutchinson<br>
-          <a href="letter_pdfs/Jonas_Hutchinson.pdf" target="_blank">Open PDF</a>
-        </p>
+          <p>
+            Your first letter from Jonas Hutchinson<br>
+            <a href="letter_pdfs/Jonas_Hutchinson.pdf" target="_blank">Open PDF</a>
+          </p>
           <a href="point3_map_game.html" class="btn btn-success m-4">Next place</a>
         </div>
       </div>
     </div>
   </div>
-  
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="scripts/myCollection.js"></script>
   <script src="scripts/homeButton.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-  addToCollection({
-    name: 'Jonas Hutchinson Letter',
-    type: 'letter',
-    file: 'letter_pdfs/Jonas_Hutchinson.pdf',
-    location: 'Washington Street'
-  });
-</script>
-</body>
 
+  <!-- ✅ Add this AFTER loading myCollection.js -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      addToCollection({
+        name: 'Jonas Hutchinson Letter',
+        type: 'letter',
+        file: 'letter_pdfs/Jonas_Hutchinson.pdf',
+        location: 'Courthouse Square',
+        image: 'images/washington street.png' // optional thumbnail in collection
+      });
+    });
+  </script>
+</body>
 </html>
