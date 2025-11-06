@@ -4,54 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chicago Fire Museum Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
-    rel="stylesheet">
+  <title>Court House</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body class="bg-light">
   <div class="container py-4">
     <div class="row align-items-start g-4">
+
+      <!-- Left column: map -->
       <div class="col-md-6">
-        <div id="map" class="rounded shadow" style="height: 50vh; min-height: 300px;"></div>
+        <iframe 
+          src="86 Washington Street/index.html"
+          class="rounded shadow"
+          style="width: 100%; height: 60vh; min-height: 300px; border: none;">
+        </iframe>
       </div>
+
+      <!-- Right column: image -->
       <div class="col-md-6 d-flex justify-content-center align-items-center">
-        <img src="images/modern_history_museum.png" alt="Chicago History Museum" class="img-fluid rounded shadow"
-          style="max-height: 50vh;">
+        <img src="images/Court House Shortly.png" 
+             alt="Courthouse" 
+             class="img-fluid rounded shadow"
+             style="width: 100%; height: 60vh; min-height: 300px; border: none;">
       </div>
     </div>
+
+    <!-- Text content below -->
     <div class="row mt-4">
       <div class="col-12">
         <div class="p-4 rounded shadow"
-          style="background: rgba(255,255,255,0.5); min-height: 50vh; max-height: 50vh; overflow-y: auto; position: relative;">
-          <h2>Chicago History Museum</h2>
+             style="background: rgba(255,255,255,0.5); min-height: 50vh; max-height: 50vh; overflow-y: auto; position: relative;">
+          <h2>The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</h2>
           <p>
-            The Chicago History Museum stands as a testament to the city's resilience and rich heritage.
-            Here you can explore the stories of the Great Chicago Fire and how the city rose from the ashes.
+            By the time of the fire the Court House had also added east and west wings, a brand-new clock, and a 10,849-pound bronze bell that for over five hours would ring out the alarm until it fell through the collapsing building.  It housed virtually all city and country offices, from the jail in its basement to the mayor’s quarters, the debtors’ prison, the city council, the board of public works, and the courtrooms on the upper floors.
           </p>
-          <a href="point7_map_game.html" class="btn btn-success  m-4">Next place</a>
+          <p> 
+            More information about the Court House before and after<br>
+            <a href= "https://greatchicagofire.org/landmarks/court-house/"> Open link</a>
+          <p>
+            Your first letter from Jonas Hutchinson<br>
+            <a href="letter_pdfs/Jonas_Hutchinson.pdf" 
+   target="_blank" 
+   onclick="addToCollection({
+     name: 'Jonas Hutchinson Letter',
+     type: 'letter',
+     file: 'letter_pdfs/Jonas_Hutchinson.pdf',
+     location: '86 Washington Street'
+   })">
+  Open PDF
+</a>
+
+          </p>
+          <a href="point3_map_game.html" class="btn btn-success m-4">Next place</a>
         </div>
       </div>
     </div>
   </div>
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    var museumLatLng = [41.9115, -87.6315];
-    var map = L.map('map').setView(museumLatLng, 15);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    L.marker(museumLatLng).addTo(map)
-      .bindPopup('Chicago History Museum')
-      .openPopup();
-  </script>
-  <!-- Bootstrap JS (опционально) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+  <!-- Scripts -->
+  <script src="scripts/myCollection.js"></script>
+  <script src="scripts/homeButton.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts/goBackButton.js"></script>
+
+
+  <!-- ✅ Add this AFTER loading myCollection.js -->
+</body>
 </html>
