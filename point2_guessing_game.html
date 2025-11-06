@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guess the Right Museum</title>
+  <title>Guess the Right Place</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
     rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,51 +14,96 @@
 
 <body class="bg-light">
   <div class="container py-5">
-    <div class="text-center mb-4">
-      <h2>Guess the Correct Building</h2>
-      <p class="text-muted">Click on the correct photo of the <strong>Chicago History Museum</strong></p>
-    </div>
+    <div class="text-center mb-4 text-white">
+  <h2 class="text-white">Guess the Correct Building</h2>
+  <p class="text-white-50">Click on the correct photo of the <strong>place</strong></p>
+</div>
+
 
     <div class="row justify-content-center g-4">
       <div class="col-md-4 d-flex justify-content-center">
-        <img src="images/modern_history_museum.png" alt="Option 1" class="img-fluid rounded shadow guess-photo"
-          data-correct="true" style="width: 100%; max-width: 500px; cursor: pointer;">
+        <img src="images/Court House Shortly.png"
+             alt="Court House"
+             class="img-fluid rounded shadow guess-photo"
+             data-correct="true"
+             data-name="Court House"
+             data-src="images/Court House Shortly.png"
+             style="width: 100%; max-width: 500px; cursor: pointer;">
       </div>
+
       <div class="col-md-4 d-flex justify-content-center">
-        <img src="images/img.png" alt="Option 2" class="img-fluid rounded shadow guess-photo"
-          data-correct="false" style="width: 100%; max-width: 500px; cursor: pointer;">
+        <img src="images/old water tower.jpg"
+             alt="Old Water Tower"
+             class="img-fluid rounded shadow guess-photo"
+             data-correct="false"
+             data-name="Old Water Tower"
+             data-src="images/old water tower.jpg"
+             style="width: 100%; max-width: 500px; cursor: pointer;">
       </div>
+
       <div class="col-md-4 d-flex justify-content-center">
-        <img src="images/img_1.png" alt="Option 3" class="img-fluid rounded shadow guess-photo"
-          data-correct="false" style="width: 100%; max-width: 500px; cursor: pointer;">
+        <img src="images/chicago museum before.jpg"
+             alt="chicago museum"
+             class="img-fluid rounded shadow guess-photo"
+             data-correct="false"
+             data-name="chicago museum"
+             data-src="images/chicago museum before.jpg"
+             style="width: 100%; max-width: 500px; cursor: pointer;">
       </div>
     </div>
 
-    <div class="text-center mt-5 bg-white bg-opacity-50 rounded shadow ">
-      <div id="result" class="fs-4 fw-bold"></div>
-      <a href="point2_essay.html" class="btn btn-success btn-lg mt-4 d-none" id="nextButton">Next place</a>
+    <!-- result and next button MUST exist so JS can update them -->
+    <div class="text-center mt-5 bg-white bg-opacity-50 rounded shadow p-4">
+      <div id="result" class="fs-4 fw-bold mb-3"></div>
+      <a href="point1_essay.html" class="btn btn-success btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
     </div>
   </div>
 
-<div class="assistant" id="assistant">
-  <img src="images/narrators.png" alt="Narrators">
-</div>
+  <div class="assistant" id="assistant">
+    <img src="images/avatar/ainur_avatar.png" alt="Narrators">
+  </div>
 
+  <!-- Load My Collection helper first so addToCollection exists for the following script -->
+  <script src="scripts/myCollection.js"></script>
+  <script src="scripts/homeButton.js"></script>
+  <script src="scripts/goBackButton.js"></script>
+
+  <!-- Game logic: runs after helpers are loaded -->
   <script>
-    const photos = document.querySelectorAll('.guess-photo');
-    const result = document.getElementById('result');
-    const nextButton = document.getElementById('nextButton');
+    // Wait until DOM is ready to be safe
+    document.addEventListener('DOMContentLoaded', () => {
+      const photos = document.querySelectorAll('.guess-photo');
+      const result = document.getElementById('result');
+      const nextButton = document.getElementById('nextButton');
 
-    photos.forEach(photo => {
-      photo.addEventListener('click', () => {
-        if (photo.dataset.correct === "true") {
-          result.textContent = "✅ Correct! This is the Chicago History Museum.";
-          result.style.color = "green";
-          nextButton.classList.remove('d-none');
-        } else {
-          result.textContent = "❌ Try again!";
-          result.style.color = "red";
-        }
+      photos.forEach(photo => {
+        photo.addEventListener('click', () => {
+          // safety: ensure DOM elements exist
+          if (!result || !nextButton) return;
+
+          if (photo.dataset.correct === "true") {
+            // update UI
+            result.textContent = "✅ Correct! This is the Court House.";
+            result.style.color = "green";
+            nextButton.classList.remove('d-none');
+
+            // prepare item object (image + name)
+            const item = {
+              name: photo.dataset.name || photo.alt || "Unknown Building",
+              image: photo.dataset.src || photo.src
+            };
+
+            // add to collection (myCollection.js exposes addToCollection)
+            if (typeof addToCollection === 'function') {
+              addToCollection(item);
+            } else {
+              console.warn('addToCollection not available yet.');
+            }
+          } else {
+            result.textContent = "❌ Try again!";
+            result.style.color = "red";
+          }
+        });
       });
     });
   </script>
