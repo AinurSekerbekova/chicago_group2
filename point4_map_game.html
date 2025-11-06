@@ -1,60 +1,68 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chicago Fire water tower page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courthouse page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="styles/main2.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
 
 
 <body>
-  <div class="container py-4">
-    <div class="row g-4 align-items-stretch">
-      <div class="col-12 col-md-6">
-        <div id="map" class="rounded shadow-sm" style="height: 50vh; min-height: 300px;"></div>
-        <form id="guess-form" class="mt-3 text-center">
-          <button type="submit" class="btn btn-primary mt-2">Submit</button>
-        </form>
-      </div>
 
-      <div class="col-12 col-md-6">
-          <iframe id="next-to-map" class="w-100 rounded shadow-sm"  style="height: 50vh; border: 0;" loading="lazy"
-            allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed?pb=!4v1719953826195!6m8!1m7!1sCAoSLEFGMVFpcE5SbEpwZXpRV2tVQXJGT1Nfd0FfUGZLdWkwb3ZMT0htOVVMSjVC!2m2!1d41.9115!2d-87.6315!3f90!4f0!5f0.7820865974627469">
-          </iframe>
+<div class="container-fluid">
+<h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
+    <div class="row g-4 align-items-stretch">
+        <div class="col-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
+            <div id="map" class="rounded shadow-sm" style="height: 90%;"></div>
+            <button class="btn btn-warning mt-2 px-5" id="submit-button">Check my guess</button>
+        </div>
+
+        <div class="col-6" style="height: 60vh;">
+            <iframe id="next-to-map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"  allowfullscreen=""
+                    src="https://www.google.com/maps/embed?pb=!4v1762181384915!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQ5b0hhZ1FF!2m2!1d41.88325328070925!2d-87.63061808105044!3f181.2294254331153!4f-25.401150042407195!5f0.7820865974627469" >
+            </iframe>
         </div>
     </div>
 
-    <div id="result-container" class="speech-bubble container my-5 py-2 ">
-      <h2>Can you guess where this is?</h2>
-      <div id="result" class=" py-2 mt-3">
-        <br>
-      </div>
-    </div>
-  </div>
-
-<div class="assistant" id="assistant">
-  <img src="images/narrators.png" alt="Narrators">
 </div>
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    var targetLatLng = [41.9115, -87.6315];
+
+<div id="result-container">
+    <div class="d-flex align-items-center">
+        <img src="images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
+        <h2 id="speech-text" class=" py-2 m-3"></h2>
+    </div>
+    <h4 id="hint"></h4>
+</div>
+
+<div id="dialogue-overlay" class="d-none"></div>
+
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Our custom JS -->
+<script src="scripts/common_game_script.js"></script>
+<script>
+    // specific js for this map
+    var targetLatLng = [41.88368053652241, -87.63064605984985];
     var userMarker = null;
     var map = L.map('map').setView(targetLatLng, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // allowes user to place a marker
+    // allows user to place a marker
     map.on('click', function (e) {
       if (userMarker) {
         map.removeLayer(userMarker);
@@ -62,77 +70,55 @@
       userMarker = L.marker(e.latlng).addTo(map);
       userMarker.userLatLng = e.latlng;
     });
+    console.log("Ищу кнопку:", document.getElementById('submit-button'));
 
     // handle form submission
-    document.getElementById('guess-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!userMarker || !userMarker.userLatLng) {
-        document.getElementById('result').textContent = 'Please place a marker on the map!';
-        return;
-      }
-
-      var userLat = userMarker.userLatLng.lat;
-      var userLng = userMarker.userLatLng.lng;
-      var distanceKm = getDistanceFromLatLonInKm(userLat, userLng, targetLatLng[0], targetLatLng[1]);
-      var distanceMeters = distanceKm * 1000;
-
-
-      // Select the container 
-      var resultContainer = document.querySelector('#result-container');
-      // Select the container 
-      var resultText = document.querySelector('#result');
-
-      // Change border color based on distance
-      if (distanceMeters < 500 && distanceMeters > 20) {
-        resultContainer.style.border = '4px solid #00c853';
-        resultContainer.style.boxShadow = '0 0 15px #00c85377';
-        resultText.textContent = 'YES! Your marker is ' + distanceMeters.toFixed(0) + ' meters from the target location.';
-        add_button();
-      } else if (distanceMeters < 20) {
-        resultContainer.style.border = '4px solid #2962ff';
-        resultContainer.style.boxShadow = '0 0 15px #2962ff77';
-        resultText.textContent = 'Incredible! You found the exact location!';
-        add_button();
-
-      } else {
-        resultContainer.style.border = '4px solid #c62828';
-        resultContainer.style.boxShadow = '0 0 15px #c6282877';
-        resultText.textContent = 'No! Your marker is ' + distanceMeters.toFixed(0) + ' meters from the target location. Try again...';
-      }
-
+    const submit_button = document.getElementById('submit-button');
+    submit_button.addEventListener('click', function (e) {
+        console.log("Кнопка нажата!");
+        form_submitted(
+            "You got it. The Court House.",
+            "Close—but this plaza didn’t always shine like this. Try again, pal."
+        );
     });
 
-    function add_button() {
-      // ✅ Add a "Next" button if it is not already present
-      if (!document.getElementById('next-button')) {
-        const nextButton = document.createElement('a');
-        nextButton.id = 'next-button';
-        nextButton.className = 'btn btn-warning shadow-sm';
-        nextButton.href = 'point4_guessing_game.html';
-        nextButton.textContent = 'Next Challenge';
 
-        result.appendChild(nextButton);
-      }
-    }
-    // Haversine formula to calculate distance between two lat/lon points
-    function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-      var R = 6371; // Радиус Земли в км
-      var dLat = deg2rad(lat2 - lat1);
-      var dLon = deg2rad(lon2 - lon1);
-      var a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
-      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      var d = R * c;
-      return d;
-    }
-    function deg2rad(deg) {
-      return deg * (Math.PI / 180);
-    }
-  </script>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</script>
+<script src="scripts/common_speak_script.js"></script>
+<script>
+    // specific js for the speaking feature on this page
+    const messages = [
+        "I'm going to help you, press enter or space to switch to the next instruction",
+        "We start here—right in the Loop.",
+        "You hear that? Taxis, city chatter, the heartbeat of Chicago.",
+        "But once, this was the heart of a city built of pine and promise.",
+        "Take a look around—guess where I’m standing."
+    ];
+
+    // Automatically start with first phrase at the start
+    window.addEventListener("load",function(e) {
+        showDialogue(messages[0])
+    });
+
+    // switch to the next phrase by enter or  space key
+    let messageIndex = 1;
+    document.addEventListener("keydown", (e) => {
+        if ((e.key === "Enter" || e.key === " ")) {
+          if (messageIndex < messages.length-1) {
+            showDialogue(messages[messageIndex]);
+          }else if (messageIndex = messages.length-1){
+            showDialogue(messages[messageIndex]);
+            hideDialogue();
+          }
+          messageIndex++;
+        }
+    });
+
+</script>
+<script src="scripts/myCollection.js"></script>
+<script src="scripts/homeButton.js"></script>
+<script src="scripts/goBackButton.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
-
 </html>
