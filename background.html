@@ -8,9 +8,104 @@
 <body class="bg-dark text-light">
   <div class="container py-5">
     <h1 class="text-warning mb-4">Project Info</h1>
-    <p>This page will contain all the background about the game, with also the explanation on why it is a digital heritage project.</p>
-    <p>it will also contain the video methodology and all the paradata.</p>
-    <a href="index.html" class="btn btn-outline-warning mt-4">⬅ Back to Start Page</a>
+    <p>This page contains all the background about the game, including why it is a digital heritage project.</p>
+    <div class="accordion" id="projectAccordion">
+
+      <!-- Multi-Dimensional Approach -->
+      <div class="accordion-item bg-dark text-light border-warning">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-dark text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+            The Multi-Dimensional Approach
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+          <div class="accordion-body">
+            <p><strong>Dimension 1 — Social Impact:</strong> The Great Chicago Fire (October 1871) killed 300 people, left 90,000 homeless, and destroyed $200 million in property...</p>
+            <p><strong>Dimension 2 — Available Evidence:</strong> Seven first-hand letters from survivors written during/immediately after the fire provide authentic voices...</p>
+            <ul>
+              <li>Jonas Hutchinson (lawyer) → institutional collapse</li>
+              <li>Mary Fales (lawyer’s wife) → family displacement</li>
+              <li>George Howland (school principal) → loss of knowledge</li>
+              <li>Aurelia R. King (merchant’s family) → survival and faith</li>
+              <li>Anna E. Higginson (real estate broker’s wife) → preservation consciousness</li>
+              <li>Adeline Rossiter Judd (volunteer helper) → mutual aid</li>
+              <li>Samuel Stone (assistant librarian) → vision for rebuilding</li>
+            </ul>
+            <p><strong>Dimension 3 — Geographic Specificity:</strong> Mapping seven physical locations in modern Chicago...</p>
+            <p><strong>Dimension 4 — Narrative Power:</strong> The story moves from destruction → survival → rebuilding...</p>
+            <p><strong>Dimension 5 — Audience Engagement:</strong> Four narrator-guides + interactive gameplay mechanics...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project -->
+      <div class="accordion-item bg-dark text-light border-warning mt-3">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-dark text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+            The Project
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+          <div class="accordion-body">
+            <p><strong>Step 1 — Conceptualization (Design):</strong> Research question: “How can interactive digital storytelling using survivor narratives reshape public understanding...”</p>
+            <p><strong>Step 2 — Digital Tool Selection:</strong> Narrative design, geospatial mapping, and game development using QGIS, ArcGIS, Visual Studio Code...</p>
+            <p><strong>Step 3 — Implementation:</strong> GitHub repo structure (game engine + narrative content + geospatial data + 3D assets)...</p>
+            <p><strong>Step 4 — Heritage Integration:</strong> Links to Chicago History Museum’s digital archive and educational deployment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Digitalize the Letters -->
+      <div class="accordion-item bg-dark text-light border-warning mt-3">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-dark text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+            Why Digitalize the Letters?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+          <div class="accordion-body">
+            <ol>
+              <li><strong>Preservation Against Decay:</strong> Digital copies protect against fire, flood, and degradation.</li>
+              <li><strong>Global Accessibility:</strong> Makes Chicago’s history meaningful across borders.</li>
+              <li><strong>Enhanced Interpretation:</strong> Immersive storytelling brings static text to life.</li>
+              <li><strong>Intangible Heritage:</strong> Revives the oral storytelling tradition.</li>
+              <li><strong>Educational Reuse:</strong> Enables repurposing for documentaries, research, and museum exhibits.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Serious Game -->
+      <div class="accordion-item bg-dark text-light border-warning mt-3">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-dark text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+            What Makes This a Serious Game
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+          <div class="accordion-body">
+            <table class="table table-dark table-bordered border-warning">
+              <thead>
+                <tr><th>Criterion</th><th>Your Project</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Purpose</td><td>Education + Cultural Preservation ✓</td></tr>
+                <tr><td>Gameplay</td><td>Location-guessing, photo-matching, object-dragging ✓</td></tr>
+                <tr><td>Learning Outcome</td><td>Historical disaster perspectives, urban resilience ✓</td></tr>
+                <tr><td>Historical Accuracy</td><td>Verified locations and authentic letters ✓</td></tr>
+                <tr><td>Expert Collaboration</td><td>Museum partnerships and historian review ✓</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Result:</strong> This is a serious game — authentic gameplay with genuine educational intent.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="btn btn-outline-warning mt-5">⬅ Back to Start Page</a>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
