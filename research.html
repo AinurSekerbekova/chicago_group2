@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Research - Chicago Fire Project</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap" rel="stylesheet"/>
   <style>
     body {
       background: url('images/fire_background.jpg') center center no-repeat;
@@ -26,13 +26,121 @@
       background-color: rgba(0,0,0,0.85);
       color: #fff;
     }
+    .section-header {
+      font-family: 'Cinzel', serif;
+      color: #ffc107;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .relevance-list, .target-list {
+      background-color: rgba(0,0,0,0.8);
+      border: 1px solid #ffc107;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      color: #fff;
+      font-size: 1.05rem;
+    }
+    table {
+      color: #fff;
+    }
+    thead th {
+      border-bottom: 2px solid #ffc107;
+    }
+    tbody tr:hover {
+      background-color: rgba(255, 193, 7, 0.15);
+    }
   </style>
 </head>
 <body class="text-light">
 
 <div class="container py-5">
   <h1 class="text-warning fw-bold mb-4" style="font-family:'Cinzel', serif;">Research Overview</h1>
-  <p>This section explains the research foundations of the <em>Chicago Fire</em> digital heritage project — its question, conceptual answer, mechanism, and core insight.</p>
+ <section>
+    <h2 class="section-header">Relevance Explanation</h2>
+    <p>This research question matters for four critical reasons:</p>
+    <h5>Academic Relevance:</h5>
+    <ul class="relevance-list">
+      <li><strong>Digital Heritage Theory:</strong> Your project addresses a core challenge—how to preserve fragile 150-year-old letters while making them <em>more engaging and accessible</em> than traditional archival storage.</li>
+      <li><strong>Serious Games Research:</strong> Tests whether games can serve legitimate cultural preservation and educational purposes, not just entertainment.</li>
+      <li><strong>Historical Narrative Studies:</strong> Explores whether authentic survivor voices + interactive participation reshape how people conceptualize historical events.</li>
+    </ul>
+    <h5>Societal Relevance:</h5>
+    <ul class="relevance-list">
+      <li><strong>Climate &amp; Disaster Resilience:</strong> As climate change intensifies urban disasters, understanding how past communities survived becomes actionable knowledge for contemporary cities.</li>
+      <li><strong>Intergenerational Memory:</strong> With direct survivors aging out, digital games preserve testimonies for generations who won’t have access to living witnesses.</li>
+      <li><strong>Educational Crisis:</strong> Traditional history teaching fails to engage digital-native learners; games reach audiences who ignore textbooks.</li>
+      <li><strong>Urban Planning &amp; Public Participation:</strong> Historical narratives help communities understand why resilience planning matters.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-header">Target Groups / Users</h2>
+    <p>Your game serves seven primary target groups, each with distinct needs:</p>
+    <table class="table table-dark table-hover align-middle">
+      <thead>
+        <tr>
+          <th>Target Group</th>
+          <th>Age Range</th>
+          <th>Primary Need</th>
+          <th>How They Use It</th>
+          <th>Success Metric</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Students</td>
+          <td>13-25</td>
+          <td>Engaging history learning beyond textbooks</td>
+          <td>Classroom assignments, independent research, casual play</td>
+          <td>80%+ complete all nodes; 15-20% higher test scores</td>
+        </tr>
+        <tr>
+          <td>Researchers</td>
+          <td>18+</td>
+          <td>Methodological framework + source material</td>
+          <td>Master's theses, game design portfolios, adaptations</td>
+          <td>10+ GitHub forks; 2+ publications</td>
+        </tr>
+        <tr>
+          <td>Museum Professionals</td>
+          <td>25-60</td>
+          <td>Visitor engagement + digital innovation</td>
+          <td>Museum installations, pre-visit engagement, school programs</td>
+          <td>3+ museums adopt; 20+ min avg engagement</td>
+        </tr>
+        <tr>
+          <td>Urban Planners</td>
+          <td>25-65</td>
+          <td>Historical resilience insights</td>
+          <td>Professional development, community workshops, planning</td>
+          <td>10+ cities use in resilience planning</td>
+        </tr>
+        <tr>
+          <td>Game Developers</td>
+          <td>18-55</td>
+          <td>Reusable assets + open-source model</td>
+          <td>Portfolio projects, commercial development, adaptations</td>
+          <td>20+ GitHub forks; 5+ commercial products</td>
+        </tr>
+        <tr>
+          <td>Casual Players</td>
+          <td>12-65</td>
+          <td>Entertainment + meaningful learning</td>
+          <td>Tourism app, leisure gaming, family activity</td>
+          <td>10,000+ plays; 4.5+ stars; 25%+ sharing</td>
+        </tr>
+        <tr>
+          <td>Content Creators</td>
+          <td>25-60</td>
+          <td>Authentic source material</td>
+          <td>Documentaries, podcasts, video essays</td>
+          <td>3+ documentaries; 100k+ views</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Key User Insight:</strong> Each group has different motivations but the same core benefit: <em>understanding the Great Chicago Fire as a systems-level disaster affecting different communities differently, while caring emotionally about survivors' stories.</em></p>
+  </section>
 
   <div class="accordion" id="researchAccordion">
 
@@ -93,7 +201,7 @@
              alt="RQ" 
              class="img-fluid rounded shadow"
              style="width: 100%; height: 60vh; min-height: 300px; border: none;">
-      </div>
+          </div>
         </div>
       </div>
     </div>
