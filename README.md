@@ -1,4 +1,5 @@
 # The Great Chicago Fire Digital Project
+https://ainursekerbekova.github.io/chicago_group2/
 
 An interactive web experience exploring the Great Chicago Fire of 1871 through games, maps, and historical essays.
 
