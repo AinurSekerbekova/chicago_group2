@@ -28,7 +28,7 @@ Then visit `http://localhost:8000`
 
 ## Technologies
 
-HTML5, CSS3, JavaScript, Bootstrap 5, Leaflet.js
+HTML5, CSS3, JavaScript, Bootstrap 5, Leaflet.js, QGIS
 
 ## Research
 
