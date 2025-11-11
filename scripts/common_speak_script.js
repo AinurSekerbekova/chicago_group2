@@ -1,13 +1,24 @@
-function showDialogue(text) {
-  document.getElementById('dialogue-overlay').classList.remove('d-none');
+let currentDialogueId = 0;
+
+async function showDialogue(text, dim_lights,imgSrc) {
   const box = document.getElementById('result-container');
   const speech = document.getElementById('speech-text');
-  speech.textContent = "";// clean before the start
+  const character_img = document.getElementById('character-img');
 
+  if (dim_lights){
+    document.getElementById('dialogue-overlay').classList.remove('d-none');
+  }
+  if (imgSrc) {
+    character_img.src = imgSrc;
+  }
+
+  const thisDialogueId = ++currentDialogueId; // uniq ID for every call
+  speech.textContent = "";// clean before the start
   // printing the message letter by letter
   for (const char of text) {
+    if (thisDialogueId !== currentDialogueId) return;
     speech.textContent += char;
-    setTimeout(true, 40); // speed of printing
+    await new Promise(resolve => setTimeout(resolve, 40)); // speed of printing
   }
 
   box.classList.remove('hidden');
