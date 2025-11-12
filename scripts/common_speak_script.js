@@ -14,11 +14,12 @@ async function showDialogue(text, dim_lights,imgSrc) {
 
   const thisDialogueId = ++currentDialogueId; // uniq ID for every call
   speech.textContent = "";// clean before the start
-  // printing the message letter by letter
+
+  // now we are printing the message letter by letter
   for (const char of text) {
     if (thisDialogueId !== currentDialogueId) return;
     speech.textContent += char;
-    await new Promise(resolve => setTimeout(resolve, 40)); // speed of printing
+    await new Promise(resolve => setTimeout(resolve, 40)); // milliseconds between every letter (less-> faster printing)
   }
 
   box.classList.remove('hidden');

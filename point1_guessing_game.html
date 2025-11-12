@@ -53,7 +53,7 @@
 
     <!-- result and next button MUST exist so JS can update them -->
     <div class="mt-5 bg-white bg-opacity-50 rounded shadow p-4">
-        <img src="images/avatar/ainur_avatar.png" alt="Character" id="character-img">
+        <img src="images/avatar/ainur_avatar.png" alt="Character" class="d-none" id="character-img">
         <span id="result" class="fs-4 fw-bold mb-3"></span> <br>
         <a href="point1_essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
     </div>
@@ -72,6 +72,7 @@
       const photos = document.querySelectorAll('.guess-photo');
       const result = document.getElementById('result');
       const nextButton = document.getElementById('nextButton');
+      const character_img = document.getElementById('character-img');
 
       photos.forEach(photo => {
         photo.addEventListener('click', () => {
@@ -83,6 +84,7 @@
             result.textContent = "✅ Correct! This is the Court House. Now let's go hear the history of this place!";
             result.style.color = "green";
             nextButton.classList.remove('d-none');
+            character_img.classList.remove('d-none');
 
             // prepare item object (image + name)
             const item = {

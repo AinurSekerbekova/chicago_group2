@@ -83,29 +83,36 @@
 
 </script>
 <script src="scripts/common_speak_script.js"></script>
-<script>
-    // specific js for the speaking feature on this page
-    const messages = [
-        "I'm going to help you, press enter or space to switch to the next instruction",
-        "We start here—right in the Loop.",
-        "You hear that? Taxis, city chatter, the heartbeat of Chicago.",
-        "But once, this was the heart of a city built of pine and promise.",
-        "Take a look around—guess where I’m standing."
-    ];
+<script> // specific js for the speaking feature on this page
 
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
-        showDialogue(messages[0],true)
+        showDialogue(
+            "I'm going to help you, press enter or space to switch to the next instruction",
+            true,
+            "images/avatar/ainur_avatar_1800s.png"
+        );
     });
 
     // switch to the next phrase by enter or  space key
+    const messages = [
+        {text: "We start here—right in the Loop.",
+            img: "images/avatar/ainur_avatar_1800s.png"},
+        {text: "You hear that? Taxis, city chatter, the heartbeat of Chicago.",
+            img: "images/avatar/ainur_avatar_1800s.png"},
+        {text: "But once, this was the heart of a city built of pine and promise.",
+            img: "images/avatar/ainur_avatar_1800s.png"},
+        {text: "Take a look around—guess where I’m standing.",
+            img: "images/avatar/ainur_avatar_1800s.png"}
+    ];
+
     let messageIndex = 1;
     document.addEventListener("keydown", (e) => {
         if ((e.key === "Enter" || e.key === " ")) {
           if (messageIndex < messages.length-1) {
-            showDialogue(messages[messageIndex],true);
-          }else if (messageIndex = messages.length-1){
-            showDialogue(messages[messageIndex],true);
+            showDialogue(messages[messageIndex].text,true,messages[messageIndex].img);
+          }else if (messageIndex == messages.length-1){
+            showDialogue(messages[messageIndex].text,true,messages[messageIndex].img);
             hideDialogue();
           }
           messageIndex++;
