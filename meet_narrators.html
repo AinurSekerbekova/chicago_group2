@@ -12,288 +12,286 @@
 </head>
 
 <body>
-<div class="container-fluid text-center">
-    <div class="container-intro">
-        <h1 class="mb-3">The Chicago Fire</h1>
-        <h2 class="mb-4">By the eyes of 7 witnesses</h2>
-        <p class="mb-4">
-            Welcome to <em>"Time Traveling Through Chicago"</em>, a unique interactive experience guided by the voices
-            of
-            seven witnesses of the Great Chicago Fire.
-            Begin your journey and let our narrators show you how your actions will connect past and present.
-        </p>
-        <button class="btn btn-warning shadow-sm" id="startIntro">Meet the Narrators</button>
-    </div>
+<div class="container text-center container-intro text-dark-emphasis">
+    <h1 class="mb-3">The Chicago Fire</h1>
+    <h2 class="mb-4">By the eyes of 7 witnesses</h2>
+    <p class="mb-4">
+        Welcome to <em>"Time Traveling Through Chicago"</em>, a unique interactive experience guided by the voices
+        of
+        seven witnesses of the Great Chicago Fire.
+        Begin your journey and let our narrators show you how your actions will connect past and present.
+    </p>
+    <button class="btn btn-warning shadow-sm" id="startIntro">Meet the Narrators</button>
+</div>
 
-    <!-- Narrator Modals -->
-    <div class="modal fade" id="ainurModal" tabindex="-1" aria-labelledby="ainurLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/ainur_avatar.png" alt="Ainur Avatar" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 id="ainurLabel" class="modal-title mb-3 text-warning">Ainur</h5>
-                <p>
-                    Hi! I'm Ainur. I bring empathy and an eye for historical detail, guiding you through the personal
-                    struggles and resilience of Chicagoans during the fire.
-                </p>
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#tarlanModal">Next
-                </button>
-            </div>
+<!-- Narrator Modals -->
+<div class="modal fade" id="ainurModal" tabindex="-1" aria-labelledby="ainurLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/ainur_avatar.png" alt="Ainur Avatar" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 id="ainurLabel" class="modal-title mb-3 text-warning">Ainur</h5>
+            <p>
+                Hi! I'm Ainur. I bring empathy and an eye for historical detail, guiding you through the personal
+                struggles and resilience of Chicagoans during the fire.
+            </p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#tarlanModal">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="tarlanModal" tabindex="-1" aria-labelledby="tarlanLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/tarlan_avatar.png" alt="Tarlan Avatar" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 id="tarlanLabel" class="modal-title mb-3 text-warning">Tarlan</h5>
-                <p>
-                    Hello! I’m Tarlan. My focus is on technical mastery and a thoughtful narrative. I’ll help you make
-                    sense
-                    of clues and see the city's transformations.
-                </p>
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#ehsanModal">Next
-                </button>
-            </div>
+<div class="modal fade" id="tarlanModal" tabindex="-1" aria-labelledby="tarlanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/tarlan_avatar.png" alt="Tarlan Avatar" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 id="tarlanLabel" class="modal-title mb-3 text-warning">Tarlan</h5>
+            <p>
+                Hello! I’m Tarlan. My focus is on technical mastery and a thoughtful narrative. I’ll help you make
+                sense
+                of clues and see the city's transformations.
+            </p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#ehsanModal">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="ehsanModal" tabindex="-1" aria-labelledby="ehsanLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/ehsan_avatar.png" alt="Ehsan Avatar" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 id="ehsanLabel" class="modal-title mb-3 text-warning">Ehsan</h5>
-                <p>
-                    Greetings! I’m Ehsan. Discovery and problem-solving are my strengths. Expect questions and evidence,
-                    and
-                    I’ll support your journey through each event.
-                </p>
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#tommasoModal">Next
-                </button>
-            </div>
+<div class="modal fade" id="ehsanModal" tabindex="-1" aria-labelledby="ehsanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/ehsan_avatar.png" alt="Ehsan Avatar" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 id="ehsanLabel" class="modal-title mb-3 text-warning">Ehsan</h5>
+            <p>
+                Greetings! I’m Ehsan. Discovery and problem-solving are my strengths. Expect questions and evidence,
+                and
+                I’ll support your journey through each event.
+            </p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#tommasoModal">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="tommasoModal" tabindex="-1" aria-labelledby="tommasoLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/tommaso_avatar.png" alt="Tommaso Avatar" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 id="tommasoLabel" class="modal-title mb-3 text-warning">Tommaso</h5>
-                <p>
-                    Welcome! I’m Tommaso, your reflective guide. I’ll help you connect individual stories to themes of
-                    memory and survival, exploring how the past shapes today.
-                </p>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
-                        onclick="setTimeout(() => new bootstrap.Modal(document.getElementById('storyTarlan1')).show(), 400)">
-                    Continue Story
-                </button>
-            </div>
+<div class="modal fade" id="tommasoModal" tabindex="-1" aria-labelledby="tommasoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/tommaso_avatar.png" alt="Tommaso Avatar" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 id="tommasoLabel" class="modal-title mb-3 text-warning">Tommaso</h5>
+            <p>
+                Welcome! I’m Tommaso, your reflective guide. I’ll help you connect individual stories to themes of
+                memory and survival, exploring how the past shapes today.
+            </p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal"
+                    onclick="setTimeout(() => new bootstrap.Modal(document.getElementById('storyTarlan1')).show(), 400)">
+                Continue Story
+            </button>
         </div>
     </div>
+</div>
 
-    <!-- Narrative Sequence -->
-    <div class="modal fade" id="storyTarlan1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/tarlan_avatar.png" alt="Tarlan" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 class="modal-title mb-3">Tarlan</h5>
-                <p>Hey there, traveler! Welcome to Chicago — city of steel, stories, and second chances.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyEhsan1">Next
-                </button>
-            </div>
+<!-- Narrative Sequence -->
+<div class="modal fade" id="storyTarlan1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/tarlan_avatar.png" alt="Tarlan" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 class="modal-title mb-3">Tarlan</h5>
+            <p>Hey there, traveler! Welcome to Chicago — city of steel, stories, and second chances.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyEhsan1">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyEhsan1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/ehsan_avatar.png" alt="Ehsan" class="my-3 rounded-circle" style="width:140px"/>
-                <h5 class="modal-title mb-3">Ehsan</h5>
-                <p>And the only city that burned down once and said, “Yeah, let’s just build it again… but taller.”</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyAinur1">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyEhsan1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/ehsan_avatar.png" alt="Ehsan" class="my-3 rounded-circle" style="width:140px"/>
+            <h5 class="modal-title mb-3">Ehsan</h5>
+            <p>And the only city that burned down once and said, “Yeah, let’s just build it again… but taller.”</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyAinur1">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyAinur1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/ainur_avatar.png" alt="Ainur" class="my-3 rounded-circle" style="width:140px"/>
-                <h5 class="modal-title mb-3">Ainur</h5>
-                <p>(laughs) Don’t scare them already, Ehsan. But yes, what you’re about to explore isn’t just a story of
-                    destruction — it’s a story of survival.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyTommaso1">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyAinur1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/ainur_avatar.png" alt="Ainur" class="my-3 rounded-circle" style="width:140px"/>
+            <h5 class="modal-title mb-3">Ainur</h5>
+            <p>(laughs) Don’t scare them already, Ehsan. But yes, what you’re about to explore isn’t just a story of
+                destruction — it’s a story of survival.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyTommaso1">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyTommaso1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/tommaso_avatar.png" alt="Tommaso" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 class="modal-title mb-3">Tommaso</h5>
-                <p>We’re your guides through time. Think of us as four voices echoing through the city — part
-                    historians,
-                    part explorers. Together, we’ll uncover the Great Chicago Fire of 1871.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyAinur2">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyTommaso1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/tommaso_avatar.png" alt="Tommaso" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 class="modal-title mb-3">Tommaso</h5>
+            <p>We’re your guides through time. Think of us as four voices echoing through the city — part
+                historians,
+                part explorers. Together, we’ll uncover the Great Chicago Fire of 1871.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyAinur2">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyAinur2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/ainur_avatar.png" alt="Ainur" class="my-3 rounded-circle" style="width:140px"/>
-                <h5 class="modal-title mb-3">Ainur</h5>
-                <p>Back then, the whole city was mostly wood. Imagine streets lined with pine houses, wooden sidewalks,
-                    even
-                    wooden gutters. After months without rain, the place was practically a matchbox.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyEhsan2">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyAinur2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/ainur_avatar.png" alt="Ainur" class="my-3 rounded-circle" style="width:140px"/>
+            <h5 class="modal-title mb-3">Ainur</h5>
+            <p>Back then, the whole city was mostly wood. Imagine streets lined with pine houses, wooden sidewalks,
+                even
+                wooden gutters. After months without rain, the place was practically a matchbox.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyEhsan2">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyEhsan2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/ehsan_avatar.png" alt="Ehsan" class="my-3 rounded-circle" style="width:140px"/>
-                <h5 class="modal-title mb-3">Ehsan</h5>
-                <p>And then one spark, maybe from Mrs. O’Leary’s cow, maybe not, turned everything into a sea of
-                    fire.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyTarlan2">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyEhsan2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/ehsan_avatar.png" alt="Ehsan" class="my-3 rounded-circle" style="width:140px"/>
+            <h5 class="modal-title mb-3">Ehsan</h5>
+            <p>And then one spark, maybe from Mrs. O’Leary’s cow, maybe not, turned everything into a sea of
+                fire.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyTarlan2">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyTarlan2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/tarlan_avatar.png" alt="Tarlan" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 class="modal-title mb-3">Tarlan</h5>
-                <p>In just over a day, 300 people lost their lives, 90,000 were left homeless, and the city’s heart was
-                    reduced to ashes.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyTommaso2">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyTarlan2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/tarlan_avatar.png" alt="Tarlan" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 class="modal-title mb-3">Tarlan</h5>
+            <p>In just over a day, 300 people lost their lives, 90,000 were left homeless, and the city’s heart was
+                reduced to ashes.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyTommaso2">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyTommaso2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/tommaso_avatar.png" alt="Tommaso" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 class="modal-title mb-3">Tommaso</h5>
-                <p>But from that ash rose something new, a city that refused to disappear. And in this game, you’ll help
-                    us
-                    piece together its memory through the words of those who lived it.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyAinur3">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyTommaso2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/tommaso_avatar.png" alt="Tommaso" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 class="modal-title mb-3">Tommaso</h5>
+            <p>But from that ash rose something new, a city that refused to disappear. And in this game, you’ll help
+                us
+                piece together its memory through the words of those who lived it.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyAinur3">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyAinur3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/ainur_avatar.png" alt="Ainur" class="my-3 rounded-circle" style="width:140px"/>
-                <h5 class="modal-title mb-3">Ainur</h5>
-                <p>Seven people wrote letters describing what they saw, what they felt, and what they lost. We’ll find
-                    their
-                    voices, hidden in the places where it all happened.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyEhsan3">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyAinur3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/ainur_avatar.png" alt="Ainur" class="my-3 rounded-circle" style="width:140px"/>
+            <h5 class="modal-title mb-3">Ainur</h5>
+            <p>Seven people wrote letters describing what they saw, what they felt, and what they lost. We’ll find
+                their
+                voices, hidden in the places where it all happened.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyEhsan3">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyEhsan3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/ehsan_avatar.png" alt="Ehsan" class="my-3 rounded-circle" style="width:140px"/>
-                <h5 class="modal-title mb-3">Ehsan</h5>
-                <p>Ready? Each correct guess you make opens a “time rift.” You’ll step back into 1871, not just to
-                    witness,
-                    but to listen.</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#storyTarlan3">Next
-                </button>
-            </div>
+<div class="modal fade" id="storyEhsan3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/ehsan_avatar.png" alt="Ehsan" class="my-3 rounded-circle" style="width:140px"/>
+            <h5 class="modal-title mb-3">Ehsan</h5>
+            <p>Ready? Each correct guess you make opens a “time rift.” You’ll step back into 1871, not just to
+                witness,
+                but to listen.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#storyTarlan3">Next
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="storyTarlan3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <img src="images/avatar/tarlan_avatar.png" alt="Tarlan" class="my-3 rounded-circle"
-                     style="width:140px"/>
-                <h5 class="modal-title mb-3">Tarlan</h5>
-                <p>So grab your curiosity, and maybe a bucket of water, just in case, and let’s start where the first
-                    alarm
-                    rang.</p>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#overviewModal">Continue
-                </button>
-            </div>
+<div class="modal fade" id="storyTarlan3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <img src="images/avatar/tarlan_avatar.png" alt="Tarlan" class="my-3 rounded-circle"
+                 style="width:140px"/>
+            <h5 class="modal-title mb-3">Tarlan</h5>
+            <p>So grab your curiosity, and maybe a bucket of water, just in case, and let’s start where the first
+                alarm
+                rang.</p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#overviewModal">Continue
+            </button>
         </div>
     </div>
+</div>
 
-    <!-- Group Overview Modal -->
-    <div class="modal fade" id="overviewModal" tabindex="-1" aria-labelledby="overviewLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center p-3">
-                <div class="d-flex justify-content-center mb-3 narrator-group">
-                    <img src="images/avatar/ainur_avatar.png" alt="Ainur" class="rounded-circle mx-1"
-                         style="width:65px"/>
-                    <img src="images/avatar/tarlan_avatar.png" alt="Tarlan" class="rounded-circle mx-1"
-                         style="width:65px"/>
-                    <img src="images/avatar/ehsan_avatar.png" alt="Ehsan" class="rounded-circle mx-1"
-                         style="width:65px"/>
-                    <img src="images/avatar/tommaso_avatar.png" alt="Tommaso" class="rounded-circle mx-1"
-                         style="width:65px"/>
-                </div>
-                <h5 id="overviewLabel" class="modal-title mb-2 text-warning">Welcome to the Experience</h5>
-                <p>
-                    Together, we invite you to experience the Great Chicago Fire. You’ll start in present-day Chicago,
-                    solve
-                    clues to find historic locations, and watch as each correct guess transforms the cityscape, letting
-                    you
-                    witness scenes from 1871 and listen to survivor stories. Your choices reveal loss, courage, and
-                    rebirth,
-                    tying the past to the present.
-                </p>
-                <p>
-                    As you journey, your actions turn modern Chicago into its historic self. Guess today’s locations,
-                    and
-                    watch them change before your eyes!
-                </p>
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="startGameBtn">Start My
-                    Journey!
-                </button>
+<!-- Group Overview Modal -->
+<div class="modal fade" id="overviewModal" tabindex="-1" aria-labelledby="overviewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-3">
+            <div class="d-flex justify-content-center mb-3 narrator-group">
+                <img src="images/avatar/ainur_avatar.png" alt="Ainur" class="rounded-circle mx-1"
+                     style="width:65px"/>
+                <img src="images/avatar/tarlan_avatar.png" alt="Tarlan" class="rounded-circle mx-1"
+                     style="width:65px"/>
+                <img src="images/avatar/ehsan_avatar.png" alt="Ehsan" class="rounded-circle mx-1"
+                     style="width:65px"/>
+                <img src="images/avatar/tommaso_avatar.png" alt="Tommaso" class="rounded-circle mx-1"
+                     style="width:65px"/>
             </div>
+            <h5 id="overviewLabel" class="modal-title mb-2 text-warning">Welcome to the Experience</h5>
+            <p>
+                Together, we invite you to experience the Great Chicago Fire. You’ll start in present-day Chicago,
+                solve
+                clues to find historic locations, and watch as each correct guess transforms the cityscape, letting
+                you
+                witness scenes from 1871 and listen to survivor stories. Your choices reveal loss, courage, and
+                rebirth,
+                tying the past to the present.
+            </p>
+            <p>
+                As you journey, your actions turn modern Chicago into its historic self. Guess today’s locations,
+                and
+                watch them change before your eyes!
+            </p>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="startGameBtn">Start My
+                Journey!
+            </button>
         </div>
     </div>
 </div>
@@ -310,7 +308,7 @@
       const startGameBtn = document.getElementById('startGameBtn');
       if (startGameBtn) {
         startGameBtn.addEventListener('click', function () {
-          window.location.href = "point1_map_game.html";
+          window.location.href = "point_1/map_game.html";
         });
       }
     });
