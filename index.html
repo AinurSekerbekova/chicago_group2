@@ -1,123 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicago Fire Start Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body {
+          background: url('images/fire_background.jpg') center center no-repeat;
+          background-size: cover;
+          font-family: 'Merriweather', serif;
+        }
+        .card {
+          min-height: 270px;
+        }
+        .shadow-bg {
+          background: rgba(0,0,0,0.6);
+          border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
-<div class="container">
-    <h1 class="fw-bold text-center my-5 rounded shadow text-white">The Chicago Fire</h1>
-    <div class="row">
-        <div class="col-3">
-            <div class="card h-100 bg-dark bg-opacity-50 rounded shadow text-white" style="width: 18rem;">
-                <img src="images/qr.png" class="card-img-top" alt="qr code">
+<div class="container-fluid">
+
+    <!-- Header -->
+    <header class="position-relative mb-5">
+
+        <!-- Research button on the LEFT -->
+        <a href="research.html"
+           class="btn btn-warning text-dark fw-semibold position-absolute top-0 start-0 m-4 px-4 py-2 shadow">
+            Research
+        </a>
+
+        <!-- Page title centered -->
+        <h1 class="fw-bold text-center my-5 py-3 shadow-bg text-light"
+            style="font-family:'Cinzel', serif;">
+            Letters of Fire 
+        </h1>
+        <p>A time travelling game through the Great Chicago Fire</p>
+
+        <!-- About button on the RIGHT -->
+        <a href="background.html"
+           class="btn btn-warning text-dark fw-semibold position-absolute top-0 end-0 m-4 px-4 py-2 shadow">
+            About the Project
+        </a>
+
+    </header>
+
+
+    <!-- QR / Professors / Group members -->
+    <div class="row g-4 m-5 align-items-stretch text-center">
+        <div class="col-md-4">
+            <div class="card h-100 bg-dark bg-opacity-50 text-white text-center shadow">
                 <div class="card-body">
-                    <h5 class="card-title pb-4">Open this on your device</h5>
-                    <p class="card-text"></p>
+                    <img src="images/qr.png" class="card-img-top p-3" alt="QR code">
+                    <h5 class="card-title">Open this on your device</h5>
                 </div>
             </div>
         </div>
-        <div class="col-3">
-            <div class="card h-100 bg-dark text-white bg-opacity-50 rounded shadow" style="width: 18rem;">
+
+        <!-- QR Code -->
+        <div class="col-md-4">
+            <div class="card h-100 bg-dark text-white bg-opacity-50 shadow">
                 <div class="card-body">
-                    <h5 class="card-title pb-4">Research purpose</h5>
-                    <p class="card-text">With this research we want to get in touch with citizens and tourists and show them how the city of Chicago changed because of the Great Fire and how it affected the life 
-                        of the population.</p>
+                    <h5 class="card-title pb-3 text-warning">Professors</h5>
+                    <p class="card-text">Tamborrino Rosa Rita Maria<br>Bolca Pelin<br>Darbesio Sofia</p>
                 </div>
             </div>
         </div>
-        <div class="col-3">
-            <div class="card h-100 bg-dark text-white bg-opacity-50 rounded shadow" style="width: 18rem;">
+
+        <div class="col-md-4">
+            <div class="card h-100 bg-dark text-white bg-opacity-50 shadow">
                 <div class="card-body">
-                    <h5 class="card-title pb-4">Research Question</h5>
-                    <p class="card-text">"How can interactive digital storytelling using survivor narratives reshape
-                        public understanding and emotional engagement with historical urban disasters such as the Great Chicago Fire?"
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card h-100 bg-dark text-white bg-opacity-50 rounded shadow " style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title pb-4">Key words</h5>
-                    <p class="card-text">History<br>
-                        Life<br>
-                        Change<br>
-                        Memory<br>
-                        Emotion </p>
+                    <h5 class="card-title pb-3 text-warning">Group Members</h5>
+                    <p class="card-text">Ainur<br>Tarlan<br>Ehsan<br>Tommaso</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-3">
-            <div class="card h-100 bg-dark text-white bg-opacity-50 rounded shadow" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title pb-4">Professors:</h5>
-                    <p class="card-text">
-                        Tamborrino Rosa Rita Maria<br>
-                        Bolca Pelin<br>
-                        Darbesio Sofia
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 d-flex justify-content-center align-items-center">
-            <a href="poem.html" class="btn btn-warning btn-lg shadow-sm w-50">Let's go</a>
-        </div>
-        <div class="col-3">
-            <div class="card h-100 bg-dark text-white bg-opacity-50 rounded shadow" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title pb-4">Group Members:</h5>
-                    <p class="card-text">
-                        Ainur<br>
-                        Tarlan<br>
-                        Ehsan<br>
-                        Tomasso
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="row justify-content-center px-5">
+        <a href="meet_narrators.html" class="btn btn-warning btn-lg shadow-sm px-5 py-3 fw-semibold">Let's Go</a>
     </div>
+
+    <!-- Bibliography -->
+    <section class="my-5 p-4 shadow-bg text-light">
+        <h2 class="text-warning fw-bold mb-3">Bibliography</h2>
+        <p>
+            Angle, Paul M. (1946). <em>The Great Chicago Fire: The Human Account.</em> Chicago Historical Society. <br>
+            Available at:
+            <a href="https://libsysdigi.library.illinois.edu/OCA/Books2012-06/greatchicagofire00angl/greatchicagofire00angl.pdf"
+               target="_blank" class="link-warning text-decoration-underline">Internet Archive</a>
+        </p>
+        <p>
+            <em>The Great Chicago Fire and the Web of Memory.</em> <br>
+            Retrieved from
+            <a href="https://greatchicagofire.org/" target="_blank" rel="noopener noreferrer"
+               class="link-warning text-decoration-underline">https://greatchicagofire.org/</a> <br>
+            <a href="https://chicagology.com/" target="_blank" rel="noopener noreferrer"
+               class="link-warning text-decoration-underline">https://chicagology.com/</a>
+        </p>
+        <p>
+            <strong>GitHub Repository:</strong><br>
+            <a href="https://github.com/AinurSekerbekova/chicago_group2" target="_blank" rel="noopener noreferrer"
+               class="link-warning text-decoration-underline">https://github.com/AinurSekerbekova/chicago_group2</a>
+        </p>
+        <p>
+            <strong>Original Old Chicago Map:</strong><br>
+            <a href="https://commons.wikimedia.org/wiki/File:Great_Chicago_Fire_map.jpg" target="_blank"
+               class="link-warning text-decoration-underline">Open link</a>
+        </p>
+        <p>
+            <strong>Software Used:</strong><br>
+            Visual Studio Code, QGIS
+        </p>
+        <p>
+            <strong>LLMs:</strong><br>
+            Perplexity Pro for avatar creation<br>
+            Copilot for website development
+        </p>
+    </section>
 </div>
 
-
-<div class="container my-5 py-4 bg-dark bg-opacity-50 rounded shadow text-light">
-    <h2 class="text-warning fw-bold mb-3">Bibliography</h2>
-    <p> Angle, Paul M. (1946). <em>The Great Chicago Fire: The Human Account.</em> Chicago Historical Society.
-        <br>Available at:
-        <a href="https://libsysdigi.library.illinois.edu/OCA/Books2012-06/greatchicagofire00angl/greatchicagofire00angl.pdf"
-           target="_blank" class="link-warning text-decoration-underline">
-            Internet Archive
-        </a>
-    </p>
-    <p>Chicago History Museum & Chicago Public Library. (n.d.).
-        <em>The Great Chicago Fire and the Web of Memory.</em>
-        <br> Retrieved from
-        <a href="https://greatchicagofire.org/" target="_blank" rel="noopener noreferrer"
-           class="link-warning text-decoration-underline">
-            https://greatchicagofire.org/
-        </a>
-    </p>
-    <p>Our Github Repository<br>
-        <a href="https://github.com/AinurSekerbekova/chicago_group2" target="_blank" rel="noopener noreferrer"
-           class="link-warning text-decoration-underline">
-            https://github.com/AinurSekerbekova/chicago_group2
-        </a>
-    </p>
-</div>
-</body>
-
-<!-- Bootstrap JS (опционально) -->
+<!-- JS -->
+<script src="scripts/myCollection.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+      localStorage.removeItem("myCollection"); // Reset at game start
+    });
+</script>
 
+</body>
 </html>

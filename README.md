@@ -1,15 +1,39 @@
-# group2 project about chicago fire for digital heritage class 
-
-project is opensource and available at this link:
+# The Great Chicago Fire Digital Project
 https://ainursekerbekova.github.io/chicago_group2/
 
- 🔹 Frameworks & Libraries used in project
- 
-Leaflet.js
-→ lightweight, open-source JS library for interactive maps.
-→ Used in project for map game
+An interactive web experience exploring the Great Chicago Fire of 1871 through games, maps, and historical essays.
 
-Bootstrap
-→ open-source styles library
-→ Used in project for styles
-→ https://getbootstrap.com/docs/5.3/components/card/
+## Overview
+
+Users play location-based games to discover historical sites connected to the fire. Solving each game unlocks an essay about that location, its inhabitants, and significance. Additional pages cover background and research methodology.
+
+## Structure
+
+- **index.html** — Home page
+- **background.html** — Project guide and gameplay instructions
+- **research.html** — Research methodology and sources
+- **point[N]_map_game.html** — Interactive map challenges
+- **point[N]_guessing_game.html** — Clue-based puzzles
+- **point[N]_essay.html** — Historical narratives (unlocked content)
+- **scripts/** — JavaScript for maps and game logic
+- **styles/** — CSS styling
+- **images/, videos/, letter_pdfs/** — Historical materials
+
+## Quick Start
+
+Clone and open `index.html` in a browser. For map features, run a local server:
+python3 -m http.server 8000
+
+Then visit `http://localhost:8000`
+
+## Technologies
+
+HTML5, CSS3, JavaScript, Bootstrap 5, Leaflet.js, QGIS
+
+## Research
+
+Based on archival materials, historical maps, and Chicago historical collections. Sources cited on research page.
+
+## License
+
+Educational and non-commercial use. Archival materials may have separate restrictions.
