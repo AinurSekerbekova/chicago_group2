@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +7,7 @@
     <title>Courthouse page</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="styles/main2.css">
+    <link rel="stylesheet" href="styles/main.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Leaflet CSS -->
@@ -17,9 +16,8 @@
 
 
 <body>
-
 <div class="container-fluid">
-<h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
     <div class="row g-4 align-items-stretch">
         <div class="col-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
             <div id="map" class="rounded shadow-sm" style="height: 90%;"></div>
@@ -28,22 +26,23 @@
 
         <div class="col-6" style="height: 60vh;">
             <iframe id="next-to-map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"  allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1762181384915!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQ5b0hhZ1FF!2m2!1d41.88325328070925!2d-87.63061808105044!3f181.2294254331153!4f-25.401150042407195!5f0.7820865974627469" >
+                    referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
+                    src="https://www.google.com/maps/embed?pb=!4v1762181384915!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQ5b0hhZ1FF!2m2!1d41.88325328070925!2d-87.63061808105044!3f181.2294254331153!4f-25.401150042407195!5f0.7820865974627469">
             </iframe>
         </div>
     </div>
-
 </div>
 
-<div id="result-container">
-    <div class="d-flex align-items-center">
-        <img src="images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
-        <h2 id="speech-text" class=" py-2 m-3"></h2>
+<div class="row" id="result-container">
+    <div class="d-flex">
+        <img src="images/avatar/ainur_avatar.png" alt="Character" id="character-img">
+        <div>
+            <h2 id="speech-text" class=" py-2 m-3"></h2>
+            <h4 id="hint"></h4>
+        </div>
     </div>
-    <h4 id="hint"></h4>
+    <a href="point6_guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
-
 <div id="dialogue-overlay" class="d-none"></div>
 
 

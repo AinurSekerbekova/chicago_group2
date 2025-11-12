@@ -16,7 +16,6 @@
 
 
 <body>
-
 <div class="container-fluid">
     <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
     <div class="row g-4 align-items-stretch">
@@ -35,12 +34,15 @@
 
 </div>
 
-<div id="result-container">
-    <div class="d-flex align-items-center">
+<div class="row" id="result-container">
+    <div class="d-flex">
         <img src="images/avatar/ainur_avatar.png" alt="Character" id="character-img">
-        <h2 id="speech-text" class=" py-2 m-3"></h2>
+        <div>
+            <h2 id="speech-text" class=" py-2 m-3"></h2>
+            <h4 id="hint"></h4>
+        </div>
     </div>
-    <h4 id="hint"></h4>
+    <a href="point1_guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 
 <div id="dialogue-overlay" class="d-none"></div>
@@ -73,10 +75,11 @@
     // handle form submission
     const submit_button = document.getElementById('submit-button');
     submit_button.addEventListener('click', function (e) {
-        console.log("Кнопка нажата!");
         form_submitted(
-            "You got it. The Court House.",
-            "Close—but this plaza didn’t always shine like this. Try again, pal."
+            `You got it! Courthouse Square — the city’s proud heart. On October 8, 1871,
+             the courthouse bell rang the first alarm… and then melted into silence.`,
+            `Almost! Think of where the city’s justice stood — and fell. Try again`,
+            "images/avatar/tommaso_avatar.png"
         );
     });
 
@@ -88,35 +91,32 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            "I'm going to help you, press enter or space to switch to the next instruction",
+            `We start right in the Loop — the heartbeat of modern Chicago. See those towers? All glass and steel now.
+            But once, this was a forest of pine and brick.`,
             true,
-            "images/avatar/ainur_avatar_1800s.png"
+            "images/avatar/ehsan_avatar.png"
         );
     });
 
     // switch to the next phrase by enter or  space key
-    const messages = [
-        {text: "We start here—right in the Loop.",
-            img: "images/avatar/ainur_avatar_1800s.png"},
-        {text: "You hear that? Taxis, city chatter, the heartbeat of Chicago.",
-            img: "images/avatar/ainur_avatar_1800s.png"},
-        {text: "But once, this was the heart of a city built of pine and promise.",
-            img: "images/avatar/ainur_avatar_1800s.png"},
-        {text: "Take a look around—guess where I’m standing.",
-            img: "images/avatar/ainur_avatar_1800s.png"}
-    ];
-
-    let messageIndex = 1;
     document.addEventListener("keydown", (e) => {
-        if ((e.key === "Enter" || e.key === " ")) {
-          if (messageIndex < messages.length-1) {
-            showDialogue(messages[messageIndex].text,true,messages[messageIndex].img);
-          }else if (messageIndex == messages.length-1){
-            showDialogue(messages[messageIndex].text,true,messages[messageIndex].img);
-            hideDialogue();
-          }
-          messageIndex++;
-        }
+        listen_to_keys(
+            e,
+            [{
+                text: "You can almost hear the echoes of the old courthouse bell somewhere between the honking cars and the chatter.",
+                img: "images/avatar/tarlan_avatar.png"
+            },{
+                text: "Alright, player — look around. Try to guess where we’re standing. Somewhere in this square, a bell once sounded an alarm that no one could silence.",
+                img: "images/avatar/ainur_avatar.png"
+            },{
+                text: "But once, this was the heart of a city built of pine and promise.",
+                img: "images/avatar/ainur_avatar_1800s.png"
+            },{
+                text: "Take a look around—guess where I’m standing.",
+                img: "images/avatar/ainur_avatar_1800s.png"
+            }],
+            true
+        )
     });
 
 </script>

@@ -1,3 +1,18 @@
+let messageIndex = 0;
+
+function listen_to_keys(e, messages, dim_lights){
+    if ((e.key === "Enter" || e.key === " ")) {
+        console.log(messageIndex)
+        console.log(messages[messageIndex])
+        if (messageIndex <= messages.length-1) {
+            showDialogue(messages[messageIndex].text,dim_lights,messages[messageIndex].img);
+        }
+        if (messageIndex == messages.length-1 && dim_lights){
+            hideDialogue();
+        }
+        messageIndex++;
+    }
+}
 let currentDialogueId = 0;
 
 async function showDialogue(text, dim_lights,imgSrc) {

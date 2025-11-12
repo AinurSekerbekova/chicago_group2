@@ -16,7 +16,6 @@
 
 
 <body>
-
 <div class="container-fluid">
     <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
     <div class="row g-4 align-items-stretch">
@@ -32,17 +31,18 @@
             </iframe>
         </div>
     </div>
-
 </div>
 
-<div id="result-container">
-    <div class="d-flex align-items-center">
-        <img src="images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
-        <h2 id="speech-text" class=" py-2 m-3"></h2>
+<div class="row" id="result-container">
+    <div class="d-flex">
+        <img src="images/avatar/ainur_avatar.png" alt="Character" id="character-img">
+        <div>
+            <h2 id="speech-text" class=" py-2 m-3"></h2>
+            <h4 id="hint"></h4>
+        </div>
     </div>
-    <h4 id="hint"></h4>
+    <a href="point2_guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
-
 <div id="dialogue-overlay" class="d-none"></div>
 
 
@@ -95,23 +95,15 @@
     });
 
     // switch to the next phrase by enter or  space key
-    const messages = [
-        {text: "Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow.",
-            img: "images/avatar/ainur_avatar_1800s.png"}
-    ];
-    let messageIndex = 0;
     document.addEventListener("keydown", (e) => {
-        if ((e.key === "Enter" || e.key === " ")) {
-          console.log(messageIndex)
-          console.log(messages.length-1)
-          if (messageIndex < messages.length-1) {
-            showDialogue(messages[messageIndex].text,true,messages[messageIndex].img);
-          }else if (messageIndex == messages.length-1){
-            showDialogue(messages[messageIndex].text,true,messages[messageIndex].img);
-            hideDialogue();
-          }
-          messageIndex++;
-        }
+        listen_to_keys(
+            e,
+            [{
+                text: "Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow.",
+                img: "images/avatar/ainur_avatar_1800s.png"
+            }],
+            true
+        )
     });
 
 </script>

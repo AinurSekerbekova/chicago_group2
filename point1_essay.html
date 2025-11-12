@@ -20,6 +20,7 @@
 
     <div class="row align-items-start g-4">
 
+        <!-- Left column: map -->
         <div class="col-md-6 position-relative">
             <iframe
                     src="86 Washington Street/index.html"
@@ -50,70 +51,60 @@
     </div>
 
     <!-- Text content below -->
-
-    <div id="result-container">
-        <div class="d-flex align-items-center">
+    <div class="row" id="result-container">
+        <div class="d-flex">
             <img src="images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
             <h2 id="speech-text" class=" py-2 m-3"></h2>
         </div>
+        <a href="point2_map_game.html" class="btn btn-warning m-4">Next place</a>
     </div>
-    <div class="m-5 p-4 rounded shadow"
-         style="background: rgba(255,255,255,0.5); overflow-y: auto; position: relative;">
-        <p>
-            More information about the Court House before and after<br>
-            <a href="https://greatchicagofire.org/landmarks/court-house/"> Open link</a>
-            <a href="https://chicagology.com/prefire/prefire003/"> Open link</a>
+    <div class="my-5 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow">
+        <p>More information about the Court House before and after<br>
+            <a href="https://greatchicagofire.org/landmarks/court-house/">Open link</a>
+            <a href="https://chicagology.com/prefire/prefire003/">Open link</a>
         </p>
-        <p>
-            Your first letter from Jonas Hutchinson, click on it to add to your collection<br>
+        <p>Your first letter from Jonas Hutchinson, click on it to add to your collection<br>
             <a href="letter_pdfs/Jonas_Hutchinson.pdf"
                target="_blank"
                onclick="addToCollection({
-                       name: 'Jonas Hutchinson Letter',
-                       type: 'letter',
-                       file: 'letter_pdfs/Jonas_Hutchinson.pdf',
-                       location: '86 Washington Street'
-                       })">Open PDF</a>
+                       name: 'Jonas Hutchinson Letter',type: 'letter',
+                       file: 'letter_pdfs/Jonas_Hutchinson.pdf',location: '86 Washington Street'
+               })">Open PDF</a>
         </p>
-        <a href="point2_map_game.html" class="btn btn-success m-4">Next place</a>
     </div>
 </div>
 
 <!-- Scripts -->
 <script src="scripts/common_speak_script.js"></script>
-<script>
-    // specific js for the speaking feature on this page
-    const messages = [
-        {
-            text: `By the time of the fire the Court House had also added east and west wings, a brand-new clock, and a
-            10,849-pound bronze bell that for over five hours would ring out the alarm until it fell through the
-            collapsing building. It housed virtually all city and country offices, from the jail in its basement
-            to the mayor’s quarters, the debtors’ prison, the city council, the board of public works, and the
-            courtrooms on the upper floors.`,
-            img: "images/avatar/ainur_avatar_1800s.png"
-        },
-        {
-            text: `Had you been with me all night, seeing this hell of fire doing its awful mission,
-            you would know what ruin means. The courthouse—records—all are gone.`,
-            img: "images/avatar/tommaso_avatar_1800s.png" // todo needs to be said by Jonas Hutchinson
-        }
-    ];
+<script> // specific js for the speaking feature on this page
 
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
-        showDialogue(messages[0].text, false, messages[0].img);
+        showDialogue(
+            `By the time of the fire the Court House had also added east and west wings, a brand-new clock, and a
+             10,849-pound bronze bell that for over five hours would ring out the alarm until it fell through the
+             collapsing building.`,
+             false,
+             "images/avatar/ainur_avatar_1800s.png"
+         );
     });
 
     // switch to the next phrase by enter or  space key
-    let messageIndex = 1;
     document.addEventListener("keydown", (e) => {
-        if ((e.key === "Enter" || e.key === " ")) {
-          if (messageIndex <= messages.length-1) {
-            const msg = messages[messageIndex];
-            showDialogue(msg.text, false, msg.img);
-            messageIndex++;
-          }
-        }
+        listen_to_keys(
+            e,
+            [{
+                text: `It housed virtually all city and country offices, from the jail in its basement
+                    to the mayor’s quarters, the debtors’ prison, the city council, the board of public works, and the
+                    courtrooms on the upper floors.`,
+                img: "images/avatar/ainur_avatar_1800s.png"
+            },{
+                text: `Had you been with me all night, seeing this hell of fire doing its awful mission,
+                    you would know what ruin means. The courthouse—records—all are gone.`,
+                img: "images/avatar/tommaso_avatar_1800s.png" // todo needs to be said by Jonas Hutchinson
+            }],
+            false
+        )
     });
 
 </script>
