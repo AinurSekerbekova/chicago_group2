@@ -20,6 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Redirect to home when clicked
   homeBtn.addEventListener("click", () => {
-    window.location.href = "index.html"; // ← your home/start page
+    window.location.href = window.location.origin + "/chicago_group2/index.html";; // ← your home/start page
   });
 });

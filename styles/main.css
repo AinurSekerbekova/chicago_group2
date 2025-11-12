@@ -16,7 +16,7 @@ body {
   color: black;
   background-size: cover;
   background-position: center;
-  font-family: 'Merriweather', serif;
+  font-family: 'Cinzel', serif;
 }
 body::before {
   content: "";
@@ -104,7 +104,6 @@ iframe {
   width: 150px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 0 10px #000;
   z-index: 100;
   cursor: pointer;
   animation: float 3s ease-in-out infinite;
