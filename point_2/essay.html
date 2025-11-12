@@ -34,6 +34,22 @@
         </div>
     </div>
 
+    <div class="m-4 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
+        <p class="mx-3 text-center">More information about the Court House before and after<br>
+            <a class="btn btn-warning" href="https://greatchicagofire.org/landmarks/court-house/">First link</a>
+            <a class="btn btn-warning" href="https://chicagology.com/prefire/prefire003/">Second link</a>
+        </p>
+        <p class="mx-3 text-center">Your second letter is from Mary Fales, click on it to add to your collection<br>
+            <a href="../letter_pdfs/Mary_Fales.pdf"
+               target="_blank"
+               class="btn btn-warning"
+               onclick="addToCollection({
+                       name: 'Jonas Hutchinson Letter',type: 'letter',
+                       file: '../letter_pdfs/Mary_Fales.pdf',location: '86 Washington Street'
+               })">Open PDF</a>
+        </p>
+    </div>
+
     <!-- Text content below -->
     <div class="row mt-5" id="result-container">
         <div class="d-flex">
@@ -41,19 +57,6 @@
             <h2 id="speech-text" class=" py-2 m-3"></h2>
         </div>
         <a href="../point_3/map_game.html" class="btn btn-warning m-4">Next place</a>
-    </div>
-    <div class="my-5 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow">
-        <p>More information about the O’Leary’s Barn before and after<br>
-            <a href="https://greatchicagofire.org/landmarks/court-house/"> Open link</a> <!-- todo -->
-        </p>
-        <p>Your second letter is from Mary Fales<br>
-            <a href="../letter_pdfs/Mary_Fales.pdf"
-               target="_blank"
-               onclick="addToCollection({
-                  name: 'Mary Fales Letter',type: 'letter',
-                  file: '../letter_pdfs/Mary_Fales.pdf', location: '86 Washington Street'
-               })">Open PDF</a>
-        </p>
     </div>
 </div>
 
