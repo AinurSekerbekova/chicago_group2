@@ -1,5 +1,5 @@
 body {
-  background-image: url('../images/fire_background.png');
+  background-image: url('../images/fire_background.jpg');
   background-size: 100vw auto;
   /* ширина картинки равна ширине окна, высота автоматически */
   background-repeat: no-repeat;
@@ -16,8 +16,7 @@ body {
   font-family: 'Merriweather', serif;
 }
 
-h1,
-h2 {
+h1,h2 {
   font-family: 'Cinzel', serif;
 }
 
@@ -46,6 +45,8 @@ body::before {
   z-index: 1;
 }
 
+
+/* styles for results of map game START */
 #result-container {
   border-radius: 12px;
   padding: 1.5rem;
@@ -70,9 +71,50 @@ body::before {
   letter-spacing: 1px;
   color: #222;
 }
+/* styles for results of map game END */
 
+
+/* For   */
 @media (max-width: 768px) {
   #map, #next_to_map {
-    height: 40vh !important;
+    height: 50vh !important;
   }
 }
+
+iframe {
+  width: 100%;
+  height: 40vh;
+  border: none;
+  clip-path: inset(1.8cm); /* cut 2 см on all sides */
+}
+
+/* container for pop-up person */
+  .assistant {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 200px;
+    z-index: 9999;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* pop-up person */
+  .assistant img {
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .speech-bubble{
+    background: url('images/speech.png') no-repeat center/contain;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+  }
