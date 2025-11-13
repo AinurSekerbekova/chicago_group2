@@ -1,7 +1,7 @@
 /* ================== common STYLES used on all the pages ================== */
 body {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* make it darker */
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), /* make it darker */
     url('../images/fire_background.jpg'); /* picture itself */
   background-size: 100vw auto;
   /* width is automatically == widthof window */
@@ -30,16 +30,53 @@ h1,h2 {
   font-family: 'Cinzel', serif;
 }
 
-.btn-warning {
-  background: linear-gradient(135deg, #d94e1f, #f29f05);
-  border: none;
-  transition: all 0.3s ease;
-}
-
 .container-fluid{
-  border-radius: 12px;
   z-index: 1;
 }
+.container{
+  z-index: 1;
+}
+
+/* ================== the research and about pages STYLES ================== */
+    .accordion-button {
+      font-weight: 600;
+      color: #ffc107 !important;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .accordion-item {
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 1px solid #ffc107;
+      border-radius: 0.5rem;
+    }
+    .accordion-body {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #fff;
+    }
+/* ================== the index page STYLES ================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* фон — как <img>, но растягивается на всю ширину */
+.hero-bg {
+  width: 100%;
+  max-height: 80vh;
+  display: block;
+  filter: brightness(0.7); /* затемнение */
+}
+
+/* контент поверх картинки */
+.hero-section .container-fluid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 /* ================== the meet the narrators page STYLES ================== */
 .container-intro {
@@ -49,7 +86,6 @@ h1,h2 {
    padding: 3rem;
    box-shadow: 0 0 25px rgba(255, 193, 7, 0.2);
    margin-top: 4rem;
-   z-index: 1;
 }
 
 

@@ -14,17 +14,13 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center m-4 rounded shadow text-white">
-        The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)
-    </h1>
+    <h1 class="fw-bold text-center m-4 rounded shadow text-white">The Past Revealed</h1>
 
     <div class="row align-items-start g-4">
 
         <!-- Left column: map -->
-        <div class="col-md-6 position-relative">
-            <iframe
-                    src="86 Washington Street/index.html"
-                    class="rounded shadow"
+        <div class="col-6 position-relative">
+            <iframe src="86 Washington Street/index.html" class="rounded shadow"
                     style="width: 100%; height: 50vh; min-height: 300px; border: none;">
             </iframe>
 
@@ -41,7 +37,7 @@
 
 
         <!-- Right column: image -->
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <div class="col-6">
             <img src="../images/Court House Shortly.png"
                  alt="Courthouse"
                  class="img-fluid rounded shadow">
@@ -51,13 +47,13 @@
 
     <div class="m-4 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
         <p class="mx-3 text-center">More information about the Court House before and after<br>
-            <a class="btn btn-warning" href="https://greatchicagofire.org/landmarks/court-house/">First link</a>
-            <a class="btn btn-warning" href="https://chicagology.com/prefire/prefire003/">Second link</a>
+            <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/">First link</a>
+            <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/">Second link</a>
         </p>
         <p class="mx-3 text-center">Your first letter from Jonas Hutchinson, click on it to add to your collection<br>
             <a href="../letter_pdfs/Jonas_Hutchinson.pdf"
                target="_blank"
-               class="btn btn-warning"
+               class="btn btn-outline-warning"
                onclick="addToCollection({
                        name: 'Jonas Hutchinson Letter',type: 'letter',
                        file: '../letter_pdfs/Jonas_Hutchinson.pdf',location: '86 Washington Street'
@@ -70,7 +66,7 @@
             <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
             <h2 id="speech-text" class=" py-2 m-3"></h2>
         </div>
-        <a href="../point_2/map_game.html" class="btn btn-warning m-4">Next place</a>
+        <a href="../point_2/map_game.html" class="btn btn-outline-warning m-4">Next place</a>
     </div>
 </div>
 
