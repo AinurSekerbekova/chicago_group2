@@ -74,10 +74,9 @@
          );
     });
 
-    // switch to the next phrase by enter or  space key
-    document.addEventListener("keydown", (e) => {
+    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
+    function goToNext() {
         listen_to_keys(
-            e,
             [{
                 text: `She was one of thousands fleeing through smoke and sparks — no time, no wagons, just chaos.`,
                 img: "../images/avatar/ehsan_avatar_1800s.png"
@@ -88,7 +87,7 @@
             }],
             false
         )
-    });
+    }
 </script>
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>

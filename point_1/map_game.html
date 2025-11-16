@@ -19,12 +19,12 @@
 <div class="container-fluid">
     <h1 class="fw-bold text-center m-4 rounded shadow text-white">Can you guess where this is?</h1>
     <div class="row g-4 align-items-stretch">
-        <div class="col-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
+        <div class="col-12 col-md-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
             <div id="map" class="rounded shadow-sm" style="height: 90%;"></div>
             <button class="btn btn-outline-warning mt-2 px-5" id="submit-button">Check my guess</button>
         </div>
 
-        <div class="col-6" style="height: 60vh;">
+        <div class="col-12 col-md-6" style="height: 60vh;">
             <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
                     src="https://www.google.com/maps/embed?pb=!4v1762181384915!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQ5b0hhZ1FF!2m2!1d41.88325328070925!2d-87.63061808105044!3f181.2294254331153!4f-25.401150042407195!5f0.7820865974627469">
@@ -98,10 +98,9 @@
         );
     });
 
-    // switch to the next phrase by enter or  space key
-    document.addEventListener("keydown", (e) => {
+    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
+    function goToNext() {
         listen_to_keys(
-            e,
             [{
                 text: `You can almost hear the echoes of the old courthouse bell somewhere between the honking cars and the chatter.`,
                 img: "../images/avatar/tarlan_avatar.png"
@@ -112,8 +111,7 @@
             }],
             true
         )
-    });
-
+    }
 </script>
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>

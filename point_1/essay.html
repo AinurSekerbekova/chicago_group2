@@ -66,7 +66,7 @@
             <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
             <h2 id="speech-text" class=" py-2 m-3"></h2>
         </div>
-        <a href="../point_2/map_game.html" class="btn btn-outline-warning m-4">Next place</a>
+        <a href="../point_2/map_game.html" class="btn btn-warning m-4">Next place</a>
     </div>
 </div>
 
@@ -85,10 +85,9 @@
          );
     });
 
-    // switch to the next phrase by enter or  space key
-    document.addEventListener("keydown", (e) => {
+    // switch to the next phrase by enter/space on keyboard or touch on mobile screen
+    function goToNext() {
         listen_to_keys(
-            e,
             [{
                 text: `It housed virtually all city and country offices, from the jail in its basement
                     to the mayor’s quarters, the debtors’ prison, the city council, the board of public works, and the
@@ -101,7 +100,7 @@
             }],
             false
         )
-    });
+    }
 
 </script>
 <script src="../scripts/myCollection.js"></script>

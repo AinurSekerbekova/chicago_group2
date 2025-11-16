@@ -60,7 +60,7 @@
             letters. <br>Which of these pictures shows its pre-fire library?
         </p>
     </div>
-    <a href="point5_essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
+    <a href="essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
 </div>
 
 <!-- Load My Collection helper first so addToCollection exists for the following script -->
@@ -84,7 +84,6 @@
           if (photo.dataset.correct === "true") {
             // update UI
             result.textContent = "✅ Yes—that’s the one! It all burned ... except seven letters.";
-            result.style.color = "green";
             nextButton.classList.remove('d-none');
 
             // prepare item object (image + name)

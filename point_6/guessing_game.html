@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Right Museum</title>
+    <title>Guess the Right Place</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,23 +13,41 @@
 
 <body>
 <div class="container-fluid">
-    <div class="text-center mb-4">
-        <h2>Guess the Correct Building</h2>
-        <p class="text-muted">Click on the correct photo of the <strong>Chicago History Museum</strong></p>
+    <div class="text-center mb-4 text-white">
+        <h2 class="text-white">Guess the Correct Building</h2>
+        <p class="text-white-50">Click on the correct photo of the <strong>place</strong></p>
     </div>
+
 
     <div class="row justify-content-center g-4">
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="images/modern_history_museum.png" alt="Option 1" class="img-fluid rounded shadow guess-photo"
-                 data-correct="true" style="width: 100%; max-width: 500px; cursor: pointer;">
+            <img src="images/Court House Shortly.png"
+                 alt="Court House"
+                 class="img-fluid rounded shadow guess-photo"
+                 data-correct="true"
+                 data-name="Court House"
+                 data-src="images/Court House Shortly.png"
+                 style="width: 100%; max-width: 500px; cursor: pointer;">
         </div>
+
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="images/img.png" alt="Option 2" class="img-fluid rounded shadow guess-photo"
-                 data-correct="false" style="width: 100%; max-width: 500px; cursor: pointer;">
+            <img src="images/old water tower.jpg"
+                 alt="Old Water Tower"
+                 class="img-fluid rounded shadow guess-photo"
+                 data-correct="false"
+                 data-name="Old Water Tower"
+                 data-src="images/old water tower.jpg"
+                 style="width: 100%; max-width: 500px; cursor: pointer;">
         </div>
+
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="images/img_1.png" alt="Option 3" class="img-fluid rounded shadow guess-photo"
-                 data-correct="false" style="width: 100%; max-width: 500px; cursor: pointer;">
+            <img src="images/chicago museum before.jpg"
+                 alt="chicago museum"
+                 class="img-fluid rounded shadow guess-photo"
+                 data-correct="false"
+                 data-name="chicago museum"
+                 data-src="images/chicago museum before.jpg"
+                 style="width: 100%; max-width: 500px; cursor: pointer;">
         </div>
     </div>
 
@@ -37,9 +55,9 @@
     <div class="row mt-5 bg-white bg-opacity-50 rounded shadow p-4">
         <div class="d-flex">
             <img src="images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
-            <p id="result" class="fs-4 fw-bold m-3">What did this shoreline look like in 1871?</p>
+            <p id="result" class="fs-4 fw-bold m-3">What do you think this church looked like before the fire?</p>
         </div>
-        <a href="point7_essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
+        <a href="essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
     </div>
 </div>
 
@@ -64,7 +82,6 @@
           if (photo.dataset.correct === "true") {
             // update UI
             result.textContent = "✅ Correct! Gothic spires, stone arches—sanctuary of hope";
-            result.style.color = "green";
             nextButton.classList.remove('d-none');
 
             // prepare item object (image + name)

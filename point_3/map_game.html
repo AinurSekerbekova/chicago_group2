@@ -43,7 +43,7 @@
             <h4 id="hint"></h4>
         </div>
     </div>
-    <a href="point3_guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
+    <a href="guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
 
@@ -96,18 +96,16 @@
         );
     });
 
-    // switch to the next phrase by enter or  space key
-    document.addEventListener("keydown", (e) => {
+    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
+    function goToNext() {
         listen_to_keys(
-            e,
             [{
                 text: "Guess where we stand—the place where education met annihilation",
                 img: "images/avatar/ainur_avatar_1800s.png"
             }],
             true
         )
-    });
-
+    }
 </script>
 <script src="scripts/myCollection.js"></script>
 <script src="scripts/homeButton.js"></script>

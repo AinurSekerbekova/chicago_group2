@@ -57,7 +57,7 @@
             <img src="images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
             <p id="result" class="fs-4 fw-bold m-3">Before the fire, what surrounded this tower?</p>
         </div>
-        <a href="point4_essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
+        <a href="essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
     </div>
 
 </div>
@@ -82,7 +82,6 @@
           if (photo.dataset.correct === "true") {
             // update UI
             result.textContent = "✅ Correct! Wooden mansions—ironic, isn’t it? Wood protecting stone...";
-            result.style.color = "green";
             nextButton.classList.remove('d-none');
 
             // prepare item object (image + name)

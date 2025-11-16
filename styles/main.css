@@ -132,6 +132,7 @@ iframe {
   backdrop-filter: blur(6px);
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
   z-index: 100;
+  cursor: pointer;
 }
 #speech-text {
   flex: 1;
@@ -139,6 +140,7 @@ iframe {
 #character-img {
   width: 150px;
   height: auto;
+  flex-shrink: 0;
   border-radius: 12px;
   z-index: 100;
   cursor: pointer;
@@ -163,6 +165,24 @@ iframe {
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+    #result-container .d-flex {
+        display: block;    /* disable flex on small screens */
+    }
+    #result-container h2{
+        font-size: 16px;
+    }
+    #result-container h4{
+        font-size: 15px;
+    }
+    #character-img {
+        float: left;       /* let text wrap around the image */
+        margin-right: 15px;
+        margin-bottom: 10px;
+        width: 110px;      /* keep consistent size */
+        height: 120px;
+    }
+}
 /* ================== the collection STYLES ================== */
 
 #collectionModal::-webkit-scrollbar {

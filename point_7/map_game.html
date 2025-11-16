@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adeline Rossiter Judd</title>
+    <title>George Howland</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
@@ -41,7 +41,7 @@
             <h4 id="hint"></h4>
         </div>
     </div>
-    <a href="point5_guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
+    <a href="guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
 
@@ -69,7 +69,6 @@
       userMarker = L.marker(e.latlng).addTo(map);
       userMarker.userLatLng = e.latlng;
     });
-    console.log("Ищу кнопку:", document.getElementById('submit-button'));
 
     // handle form submission
     const submit_button = document.getElementById('submit-button');

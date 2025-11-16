@@ -1,17 +1,27 @@
+var resultDiv = document.getElementById("result-container");
+resultDiv.addEventListener("touchstart",  function () {
+  goToNext();
+});
+resultDiv.addEventListener("click",  function () {
+  goToNext();
+});
+document.addEventListener("keydown", (e) => {
+    if ((e.key === "Enter" || e.key === " ")) {
+        goToNext();
+    }
+});
 let messageIndex = 0;
 
-function listen_to_keys(e, messages, dim_lights){
-    if ((e.key === "Enter" || e.key === " ")) {
-        console.log(messageIndex)
-        console.log(messages[messageIndex])
-        if (messageIndex <= messages.length-1) {
-            showDialogue(messages[messageIndex].text,dim_lights,messages[messageIndex].img);
-        }
-        if (messageIndex == messages.length-1 && dim_lights){
-            hideDialogue();
-        }
-        messageIndex++;
+function listen_to_keys( messages, dim_lights){
+    console.log(messageIndex)
+    console.log(messages[messageIndex])
+    if (messageIndex <= messages.length-1) {
+        showDialogue(messages[messageIndex].text,dim_lights,messages[messageIndex].img);
     }
+    if (messageIndex == messages.length-1 && dim_lights){
+        hideDialogue();
+    }
+    messageIndex++;
 }
 let currentDialogueId = 0;
 

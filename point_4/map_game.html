@@ -41,7 +41,7 @@
             <h4 id="hint"></h4>
         </div>
     </div>
-    <a href="point4_guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
+    <a href="guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
 
@@ -94,17 +94,16 @@
             "images/avatar/ainur_avatar_1800s.png"
         );
     });
-    // switch to the next phrase by enter or  space key
-    document.addEventListener("keydown", (e) => {
+    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
+    function goToNext() {
         listen_to_keys(
-            e,
             [{
                 text: "Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow.",
                 img: "images/avatar/ainur_avatar_1800s.png"
             }],
             true
         )
-    });
+    }
 
 </script>
 <script src="scripts/myCollection.js"></script>
