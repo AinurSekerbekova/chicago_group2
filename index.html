@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letters of Fire</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Merriweather:ital@1&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 
@@ -15,105 +15,144 @@
             background-color: #000000; /* Pure Black Background */
             color: #ffffff;
             overflow-x: hidden;
+            font-family: 'Merriweather', serif;
         }
 
-        /* --- 2. THE LANDING SCREEN (100% Viewport Height) --- */
+        /* --- 2. THE LANDING SCREEN --- */
         .landing-screen {
             position: relative;
             width: 100%;
-            height: 100vh; /* Occupies exactly 1 screen */
-            overflow: hidden; /* No scrollbars inside this part */
+            height: 100vh; 
+            overflow: hidden;
             display: flex;
             flex-direction: column;
+            background-color: #000000; /* Ensures top area is black */
         }
 
-        /* --- 3. THE BIG IMAGE (Behind everything) --- */
+        /* --- 3. THE BIG IMAGE (Shifted Down) --- */
         .full-screen-bg-img {
             position: absolute;
-            top: 0;
+            /* MOVED DOWN: Starts 15% down the page */
+            top: 15vh; 
             left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures it fills screen without distortion */
-            opacity: 0.6;      /* Dims image so text is readable */
-            z-index: 0;        /* Sits at the back */
+            /* HEIGHT ADJUSTED: Fills the remaining 85% */
+            height: 85vh; 
+            object-fit: cover;
+            opacity: 0.6;      
+            z-index: 0;
         }
 
-        /* --- 4. THE CONTENT LAYER (Sits on top of image) --- */
+        /* --- 4. THE CONTENT LAYER --- */
         .content-layer {
             position: relative;
-            z-index: 10;       /* Sits on top */
+            z-index: 10;
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Header Top, Button Bottom */
+            justify-content: space-between;
         }
 
-        /* --- 5. RESPONSIVE LAYOUTS --- */
+        /* --- HEADER STYLES (Clean Black) --- */
+        .header-nav {
+            /* No gradient needed now, it sits on the black body */
+            padding: 2rem 3rem;
+            width: 100%;
+            position: relative;
+        }
 
-        /* DESKTOP (Large Screens) */
+        /* Title Styling */
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #ffc107;
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.9);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-subtitle {
+            font-family: 'Merriweather', serif;
+            font-style: italic;
+            color: #e0e0e0;
+            font-size: 1.2rem;
+        }
+
+        /* --- DESKTOP LAYOUT --- */
         @media (min-width: 992px) {
             .header-nav {
                 display: flex;
-                justify-content: space-between; /* Buttons on sides */
+                justify-content: space-between;
                 align-items: flex-start;
-                padding: 2rem 3rem;
             }
             
-            /* Absolute positioning for cards only on Desktop */
+            /* Center the title */
+            .title-container {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 2rem;
+                text-align: center;
+                width: 100%;
+                max-width: 600px;
+                pointer-events: none;
+            }
+            
+            /* Cards Position */
             .hero-card {
                 position: absolute;
                 width: 280px;
-                background-color: rgba(0, 0, 0, 0.8); /* Dark box for readability */
+                background-color: rgba(0, 0, 0, 0.85);
                 border: 1px solid #555;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             }
-            .card-qr { top: 140px; left: 40px; }
-            .card-team { bottom: 140px; left: 40px; }
-            .card-profs { bottom: 140px; right: 40px; }
+            /* Adjusted positions to fit the new image layout */
+            .card-qr { top: 25vh; left: 40px; } 
+            .card-team { bottom: 100px; left: 40px; }
+            .card-profs { bottom: 100px; right: 40px; }
             
-            .cta-container {
-                padding-bottom: 3rem;
-            }
+            .cta-container { padding-bottom: 3rem; }
         }
 
-        /* MOBILE (Phones & Tablets) */
+        /* --- MOBILE LAYOUT --- */
         @media (max-width: 991px) {
-            .landing-screen {
-                height: auto;      /* Allow scrolling on mobile if content is tall */
-                min-height: 100vh;
+            .landing-screen { height: auto; min-height: 100vh; }
+            
+            /* On mobile, push image down a bit less or same */
+            .full-screen-bg-img { 
+                position: fixed; 
+                top: 150px; /* Push down past the stacked header */
+                height: calc(100vh - 150px);
             }
             
-            .full-screen-bg-img {
-                position: fixed; /* Parallax effect on mobile */
-            }
-
             .header-nav {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 1rem;
+                gap: 1.5rem;
                 padding: 1.5rem;
+                background-color: #000; /* Solid black on mobile header */
             }
 
-            /* Stack cards vertically */
+            .title-container {
+                position: static;
+                transform: none;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
             .cards-mobile-stack {
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
-                padding: 0 1.5rem;
-                margin-bottom: 2rem;
+                padding: 0 1.5rem 2rem 1.5rem;
                 align-items: center;
+                margin-top: 2rem; /* Add space after image starts */
             }
 
             .hero-card {
                 width: 100%;
-                max-width: 400px;
                 background-color: rgba(0, 0, 0, 0.85);
-                position: static; /* No absolute position on mobile */
-            }
-
-            .cta-container {
-                padding-bottom: 2rem;
             }
         }
     </style>
@@ -128,20 +167,21 @@
         <div class="content-layer">
             
             <header class="header-nav">
-                <div class="text-center order-1 order-lg-2 flex-grow-1">
-                    <h2 class="display-5 fw-bold text-white" style="font-family: 'Cinzel', serif;">Letters of Fire</h2>
-                    <p class="lead mb-0 text-white-50">A time travelling game through the Great Chicago Fire</p>
-                </div>
-                <a href="research.html" class="btn btn-outline-warning fw-semibold order-2 order-lg-1 px-4 shadow">
+                <a href="research.html" class="btn btn-outline-warning fw-semibold px-4 shadow" style="z-index: 20;">
                     Research
                 </a>
-                <a href="about.html" class="btn btn-outline-warning fw-semibold order-3 order-lg-3 px-4 shadow">
+
+                <div class="title-container">
+                    <h1 class="game-title display-3">Letters of Fire</h1>
+                    <p class="game-subtitle">A time travelling game through the Great Chicago Fire</p>
+                </div>
+
+                <a href="about.html" class="btn btn-outline-warning fw-semibold px-4 shadow" style="z-index: 20;">
                     About Project
                 </a>
             </header>
 
             <div class="cards-mobile-stack">
-                
                 <div class="card hero-card card-qr text-white">
                     <div class="card-body text-center">
                         <p class="card-title text-warning small text-uppercase mb-2">open on your device</p>
@@ -152,7 +192,7 @@
                 <div class="card hero-card card-team text-white">
                     <div class="card-body py-2">
                         <h6 class="card-title text-warning mb-1">Group Members</h6>
-                        <p class="card-text small lh-sm mb-0 text-light">
+                        <p class="card-text small lh-sm mb-0 text-white-50">
                             Ainur Sekerbekova<br>Tarlan Tleubay<br>Ehsan Mirzaeisahlabadi<br>Tommaso Maria Alesso
                         </p>
                     </div>
@@ -161,16 +201,15 @@
                 <div class="card hero-card card-profs text-white">
                     <div class="card-body py-2">
                         <h6 class="card-title text-warning mb-1">Professors</h6>
-                        <p class="card-text small lh-sm mb-0 text-light">
+                        <p class="card-text small lh-sm mb-0 text-white-50">
                             Tamborrino Rosa Rita Maria<br>Bolca Pelin<br>Darbesio Sofia
                         </p>
                     </div>
                 </div>
-
             </div>
 
             <div class="d-flex justify-content-center w-100 cta-container">
-                <a href="meet_narrators.html" class="btn btn-outline-warning btn-lg px-5 py-3 fw-semibold shadow">
+                <a href="meet_narrators.html" class="btn btn-outline-warning btn-lg px-5 py-3 fw-bold shadow text-uppercase tracking-wider">
                     Let's Go
                 </a>
             </div>
@@ -182,7 +221,7 @@
         <h5 class="text-warning fw-bold mb-3">Bibliography & Credits</h5>
         <div class="row small opacity-75">
             <div class="col-md-6">
-                <p>Angle, Paul M. (1946). <em>The Great Chicago Fire</em>. <a href="#" class="link-warning">Internet Archive</a></p>
+                <p>Angle, Paul M. (1946). <em>The Great Chicago Fire</em>.</p>
                 <p><em>The Great Chicago Fire and the Web of Memory.</em> <a href="https://greatchicagofire.org/" class="link-warning">greatchicagofire.org</a></p>
             </div>
             <div class="col-md-6">
