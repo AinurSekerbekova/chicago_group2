@@ -58,14 +58,29 @@
             .card-bottom-right { bottom: 0; right: 0; margin: 1.5rem; }
         }
 
-        /* IMAGE FIX: Ensure background image scales nicely */
+        /* IMAGE STYLES */
         .hero-bg {
             width: 100%;
-            max-width: 800px;
+            /* On Mobile: Let it be full width */
+            max-width: 100%; 
             height: auto;
             opacity: 0.8;
             display: block;
-            margin: 0 auto; /* Center image */
+            margin: 0 auto;
+        }
+
+        /* DESKTOP SPECIFIC IMAGE SIZE */
+        @media (min-width: 992px) {
+            .hero-bg {
+                /* On Desktop: Allow it to grow much larger */
+                /* You can change 1200px to '100%' if you want it massive */
+                max-width: 1200px; 
+                
+                /* Optional: If you want it to cover the screen height better */
+                /* max-height: 80vh; */
+                /* object-fit: contain; */
+            }
+        }
         }
     </style>
 </head>
