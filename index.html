@@ -12,10 +12,10 @@
         /* --- 1. BASE STYLES --- */
         body {
             margin: 0;
-            background-color: #000000; /* Pure Black Background */
+            background-color: #000000;
             color: #ffffff;
             overflow-x: hidden;
-            font-family: 'Merriweather', serif;
+            font-family: 'Merriweather', serif; /* Default font */
         }
 
         /* --- 2. THE LANDING SCREEN --- */
@@ -26,20 +26,17 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            background-color: #000000; /* Ensures top area is black */
         }
 
-        /* --- 3. THE BIG IMAGE (Shifted Down) --- */
+        /* --- 3. THE BIG IMAGE --- */
         .full-screen-bg-img {
             position: absolute;
-            /* MOVED DOWN: Starts 15% down the page */
-            top: 15vh; 
+            top: 0;
             left: 0;
             width: 100%;
-            /* HEIGHT ADJUSTED: Fills the remaining 85% */
-            height: 85vh; 
+            height: 100%;
             object-fit: cover;
-            opacity: 0.6;      
+            opacity: 0.55; /* Slightly darker for better text contrast */
             z-index: 0;
         }
 
@@ -53,20 +50,21 @@
             justify-content: space-between;
         }
 
-        /* --- HEADER STYLES (Clean Black) --- */
+        /* --- IMPROVED HEADER STYLES --- */
         .header-nav {
-            /* No gradient needed now, it sits on the black body */
-            padding: 2rem 3rem;
+            /* Gradient background: Black at top -> Transparent at bottom */
+            /* This stops the text from feeling "overlayed" on busy pixels */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+            padding: 2rem 3rem; /* More breathing room */
             width: 100%;
-            position: relative;
         }
 
-        /* Title Styling */
+        /* Title Specifics */
         .game-title {
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            color: #ffc107;
-            text-shadow: 0px 4px 10px rgba(0,0,0,0.9);
+            color: #ffc107; /* Bootstrap Warning/Gold Color */
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.9); /* Lifts text off page */
             letter-spacing: 2px;
             margin-bottom: 0.5rem;
         }
@@ -75,6 +73,7 @@
             font-family: 'Merriweather', serif;
             font-style: italic;
             color: #e0e0e0;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
             font-size: 1.2rem;
         }
 
@@ -83,10 +82,10 @@
             .header-nav {
                 display: flex;
                 justify-content: space-between;
-                align-items: flex-start;
+                align-items: flex-start; /* Aligns buttons to top */
             }
             
-            /* Center the title */
+            /* Center the title perfectly */
             .title-container {
                 position: absolute;
                 left: 50%;
@@ -95,7 +94,7 @@
                 text-align: center;
                 width: 100%;
                 max-width: 600px;
-                pointer-events: none;
+                pointer-events: none; /* Lets clicks pass through if overlap happens */
             }
             
             /* Cards Position */
@@ -106,10 +105,9 @@
                 border: 1px solid #555;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             }
-            /* Adjusted positions to fit the new image layout */
-            .card-qr { top: 25vh; left: 40px; } 
-            .card-team { bottom: 100px; left: 40px; }
-            .card-profs { bottom: 100px; right: 40px; }
+            .card-qr { top: 180px; left: 40px; } /* Moved down to clear big header */
+            .card-team { bottom: 140px; left: 40px; }
+            .card-profs { bottom: 140px; right: 40px; }
             
             .cta-container { padding-bottom: 3rem; }
         }
@@ -117,13 +115,7 @@
         /* --- MOBILE LAYOUT --- */
         @media (max-width: 991px) {
             .landing-screen { height: auto; min-height: 100vh; }
-            
-            /* On mobile, push image down a bit less or same */
-            .full-screen-bg-img { 
-                position: fixed; 
-                top: 150px; /* Push down past the stacked header */
-                height: calc(100vh - 150px);
-            }
+            .full-screen-bg-img { position: fixed; }
             
             .header-nav {
                 display: flex;
@@ -131,7 +123,7 @@
                 align-items: center;
                 gap: 1.5rem;
                 padding: 1.5rem;
-                background-color: #000; /* Solid black on mobile header */
+                background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
             }
 
             .title-container {
@@ -147,7 +139,6 @@
                 gap: 1rem;
                 padding: 0 1.5rem 2rem 1.5rem;
                 align-items: center;
-                margin-top: 2rem; /* Add space after image starts */
             }
 
             .hero-card {
