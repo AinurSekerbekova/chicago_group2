@@ -9,179 +9,196 @@
     <link rel="stylesheet" href="styles/main.css">
 
     <style>
-        /* --- GLOBAL STYLES --- */
+        /* --- 1. BASE STYLES --- */
         body {
             margin: 0;
-            overflow-x: hidden; /* Prevent side scroll */
+            background-color: #000000; /* Pure Black Background */
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* --- DESKTOP LAYOUT (Force 1 screen fit) --- */
-        @media (min-width: 992px) {
-            /* 1. The Wrapper: Forces Header + Hero + Button to fit exactly in 100% height */
-            .landing-wrapper {
-                height: 100vh; 
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between; /* Spreads items out vertically */
-                padding-bottom: 2rem;
-                position: relative; /* For absolute cards */
-            }
+        /* --- 2. THE LANDING SCREEN (100% Viewport Height) --- */
+        .landing-screen {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Occupies exactly 1 screen */
+            overflow: hidden; /* No scrollbars inside this part */
+            display: flex;
+            flex-direction: column;
+        }
 
-            /* 2. The Header: Horizontal layout */
+        /* --- 3. THE BIG IMAGE (Behind everything) --- */
+        .full-screen-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures it fills screen without distortion */
+            opacity: 0.6;      /* Dims image so text is readable */
+            z-index: 0;        /* Sits at the back */
+        }
+
+        /* --- 4. THE CONTENT LAYER (Sits on top of image) --- */
+        .content-layer {
+            position: relative;
+            z-index: 10;       /* Sits on top */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Header Top, Button Bottom */
+        }
+
+        /* --- 5. RESPONSIVE LAYOUTS --- */
+
+        /* DESKTOP (Large Screens) */
+        @media (min-width: 992px) {
             .header-nav {
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-between; /* Buttons on sides */
                 align-items: flex-start;
-                padding: 1.5rem 3rem;
-                z-index: 10;
+                padding: 2rem 3rem;
             }
-
-            /* 3. The Hero Section: Takes up all remaining space */
-            .hero-section {
-                flex-grow: 1;
-                display: flex;
-                align-items: center; /* Center image vertically */
-                justify-content: center; /* Center image horizontally */
-                position: relative;
-                overflow: hidden; /* Ensure nothing spills out */
-            }
-
-            /* 4. The Image: BIG but constrained by HEIGHT so button stays visible */
-            .hero-bg {
-                max-height: 65vh; /* Key: Limits height so button isn't pushed off */
-                width: auto;      /* Auto width maintains aspect ratio */
-                max-width: 90%;   /* Don't touch edges */
-                object-fit: contain;
-            }
-
-            /* 5. The Cards: Stick to corners of the wrapper */
+            
+            /* Absolute positioning for cards only on Desktop */
             .hero-card {
                 position: absolute;
                 width: 280px;
-                z-index: 20;
+                background-color: rgba(0, 0, 0, 0.8); /* Dark box for readability */
+                border: 1px solid #555;
             }
-            /* Pin positions */
-            .card-qr { top: 100px; left: 40px; } /* Below header */
-            .card-team { bottom: 100px; left: 40px; } /* Above footer area */
-            .card-profs { bottom: 100px; right: 40px; }
+            .card-qr { top: 140px; left: 40px; }
+            .card-team { bottom: 140px; left: 40px; }
+            .card-profs { bottom: 140px; right: 40px; }
+            
+            .cta-container {
+                padding-bottom: 3rem;
+            }
         }
 
-        /* --- MOBILE LAYOUT (Standard Scrolling) --- */
+        /* MOBILE (Phones & Tablets) */
         @media (max-width: 991px) {
-            .landing-wrapper {
+            .landing-screen {
+                height: auto;      /* Allow scrolling on mobile if content is tall */
                 min-height: 100vh;
-                padding-bottom: 2rem;
             }
+            
+            .full-screen-bg-img {
+                position: fixed; /* Parallax effect on mobile */
+            }
+
             .header-nav {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
-                padding: 1rem;
+                padding: 1.5rem;
             }
-            .hero-section {
-                padding: 1rem;
-                text-align: center;
-            }
-            .hero-bg {
-                width: 100%;
-                height: auto;
+
+            /* Stack cards vertically */
+            .cards-mobile-stack {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1.5rem;
                 margin-bottom: 2rem;
+                align-items: center;
             }
+
             .hero-card {
-                width: 100%; /* Full width on mobile */
-                margin-bottom: 1rem;
+                width: 100%;
+                max-width: 400px;
+                background-color: rgba(0, 0, 0, 0.85);
+                position: static; /* No absolute position on mobile */
+            }
+
+            .cta-container {
+                padding-bottom: 2rem;
             }
         }
     </style>
 </head>
 
-<body class="bg-black text-light">
+<body>
 
-<div class="landing-wrapper" style="background-color: rgba(0, 0, 0, 0.8)">
-    
-    <header class="header-nav">
-        <div class="text-center text-light order-1 order-lg-2">
-            <h2 class="display-5 fw-bold" style="font-family: 'Cinzel', serif;">Letters of Fire</h2>
-            <p class="lead mb-0">A time travelling game through the Great Chicago Fire</p>
-        </div>
+    <div class="landing-screen">
+        
+        <img src="images/patchwork.png" alt="Chicago Fire Background" class="full-screen-bg-img">
 
-        <a href="research.html" class="btn btn-outline-warning fw-semibold order-2 order-lg-1 px-4 py-2 shadow">
-            Research
-        </a>
+        <div class="content-layer">
+            
+            <header class="header-nav">
+                <div class="text-center order-1 order-lg-2 flex-grow-1">
+                    <h2 class="display-5 fw-bold text-white" style="font-family: 'Cinzel', serif;">Letters of Fire</h2>
+                    <p class="lead mb-0 text-white-50">A time travelling game through the Great Chicago Fire</p>
+                </div>
+                <a href="research.html" class="btn btn-outline-warning fw-semibold order-2 order-lg-1 px-4 shadow">
+                    Research
+                </a>
+                <a href="about.html" class="btn btn-outline-warning fw-semibold order-3 order-lg-3 px-4 shadow">
+                    About Project
+                </a>
+            </header>
 
-        <a href="about.html" class="btn btn-outline-warning fw-semibold order-3 order-lg-3 px-4 py-2 shadow">
-            About Project
-        </a>
-    </header>
+            <div class="cards-mobile-stack">
+                
+                <div class="card hero-card card-qr text-white">
+                    <div class="card-body text-center">
+                        <p class="card-title text-warning small text-uppercase mb-2">open on your device</p>
+                        <img src="images/QR.jpeg" alt="QR Code" class="img-fluid border border-secondary" style="max-height: 120px;">
+                    </div>
+                </div>
 
-    <section class="hero-section">
-        <img src="images/patchwork.png" alt="Chicago Fire Patchwork" class="hero-bg">
+                <div class="card hero-card card-team text-white">
+                    <div class="card-body py-2">
+                        <h6 class="card-title text-warning mb-1">Group Members</h6>
+                        <p class="card-text small lh-sm mb-0 text-light">
+                            Ainur Sekerbekova<br>Tarlan Tleubay<br>Ehsan Mirzaeisahlabadi<br>Tommaso Maria Alesso
+                        </p>
+                    </div>
+                </div>
 
-        <div class="card bg-dark text-white hero-card card-qr border-warning">
-            <div class="card-body text-center">
-                <p class="card-title text-warning small text-uppercase">open on your device</p>
-                <img src="images/QR.jpeg" alt="QR Code" class="img-fluid" style="max-height: 120px;">
+                <div class="card hero-card card-profs text-white">
+                    <div class="card-body py-2">
+                        <h6 class="card-title text-warning mb-1">Professors</h6>
+                        <p class="card-text small lh-sm mb-0 text-light">
+                            Tamborrino Rosa Rita Maria<br>Bolca Pelin<br>Darbesio Sofia
+                        </p>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
-        <div class="card bg-dark text-white hero-card card-team border-secondary">
-            <div class="card-body py-2">
-                <h6 class="card-title text-warning mb-1">Group Members</h6>
-                <p class="card-text small lh-sm mb-0">
-                    Ainur Sekerbekova<br>
-                    Tarlan Tleubay<br>
-                    Ehsan Mirzaeisahlabadi<br>
-                    Tommaso Maria Alesso
-                </p>
+            <div class="d-flex justify-content-center w-100 cta-container">
+                <a href="meet_narrators.html" class="btn btn-outline-warning btn-lg px-5 py-3 fw-semibold shadow">
+                    Let's Go
+                </a>
             </div>
-        </div>
 
-        <div class="card bg-dark text-white hero-card card-profs border-secondary">
-            <div class="card-body py-2">
-                <h6 class="card-title text-warning mb-1">Professors</h6>
-                <p class="card-text small lh-sm mb-0">
-                    Tamborrino Rosa Rita Maria<br>
-                    Bolca Pelin<br>
-                    Darbesio Sofia
-                </p>
+        </div>
+    </div>
+
+    <section class="container my-5 p-4 text-light border-top border-secondary">
+        <h5 class="text-warning fw-bold mb-3">Bibliography & Credits</h5>
+        <div class="row small opacity-75">
+            <div class="col-md-6">
+                <p>Angle, Paul M. (1946). <em>The Great Chicago Fire</em>. <a href="#" class="link-warning">Internet Archive</a></p>
+                <p><em>The Great Chicago Fire and the Web of Memory.</em> <a href="https://greatchicagofire.org/" class="link-warning">greatchicagofire.org</a></p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>GitHub:</strong> <a href="https://github.com/AinurSekerbekova/chicago_group2" class="link-warning">Project Repo</a></p>
+                <p><strong>Tools:</strong> VS Code, QGIS, AI Tools</p>
             </div>
         </div>
     </section>
 
-    <div class="row justify-content-center w-100 m-0 mb-3 order-4">
-        <a href="meet_narrators.html" class="btn btn-outline-warning btn-lg px-5 py-3 fw-semibold w-auto shadow">Let's Go</a>
-    </div>
-</div> 
-<section class="container my-5 p-4 text-light border-top border-secondary" style="opacity: 0.7">
-    <h5 class="text-warning fw-bold mb-3">Bibliography & Credits</h5>
-    <div class="row small">
-        <div class="col-md-6">
-            <p>
-                Angle, Paul M. (1946). <em>The Great Chicago Fire</em>. 
-                <a href="#" class="link-warning">Internet Archive</a>
-            </p>
-            <p>
-                <em>The Great Chicago Fire and the Web of Memory.</em> <br>
-                <a href="https://greatchicagofire.org/" class="link-warning">greatchicagofire.org</a>
-            </p>
-        </div>
-        <div class="col-md-6">
-            <p>
-                <strong>GitHub:</strong> <a href="https://github.com/AinurSekerbekova/chicago_group2" class="link-warning">Project Repo</a><br>
-                <strong>Tools:</strong> VS Code, QGIS, Perplexity Pro, Copilot
-            </p>
-        </div>
-    </div>
-</section>
-
-<script src="scripts/myCollection.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    window.addEventListener("DOMContentLoaded", () => {
-        localStorage.removeItem("myCollection");
-    });
-</script>
+    <script src="scripts/myCollection.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            localStorage.removeItem("myCollection");
+        });
+    </script>
 
 </body>
 </html>
