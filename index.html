@@ -3,120 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chicago Fire Start Page</title>
+    <title>Letters of Fire</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 
     <style>
-        /* Custom Responsive Styles */
-        
-        /* 1. Make the Hero Section Relative so absolute children position correctly inside it */
-        .hero-section {
-            position: relative;
-            min-height: 60vh; /* Ensure enough height on desktop */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* --- GLOBAL STYLES --- */
+        body {
+            margin: 0;
+            overflow-x: hidden; /* Prevent side scroll */
         }
 
-        /* 2. Responsive Header Layout */
-        .header-nav {
-            display: flex;
-            flex-direction: column; /* Stack vertically on mobile */
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-        }
+        /* --- DESKTOP LAYOUT (Force 1 screen fit) --- */
+        @media (min-width: 992px) {
+            /* 1. The Wrapper: Forces Header + Hero + Button to fit exactly in 100% height */
+            .landing-wrapper {
+                height: 100vh; 
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between; /* Spreads items out vertically */
+                padding-bottom: 2rem;
+                position: relative; /* For absolute cards */
+            }
 
-        /* 3. Card Behavior (The Logic Switch) */
-        .hero-card {
-            width: 100%;
-            margin-bottom: 1rem; /* Spacing between cards on mobile */
-        }
-
-        /* DESKTOP VIEW (Screens larger than 768px) */
-        @media (min-width: 768px) {
-            /* Header: Row layout with buttons pushed to sides */
+            /* 2. The Header: Horizontal layout */
             .header-nav {
-                flex-direction: row;
+                display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
+                padding: 1.5rem 3rem;
+                z-index: 10;
             }
-            
-            /* Cards: Switch to Absolute positioning to stick to corners */
-            .hero-card {
-                position: absolute; 
-                width: auto; /* Let content define width */
-                max-width: 300px;
-                margin-bottom: 0;
+
+            /* 3. The Hero Section: Takes up all remaining space */
+            .hero-section {
+                flex-grow: 1;
+                display: flex;
+                align-items: center; /* Center image vertically */
+                justify-content: center; /* Center image horizontally */
+                position: relative;
+                overflow: hidden; /* Ensure nothing spills out */
             }
-            
-            /* Map specific corners */
-            .card-top-left { top: 0; left: 0; margin: 1.5rem; }
-            .card-bottom-left { bottom: 0; left: 0; margin: 1.5rem; }
-            .card-bottom-right { bottom: 0; right: 0; margin: 1.5rem; }
-        }
 
-        /* IMAGE STYLES */
-        .hero-bg {
-            width: 100%;
-            /* On Mobile: Let it be full width */
-            max-width: 100%; 
-            height: auto;
-            opacity: 0.8;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* DESKTOP SPECIFIC IMAGE SIZE */
-        @media (min-width: 992px) {
+            /* 4. The Image: BIG but constrained by HEIGHT so button stays visible */
             .hero-bg {
-                /* On Desktop: Allow it to grow much larger */
-                /* You can change 1200px to '100%' if you want it massive */
-                max-width: '100%'; 
-                
-                /* Optional: If you want it to cover the screen height better */
-                /* max-height: 80vh; */
-                /* object-fit: contain; */
+                max-height: 65vh; /* Key: Limits height so button isn't pushed off */
+                width: auto;      /* Auto width maintains aspect ratio */
+                max-width: 90%;   /* Don't touch edges */
+                object-fit: contain;
             }
+
+            /* 5. The Cards: Stick to corners of the wrapper */
+            .hero-card {
+                position: absolute;
+                width: 280px;
+                z-index: 20;
+            }
+            /* Pin positions */
+            .card-qr { top: 100px; left: 40px; } /* Below header */
+            .card-team { bottom: 100px; left: 40px; } /* Above footer area */
+            .card-profs { bottom: 100px; right: 40px; }
         }
+
+        /* --- MOBILE LAYOUT (Standard Scrolling) --- */
+        @media (max-width: 991px) {
+            .landing-wrapper {
+                min-height: 100vh;
+                padding-bottom: 2rem;
+            }
+            .header-nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .hero-section {
+                padding: 1rem;
+                text-align: center;
+            }
+            .hero-bg {
+                width: 100%;
+                height: auto;
+                margin-bottom: 2rem;
+            }
+            .hero-card {
+                width: 100%; /* Full width on mobile */
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
 
 <body class="bg-black text-light">
-<div class="container-fluid p-0" style="background-color: rgba(0, 0, 0, 0.8); min-height: 100vh;">
+
+<div class="landing-wrapper" style="background-color: rgba(0, 0, 0, 0.8)">
     
-    <header class="header-nav mb-2">
-        <div class="text-center py-3 text-light order-1 order-md-2 flex-grow-1">
+    <header class="header-nav">
+        <div class="text-center text-light order-1 order-lg-2">
             <h2 class="display-5 fw-bold" style="font-family: 'Cinzel', serif;">Letters of Fire</h2>
-            <p class="lead">A time travelling game through the Great Chicago Fire</p>
+            <p class="lead mb-0">A time travelling game through the Great Chicago Fire</p>
         </div>
 
-        <a href="research.html" class="btn btn-outline-warning fw-semibold order-2 order-md-1 px-4 py-2 shadow">
+        <a href="research.html" class="btn btn-outline-warning fw-semibold order-2 order-lg-1 px-4 py-2 shadow">
             Research
         </a>
 
-        <a href="about.html" class="btn btn-outline-warning fw-semibold order-3 order-md-3 px-4 py-2 shadow">
-            About the Project
+        <a href="about.html" class="btn btn-outline-warning fw-semibold order-3 order-lg-3 px-4 py-2 shadow">
+            About Project
         </a>
     </header>
 
-    <section class="hero-section position-relative text-white px-3">
-        <img src="images/patchwork.png" alt="background" class="hero-bg mb-4 mb-md-0">
+    <section class="hero-section">
+        <img src="images/patchwork.png" alt="Chicago Fire Patchwork" class="hero-bg">
 
-        <div class="card bg-dark text-white hero-card card-top-left border-warning">
+        <div class="card bg-dark text-white hero-card card-qr border-warning">
             <div class="card-body text-center">
-                <p class="card-title text-warning small text-uppercase ls-1">open on your device</p>
-                <img src="images/QR.jpeg" alt="Logo" class="img-fluid m-2" style="max-height: 150px;">
+                <p class="card-title text-warning small text-uppercase">open on your device</p>
+                <img src="images/QR.jpeg" alt="QR Code" class="img-fluid" style="max-height: 120px;">
             </div>
         </div>
 
-        <div class="card bg-dark text-white hero-card card-bottom-left border-secondary">
-            <div class="card-body">
-                <h5 class="card-title text-warning">Group Members</h5>
-                <p class="card-text mb-0 small">
+        <div class="card bg-dark text-white hero-card card-team border-secondary">
+            <div class="card-body py-2">
+                <h6 class="card-title text-warning mb-1">Group Members</h6>
+                <p class="card-text small lh-sm mb-0">
                     Ainur Sekerbekova<br>
                     Tarlan Tleubay<br>
                     Ehsan Mirzaeisahlabadi<br>
@@ -125,10 +137,10 @@
             </div>
         </div>
 
-        <div class="card bg-dark text-white hero-card card-bottom-right border-secondary">
-            <div class="card-body">
-                <h5 class="card-title text-warning">Professors</h5>
-                <p class="card-text mb-0 small">
+        <div class="card bg-dark text-white hero-card card-profs border-secondary">
+            <div class="card-body py-2">
+                <h6 class="card-title text-warning mb-1">Professors</h6>
+                <p class="card-text small lh-sm mb-0">
                     Tamborrino Rosa Rita Maria<br>
                     Bolca Pelin<br>
                     Darbesio Sofia
@@ -137,47 +149,37 @@
         </div>
     </section>
 
-    <div class="row justify-content-center px-4 mt-5 mb-5">
-        <a href="meet_narrators.html" class="btn btn-outline-warning btn-lg px-5 py-3 fw-semibold w-auto">Let's Go</a>
+    <div class="row justify-content-center w-100 m-0 mb-3 order-4">
+        <a href="meet_narrators.html" class="btn btn-outline-warning btn-lg px-5 py-3 fw-semibold w-auto shadow">Let's Go</a>
     </div>
-
-    <section class="container my-5 p-4 text-light border-top border-secondary">
-        <h2 class="text-warning fw-bold mb-3">Bibliography</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <p>
-                    Angle, Paul M. (1946). <em>The Great Chicago Fire: The Human Account.</em> Chicago Historical Society. <br>
-                    Available at:
-                    <a href="https://libsysdigi.library.illinois.edu/OCA/Books2012-06/greatchicagofire00angl/greatchicagofire00angl.pdf"
-                       target="_blank" class="link-warning text-decoration-underline">Internet Archive</a>
-                </p>
-                <p>
-                    <em>The Great Chicago Fire and the Web of Memory.</em> <br>
-                    Retrieved from
-                    <a href="https://greatchicagofire.org/" target="_blank" rel="noopener noreferrer"
-                       class="link-warning text-decoration-underline">greatchicagofire.org</a>
-                </p>
-            </div>
-            <div class="col-md-6">
-                <p>
-                    <strong>GitHub Repository:</strong><br>
-                    <a href="https://github.com/AinurSekerbekova/chicago_group2" target="_blank" rel="noopener noreferrer"
-                       class="link-warning text-decoration-underline">View on GitHub</a>
-                </p>
-                <p>
-                    <strong>Software Used:</strong><br>
-                    Visual Studio Code, QGIS, Perplexity Pro, Copilot
-                </p>
-            </div>
+</div> 
+<section class="container my-5 p-4 text-light border-top border-secondary" style="opacity: 0.7">
+    <h5 class="text-warning fw-bold mb-3">Bibliography & Credits</h5>
+    <div class="row small">
+        <div class="col-md-6">
+            <p>
+                Angle, Paul M. (1946). <em>The Great Chicago Fire</em>. 
+                <a href="#" class="link-warning">Internet Archive</a>
+            </p>
+            <p>
+                <em>The Great Chicago Fire and the Web of Memory.</em> <br>
+                <a href="https://greatchicagofire.org/" class="link-warning">greatchicagofire.org</a>
+            </p>
         </div>
-    </section>
-</div>
+        <div class="col-md-6">
+            <p>
+                <strong>GitHub:</strong> <a href="https://github.com/AinurSekerbekova/chicago_group2" class="link-warning">Project Repo</a><br>
+                <strong>Tools:</strong> VS Code, QGIS, Perplexity Pro, Copilot
+            </p>
+        </div>
+    </div>
+</section>
 
 <script src="scripts/myCollection.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     window.addEventListener("DOMContentLoaded", () => {
-        localStorage.removeItem("myCollection"); 
+        localStorage.removeItem("myCollection");
     });
 </script>
 
