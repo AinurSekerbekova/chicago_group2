@@ -16,47 +16,56 @@
 <div class="container-fluid">
     <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">The Last Tower --- Survival and Gratitude</h1>
 
-    <div class="row align-items-start g-4">
+    <div class="row  g-4">
         <!-- Left column: map -->
-        <div class="col-md-6">
-            <iframe src="6 E Lake Street/index.html"
-                    class="rounded shadow"
-                    style="width: 100%; height: 60vh; min-height: 300px; border: none;">
-            </iframe>
+        <div class="col-12 col-md-6">
+            <div class="media-wrap">
+                <iframe src="6 E Lake Street/index.html" class="media-frame rounded shadow" loading="lazy"
+                        style="border: none;">
+                </iframe>
+            </div>
         </div>
-
         <!-- Right column: image -->
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <img src="../images/Court House Shortly.png"
-                 alt="Courthouse"
-                 class="img-fluid rounded shadow">
+        <div class="col-12 col-md-6">
+            <div class="media-wrap">
+                <img src="../images/court house 5.jpg"
+                     alt="Courthouse"
+                     class="media-img img-fluid rounded shadow">
+            </div>
+            <p>The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</p>
         </div>
     </div>
 
-    <!-- Text content below -->
-    <div class="row" id="result-container">
-        <div class="d-flex">
-            <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
-            <h2 id="speech-text" class=" py-2 m-3"></h2>
-        </div>
-        <a href="../point_4/map_game.html" class="btn btn-warning m-4">Next place</a>
-    </div>
-    <div class="my-5 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow">
-        <p>More information about the Court House before and after<br>
-            <a href="https://greatchicagofire.org/landmarks/court-house/">Open link</a>
-            <a href="https://chicagology.com/prefire/prefire003/">Open link</a>
+    <div class="m-2 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
+        <p class="mx-3 text-center">More information about the Court House before and after<br>
+            <a class="btn btn-warning" href="https://greatchicagofire.org/landmarks/court-house/">First link</a>
+            <a class="btn btn-warning" href="https://chicagology.com/prefire/prefire003/">Second link</a>
         </p>
-        <p>Your first letter from Jonas Hutchinson, click on it to add to your collection<br>
-            <a href="../letter_pdfs/Jonas_Hutchinson.pdf"
+        <p class="mx-3 text-center">Your second letter is from Mary Fales, click on it to add to your collection<br>
+            <a href="../letter_pdfs/Mary_Fales.pdf"
                target="_blank"
+               class="btn btn-warning"
                onclick="addToCollection({
                        name: 'Jonas Hutchinson Letter',type: 'letter',
-                       file: 'letter_pdfs/Jonas_Hutchinson.pdf',location: '86 Washington Street'
+                       file: '../letter_pdfs/Mary_Fales.pdf',location: '86 Washington Street'
                })">Open PDF</a>
         </p>
     </div>
-</div>
 
+    <div class="row">
+        <a href="../point_4/map_game.html" class="btn btn-outline-warning">Next place</a>
+    </div>
+
+</div>
+<div id="dialogue-overlay" class="d-none"></div>
+
+<!-- Text content below -->
+<div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
+    <div class="d-flex">
+        <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
+        <p class="fs-4 fw-bold m-3" id="speech-text"></p>
+    </div>
+</div>
 <!-- Scripts -->
 <script src="../scripts/common_speak_script.js"></script>
 <script> // specific js for the speaking feature on this page

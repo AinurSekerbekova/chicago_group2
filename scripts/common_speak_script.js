@@ -47,8 +47,6 @@ async function showDialogue(text, dim_lights,imgSrc) {
     await new Promise(resolve => setTimeout(resolve, 40)); // milliseconds between every letter (less-> faster printing)
   }
 
-  box.classList.remove('hidden');
-  box.classList.add('visible');
 }
 
 function hideDialogue() {

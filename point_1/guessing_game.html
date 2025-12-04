@@ -21,32 +21,29 @@
 
     <div class="row justify-content-center g-4">
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/Court House Shortly.png"
-                 alt="Court House"
+            <img src="../images/court house befo.jpg"
+                 alt="Option 1"
                  class="img-fluid rounded shadow guess-photo"
-                 data-correct="true"
-                 style="cursor: pointer;">
+                 data-correct="true">
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
             <img src="../images/old water tower.jpg"
-                 alt="Old Water Tower"
+                 alt="Option 2"
                  class="img-fluid rounded shadow guess-photo"
-                 data-correct="false"
-                 style="500px; cursor: pointer;">
+                 data-correct="false">
         </div>
 
-        <div class="col-md-4 d-flex justify-content-center">
+        <div class="col-md-4 d-flex justify-content-center"> <!-- todo add new images-->
             <img src="../images/chicago museum before.jpg"
-                 alt="chicago museum"
+                 alt="Option 3"
                  class="img-fluid rounded shadow guess-photo"
-                 data-correct="false"
-                 style="cursor: pointer;">
+                 data-correct="false">
         </div>
     </div>
 
     <!-- result and next button MUST exist so JS can update them -->
-    <div class="row mt-5 bg-white bg-opacity-50 rounded shadow p-4">
+    <div class="row mt-5 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
         <div class="d-flex">
             <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
             <p id="result" class="fs-4 fw-bold m-3">Before the fire, this block was the city’s pride—massive
@@ -97,7 +94,6 @@
             }
           } else {
             result.textContent = "❌ Try again!";
-            result.style.color = "red";
           }
         });
       });
