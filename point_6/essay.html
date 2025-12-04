@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
 
 <head>
     <meta charset="UTF-8">
@@ -10,41 +10,31 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center m-4 rounded shadow text-white">The Past Revealed</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</h1>
 
     <div class="row align-items-start g-4">
         <!-- Left column: map -->
-        <div class="col-6 position-relative">
-            <iframe id="iframe1" src="86 Washington Street/index.html" class="rounded shadow"
-                    style="width: 100%; height: 50vh; min-height: 300px; border: none;">
-            </iframe>
-
-            <!-- second is leaflet map (hiden initially) -->
-            <div id="map" class="rounded shadow iframe-map d-none" style="height: 50vh;"></div>
-
-            <!-- Кнопка переключения -->
-            <button class="btn btn-warning mt-3" onclick="switchIframe()">
-                Switch map
-            </button>
+        <div class="col-12 col-md-6">
+            <div class="media-wrap">
+                <iframe src="86 Washington Street/index.html" class="media-frame rounded shadow" loading="lazy"
+                        style="border: none;">
+                </iframe>
+            </div>
         </div>
-
-
         <!-- Right column: image -->
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <img src="../images/Court House Shortly.png"
                  alt="Courthouse"
-                 class="img-fluid rounded shadow">
-            <p>The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</p>
+                 class="img-fluid rounded shadow"
+                 style="width: 100%; height: 60vh; min-height: 300px; border: none;">
         </div>
     </div>
 
-    <div class="m-4 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
+    <div class="m-2 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
         <p class="mx-3 text-center">More information about the Court House before and after<br>
             <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/">First link</a>
             <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/">Second link</a>
@@ -59,19 +49,21 @@
                })">Open PDF</a>
         </p>
     </div>
-    <!-- Text content below -->
-    <div class="row mt-5" id="result-container">
-        <div class="d-flex">
-            <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
-            <h2 id="speech-text" class=" py-2 m-3"></h2>
-        </div>
-        <a href="../point_7/map_game.html" class="btn btn-warning m-4">Next place</a>
+    <div class="row">
+        <a href="../point_5/map_game.html" class="btn btn-outline-warning">Next place</a>
+    </div>
+</div>
+<div id="dialogue-overlay" class="d-none"></div>
+
+<!-- Text content below -->
+<div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
+    <div class="d-flex">
+        <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
+        <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
 
 <!-- Scripts -->
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="../scripts/common_speak_script.js"></script>
 <script> // specific js for the speaking feature on this page
 
@@ -80,12 +72,12 @@
         showDialogue(
             `We soon saw the fire would reach our neighborhood.I packed what I most valued and clung to the buggy seat
              as the flames chased us north.`,
-             false,
+             true,
              "../images/avatar/ainur_avatar_1800s.png" // todo needs to be said by Mary Fales
          );
     });
 
-    // switch to the next phrase by enter/space on keyboard or touch on mobile screen
+    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
     function goToNext() {
         listen_to_keys(
             [{
@@ -96,7 +88,7 @@
                  and lost it anyway.`,
                 img: "../images/avatar/ehsan_avatar_1800s.png"
             }],
-            false
+            true
         )
     }
 </script>
@@ -104,48 +96,5 @@
 <script src="../scripts/homeButton.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../scripts/goBackButton.js"></script>
-<script>
-
-    // specific js for this map
-    var targetLatLng = [41.88368053652241, -87.63064605984985];
-    var userMarker = null;
-    var map = L.map('map').setView(targetLatLng, 15);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // allows user to place a marker
-    map.on('click', function (e) {
-      if (userMarker) {
-        map.removeLayer(userMarker);
-      }
-      userMarker = L.marker(e.latlng).addTo(map);
-      userMarker.userLatLng = e.latlng;
-    });
-
-    let currentIframe = 1; // показываем первый
-    function switchIframe() {
-        const iframe1 = document.getElementById("iframe1");
-        const leafletDiv = document.getElementById("map");
-
-        if (currentIframe === 1) {
-            iframe1.classList.add("d-none");
-            leafletDiv.classList.remove("d-none");
-            currentIframe = 2;
-
-            // 🔥 ключевая строка:
-            setTimeout(() => {
-                map.invalidateSize();
-            }, 100);
-        } else {
-            leafletDiv.classList.add("d-none");
-            iframe1.classList.remove("d-none");
-            currentIframe = 1;
-        }
-    }
-
-
-</script>
-<!-- ✅ Add this AFTER loading myCollection.js -->
 </body>
 </html>

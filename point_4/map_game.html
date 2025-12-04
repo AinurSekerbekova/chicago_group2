@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <title>Anna Higginson</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="../styles/main.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Leaflet CSS -->
@@ -19,13 +19,13 @@
 <div class="container-fluid">
     <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
     <div class="row g-4 align-items-stretch">
-        <div class="col-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
+        <div class="col-12 col-md-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
             <div id="map" class="rounded shadow-sm" style="height: 90%;"></div>
             <button class="btn btn-warning mt-2 px-5" id="submit-button">Check my guess</button>
         </div>
 
-        <div class="col-6" style="height: 60vh;">
-            <iframe id="next-to-map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
+        <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
+            <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
                     src="https://www.google.com/maps/embed?pb=!4v1762181384915!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQ5b0hhZ1FF!2m2!1d41.88325328070925!2d-87.63061808105044!3f181.2294254331153!4f-25.401150042407195!5f0.7820865974627469">
             </iframe>
@@ -33,11 +33,11 @@
     </div>
 </div>
 
-<div class="row" id="result-container">
+<div class="row mt-5 mx-1 p-4 bg-dark bg-opacity-50 rounded shadow text-white" id="result-container">
     <div class="d-flex">
-        <img src="images/avatar/ainur_avatar.png" alt="Character" id="character-img">
+        <img src="../images/avatar/ainur_avatar.png" alt="Character" id="character-img">
         <div>
-            <h2 id="speech-text" class=" py-2 m-3"></h2>
+            <h3 id="speech-text" class=" py-2 m-3"></h3>
             <h4 id="hint"></h4>
         </div>
     </div>
@@ -51,7 +51,7 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Our custom JS -->
-<script src="scripts/common_game_script.js"></script>
+<script src="../scripts/common_game_script.js"></script>
 <script>
     // specific js for this map
     var targetLatLng = [41.88368053652241, -87.63064605984985];
@@ -83,7 +83,7 @@
 
 
 </script>
-<script src="scripts/common_speak_script.js"></script>
+<script src="../scripts/common_speak_script.js"></script>
 <script>// specific js for the speaking feature on this page
 
     // Automatically start with first phrase at the start
@@ -91,7 +91,7 @@
         showDialogue(
             "Here’s the irony—where Chicago’s firefighters train today,the fire itself was born.",
             true,
-            "images/avatar/ainur_avatar_1800s.png"
+            "../images/avatar/ainur_avatar_1800s.png"
         );
     });
     // switch to the next phrase by enter or space on keyboard or touch on mobile screen
@@ -106,9 +106,9 @@
     }
 
 </script>
-<script src="scripts/myCollection.js"></script>
-<script src="scripts/homeButton.js"></script>
-<script src="scripts/goBackButton.js"></script>
+<script src="../scripts/myCollection.js"></script>
+<script src="../scripts/homeButton.js"></script>
+<script src="../scripts/goBackButton.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
