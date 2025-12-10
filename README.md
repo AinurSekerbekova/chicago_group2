@@ -1,5 +1,9 @@
 # The Great Chicago Fire Digital Project
 https://ainursekerbekova.github.io/chicago_group2/
+«This work was carried out within the
+framework of the Digital Heritage
+course at Politecnico di Torino in the
+academic year 2025–2026.»
 
 An interactive web experience exploring the Great Chicago Fire of 1871 through games, maps, and historical essays.
 
