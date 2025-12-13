@@ -283,3 +283,30 @@ iframe {
     border-radius: 3px;
 }
 
+
+/* ================== the fire sparks in essay page STYLES ================== */
+/* частицы искр */
+#dialogue-overlay .spark {
+  position: absolute;
+  bottom: 8%;
+  border-radius: 50%;
+  pointer-events: none;
+  transform-origin: center;
+  animation: spark-rise linear forwards;
+  filter: drop-shadow(0 0 6px rgba(181,76,2,0.7));
+}
+
+/* движение вверх + растворение */
+@keyframes spark-rise {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  60% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-260px) translateX(var(--dx, 0px)) scale(0.35) rotate(var(--rot, 0deg));
+  }
+}

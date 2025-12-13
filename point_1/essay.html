@@ -60,7 +60,7 @@
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
+        <img src="../images/avatar/tarlan_avatar_1800s.png" alt="Character" id="character-img">
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
@@ -73,9 +73,9 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `By the time of the fire the Court House had also added east and west wings, a brand-new clock, and a
-             10,849-pound bronze bell that for over five hours would ring out the alarm until it fell through the
-             collapsing building . . . `,
+            `Above on the left side you can see the historical basemap of Old Chicago created by the narrators.
+             It shows the burned area of the 1871 Great Chicago Fire and the exact location of Jonas Hutchinson,
+             the author of the letter you are collecting.`,
              true,
              "../images/avatar/tarlan_avatar_1800s.png"
          );
@@ -85,29 +85,24 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: `Below on the right side you can see the restored images of the Courthouse right before the fire.`,
-                img: "../images/avatar/tarlan_avatar_1800s.png"
-            },{
-                text: `And on the left side you can see the historical basemap of Old Chicago created by the narrators.
-                It shows the burned area of the 1871 Great Chicago Fire and the exact location of Jonas Hutchinson,
-                 the author of the letter you are collecting.`,
+                text: `And on the right side you can see the restored images of the Courthouse right before the fire.`,
                 img: "../images/avatar/tarlan_avatar_1800s.png"
             },{
                 text: `I am Jonas Hutchinson, a lawyer and notary public who kept his office in the Chicago Court House,
                  the center of our city’s records and public life.`,
-                img: "../images/avatar/tommaso_avatar_1800s.png" // todo change to img of Jonas Hutchinson
+                img: "../images/characters/jonas_hutchinson.png"
             },{
                 text: `On the night of the Great Fire, I barely escaped as the Court House and everything within it —
                  my papers, my library, my work — were swallowed by the flames.`,
-                img: "../images/avatar/tommaso_avatar_1800s.png" // todo change to img of Jonas Hutchinson
+                img: "../images/characters/jonas_hutchinson.png"
             },{
                 text: `I ran through smoke-filled streets with nothing but the clothes on my back,
                 watching the heart of Chicago collapse into burning rubble.`,
-                img: "../images/avatar/tommaso_avatar_1800s.png" // todo change to img of Jonas Hutchinson
+                img: "../images/characters/jonas_hutchinson.png"
             },{
                 text: `Now I speak to you as a survivor, trying to make sense of a night when an entire city,
                 and the life I knew, vanished at once.`,
-                img: "../images/avatar/tommaso_avatar_1800s.png" // todo change to img of Jonas Hutchinson
+                img: "../images/characters/jonas_hutchinson.png"
             }],
             true
         )
@@ -118,5 +113,7 @@
 <script src="../scripts/homeButton.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../scripts/goBackButton.js"></script>
+<audio id="fireSound" src="../mp3/fire_sounds.mp3" loop></audio>
+<script src="../scripts/flames.js"></script>
 </body>
 </html>

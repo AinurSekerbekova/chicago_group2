@@ -27,8 +27,9 @@
         <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
             <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1762181384915!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQ5b0hhZ1FF!2m2!1d41.88325328070925!2d-87.63061808105044!3f181.2294254331153!4f-25.401150042407195!5f0.7820865974627469">
+                    src="https://www.google.com/maps/embed?pb=!4v1765636020589!6m8!1m7!1sIV5ZiOs_b0eyWDgJ3q7GWg!2m2!1d41.86921142242095!2d-87.64224295388821!3f95.73736001635056!4f-25.29558539546447!5f0.7820865974627469">
             </iframe>
+
         </div>
     </div>
 </div>
@@ -54,7 +55,7 @@
 <script src="../scripts/common_game_script.js"></script>
 <script>
     // specific js for this map
-    var targetLatLng = [41.88368053652241, -87.63064605984985];
+    var targetLatLng = [41.869419147666015, -87.64183525811794];
     var userMarker = null;
     var map = L.map('map').setView(targetLatLng, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -74,8 +75,8 @@
     const submit_button = document.getElementById('submit-button');
     submit_button.addEventListener('click', function (e) {
         form_submitted(
-            'You got it. The Court House.',
-            'Close—but this plaza didn’t always shine like this. Try again, pal.',
+            `You got it. Fire Academy on — 558 West DeKoven Street. No cows visible today, but according to a legend spark from here lit up history`,
+            `Close — but this is somewhere else. Try again, pal.`,
             "../images/avatar/tommaso_avatar.png"
         );
     });
@@ -85,7 +86,7 @@
 <script src="../scripts/common_speak_script.js"></script>
 <script>// specific js for the speaking feature on this page
 
-    // Automatically start with first phrase at the start
+    // Automatically start with the first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
             "Here’s the irony—where Chicago’s firefighters train today, the legend says the fire itself was born.",
@@ -94,7 +95,7 @@
         );
     });
 
-    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
+    // switch to the next phrase by 'enter' or 'space' on keyboard or touch on mobile screen
     function goToNext() {
         listen_to_keys(
             [{
