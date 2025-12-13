@@ -273,18 +273,6 @@ iframe {
     }
 }
 
-
-/* ================== the collection STYLES ================== */
-#collectionModal::-webkit-scrollbar {
-    width: 6px;
-}
-#collectionModal::-webkit-scrollbar-thumb {
-    background: #ffc107;
-    border-radius: 3px;
-}
-
-
-/* ================== the fire sparks in essay page STYLES ================== */
 /* частицы искр */
 #dialogue-overlay .spark {
   position: absolute;
@@ -309,4 +297,14 @@ iframe {
     opacity: 0;
     transform: translateY(-260px) translateX(var(--dx, 0px)) scale(0.35) rotate(var(--rot, 0deg));
   }
+}
+
+
+/* ================== the collection STYLES ================== */
+#collectionModal::-webkit-scrollbar {
+    width: 6px;
+}
+#collectionModal::-webkit-scrollbar-thumb {
+    background: #ffc107;
+    border-radius: 3px;
 }

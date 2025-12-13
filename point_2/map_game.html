@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mary Fales</title>
+    <title>Letter of Mary Fales</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
@@ -27,9 +27,8 @@
         <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
             <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1765636020589!6m8!1m7!1sIV5ZiOs_b0eyWDgJ3q7GWg!2m2!1d41.86921142242095!2d-87.64224295388821!3f95.73736001635056!4f-25.29558539546447!5f0.7820865974627469">
+                    src="https://www.google.com/maps/embed?pb=!4v1765642375634!6m8!1m7!1s3hqAUzhWVCdeADyrZj9EDQ!2m2!1d41.87975292768775!2d-87.62933801899122!3f283.771944615567!4f20.199312960830753!5f0.7820865974627469">
             </iframe>
-
         </div>
     </div>
 </div>
@@ -39,7 +38,7 @@
         <img src="../images/avatar/ainur_avatar.png" alt="Character" id="character-img">
         <div>
             <h3 id="speech-text" class=" py-2 m-3"></h3>
-            <h4 id="hint"></h4>
+            <h5 id="hint"></h5>
         </div>
     </div>
     <a href="guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
@@ -55,7 +54,7 @@
 <script src="../scripts/common_game_script.js"></script>
 <script>
     // specific js for this map
-    var targetLatLng = [41.869419147666015, -87.64183525811794];
+    var targetLatLng = [41.879778857646954, -87.62905841752207];
     var userMarker = null;
     var map = L.map('map').setView(targetLatLng, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -75,8 +74,10 @@
     const submit_button = document.getElementById('submit-button');
     submit_button.addEventListener('click', function (e) {
         form_submitted(
-            `You got it. Fire Academy on — 558 West DeKoven Street. No cows visible today, but according to a legend spark from here lit up history`,
-            `Close — but this is somewhere else. Try again, pal.`,
+            `That’s it. 135 Dearborn Street. In 1871, this was the Portland Block — the law office of David Fales.
+            When the fire reached downtown, this building was lost. And with it, a family’s sense of security.`,
+            `Not quite. You’re close, but this wasn’t just any office. It stood in the heart of Chicago’s legal
+            and business district... Try again, pal.`,
             "../images/avatar/tommaso_avatar.png"
         );
     });
@@ -89,7 +90,7 @@
     // Automatically start with the first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            "Here’s the irony—where Chicago’s firefighters train today, the legend says the fire itself was born.",
+            `Take a good look around. Glass, steel, offices, people in a hurry. It feels permanent, doesn’t it?`,
             true,
             "../images/avatar/ainur_avatar.png"
         );
@@ -99,8 +100,9 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: "Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow.",
-                img: "../images/avatar/ainur_avatar.png"
+               text: `It was offices in 1871 as well, this was Portland Block where the Fales family’s livelihood stood.
+               Somewhere on this street, a lawyer named David Fales kept his office. Can you find the spot?`,
+               img: "../images/avatar/ainur_avatar.png"
             }],
             true
         )

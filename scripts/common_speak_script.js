@@ -13,8 +13,6 @@ document.addEventListener("keydown", (e) => {
 let messageIndex = 0;
 
 function listen_to_keys( messages, dim_lights){
-    console.log(messageIndex)
-    console.log(messages[messageIndex])
     if (messageIndex <= messages.length-1) {
         showDialogue(messages[messageIndex].text,dim_lights,messages[messageIndex].img);
     }

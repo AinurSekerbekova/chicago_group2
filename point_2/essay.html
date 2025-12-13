@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O’Leary’s Barn</title>
+    <title>Letter of Mary Fales</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,7 +14,7 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">O’Leary’s Barn</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">From office to home</h1>
 
     <div class="row g-4">
         <!-- Left column: map -->
@@ -28,9 +28,10 @@
         <!-- Right column: image -->
         <div class="col-12 col-md-6">
             <div class="media-wrap">
-                <img src="../images/court house 5.jpg"
-                     alt="Courthouse"
-                     class="media-img img-fluid rounded shadow">
+                <img src="../images/Near North Side ruins.png"
+                     alt="Fales house area"
+                     class="media-img img-fluid rounded shadow" style="object-fit: contain">
+                <!-- taken from https://images.chicagohistory.org/search/?searchQuery=Near+North+Side+1871 -->
             </div>
             <p>The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</p>
         </div>
@@ -46,8 +47,8 @@
                target="_blank"
                class="btn btn-warning"
                onclick="addToCollection({
-                       name: 'Jonas Hutchinson Letter',type: 'letter',
-                       file: '../letter_pdfs/Mary_Fales.pdf',location: '86 Washington Street'
+                       name: 'Mary Fales Letter',type: 'letter',
+                       file: '../letter_pdfs/Mary_Fales.pdf',location: '135 Dearborn Street'
                })">Open PDF</a>
         </p>
     </div>
@@ -62,7 +63,7 @@
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
+        <img src="../images/characters/mary_fales.png" alt="Character" id="character-img">
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
@@ -74,10 +75,10 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `We soon saw the fire would reach our neighborhood. I packed what I most valued and clung to the buggy seat
-             as the flames chased us north.`,
+            `My name is  Mary Fales. My husband, David, was a lawyer whose office stood on Dearborn Street, while our home
+            was north of the river.`,
              true,
-             "../images/avatar/ainur_avatar_1800s.png" // todo needs to be said by Mary Fales
+             "../images/characters/mary_fales.png"
         );
     });
 
@@ -85,12 +86,31 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: `She was one of thousands fleeing through smoke and sparks — no time, no wagons, just chaos.`,
-                img: "../images/avatar/ehsan_avatar_1800s.png"
+                text: `We believed the fire would be stopped by the river — so many of us did`,
+                img: "../images/characters/mary_fales.png"
             },{
-                text: `Every item you chose carries a memory. In the end, she buried her piano under the earth...
-                 and lost it anyway.`,
-                img: "../images/avatar/ehsan_avatar_1800s.png"
+                text: `When it did not, we fled from place to place, burying our belongings in the earth, only to lose
+                them all the same as the flames chased us north.`,
+                img: "../images/characters/mary_fales.png"
+            },{
+                text: `She was one of thousands fleeing through smoke and sparks — no time, no wagons, just chaos.`,
+                img: "../images/avatar/ehsan_avatar.png"
+            },{
+                text: `In the 19th century, a piano was a sign of wealth and family culture, not just furniture.
+                Losing a piano meant losing a home, a normal life, a past.`,
+                img: "../images/avatar/ehsan_avatar.png"
+            },{
+                text: `Every item you chose to take with you carries a memory. In the end, she buried her piano
+                 under the earth as she could no bring it... but lost it to fire anyway.`,
+                img: "../images/avatar/ehsan_avatar.png"
+            },{
+                text: `That's why this episode is often cited by historians—it shows that people lost not only buildings
+                 but also their identity.`,
+                img: "../images/avatar/ehsan_avatar.png"
+            },{
+                text: `Above you can see the historic map with the point where the fire took her husband's office.
+                And some pictures of how the ruins left of their house ares after the fire`,
+                img: "../images/avatar/ehsan_avatar.png"
             }],
             true
         )
