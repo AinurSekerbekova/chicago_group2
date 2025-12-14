@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chicago Water Tower</title>
+    <title>Letter of George Howland</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,7 +14,7 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">The Last Tower — Survival and Gratitude</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Temporary courthouse and a shelter for the homeless</h1>
 
     <div class="row  g-4">
         <!-- Left column: map -->
@@ -28,11 +28,10 @@
         <!-- Right column: image -->
         <div class="col-12 col-md-6">
             <div class="media-wrap">
-                <img src="../images/court house 5.jpg"
-                     alt="Courthouse"
-                     class="media-img img-fluid rounded shadow">
+                <img src="../images/to the people.png"
+                     alt="TO THE PEOPLE OF ROCK ISLAND"
+                     class="media-img img-fluid rounded shadow" style="object-fit: contain">
             </div>
-            <p>The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</p>
         </div>
     </div>
 
@@ -62,7 +61,8 @@
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
+        <img src="../images/avatar/ehsan_avatar_1800s.png" alt="Character" id="character-img">
+<!-- todo need a photo of George Howland-->
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
@@ -73,10 +73,10 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `We soon saw the fire would reach our neighborhood.I packed what I most valued and clung to the buggy seat
-             as the flames chased us north.`,
-             false,
-             "../images/avatar/ainur_avatar_1800s.png" // todo needs to be said by Mary Fales
+            `I am George Howland, Principal of Central High School. My school is currently closed to students,
+             serving instead as a temporary courthouse and a shelter for the homeless.`,
+             true,
+             "../images/avatar/ehsan_avatar_1800s.png"
          );
     });
 
@@ -84,14 +84,16 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: `She was one of thousands fleeing through smoke and sparks — no time, no wagons, just chaos.`,
+                text: ` watched that night as the fire engines seemed entirely useless against long tongues of flame
+                that melted iron and stone as if in a blast furnace.`,
                 img: "../images/avatar/ehsan_avatar_1800s.png"
             },{
-                text: `Every item you chose carries a memory. In the end, she buried her piano under the earth...
-                 and lost it anyway.`,
+                text: `It seems a strange madness now, but amidst the panic, I was calmly pouring myself a cup of coffee
+                 to prepare for the night when I heard a crackling, only to discover my own roof was on fire, forcing
+                 me to seize my trunk and run for my life.`,
                 img: "../images/avatar/ehsan_avatar_1800s.png"
             }],
-            false
+            true
         )
     }
 </script>
