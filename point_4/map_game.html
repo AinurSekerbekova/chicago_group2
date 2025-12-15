@@ -17,17 +17,17 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Try to guess where you stand</h1>
     <div class="row g-4 align-items-stretch">
         <div class="col-12 col-md-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
             <div id="map" class="rounded shadow-sm" style="height: 90%;"></div>
-            <button class="btn btn-warning mt-2 px-5" id="submit-button">Check my guess</button>
+            <button class="btn btn-outline-warning mt-2 px-5" id="submit-button">Check my guess</button>
         </div>
 
         <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
             <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1762181384915!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQ5b0hhZ1FF!2m2!1d41.88325328070925!2d-87.63061808105044!3f181.2294254331153!4f-25.401150042407195!5f0.7820865974627469">
+                    src="https://www.google.com/maps/embed?pb=!4v1765726265065!6m8!1m7!1sNSA5H4l-R14GxElJCBdr7g!2m2!1d41.88574061819993!2d-87.62879211033987!3f4.100061889975068!4f7.487426095947768!5f0.7820865974627469">
             </iframe>
         </div>
     </div>
@@ -35,7 +35,7 @@
 
 <div class="row mt-5 mx-1 p-4 bg-dark bg-opacity-50 rounded shadow text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/ainur_avatar.png" alt="Character" id="character-img">
+        <img src="../images/avatar/tommaso_avatar.png" alt="Character" id="character-img">
         <div>
             <h3 id="speech-text" class=" py-2 m-3"></h3>
             <h4 id="hint"></h4>
@@ -54,7 +54,7 @@
 <script src="../scripts/common_game_script.js"></script>
 <script>
     // specific js for this map
-    var targetLatLng = [41.88368053652241, -87.63064605984985];
+    var targetLatLng = [41.88574061819993, -87.62879211033987];
     var userMarker = null;
     var map = L.map('map').setView(targetLatLng, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -76,8 +76,9 @@
     submit_button.addEventListener('click', function (e) {
         console.log("Кнопка нажата!");
         form_submitted(
-            "You got it. The Court House.",
-            "Close—but this plaza didn’t always shine like this. Try again, pal."
+            "You got it. The 6 Lake Street! right where the 4-th writer's husband had the clothing shop",
+            "Close — but not quite there. Try again, pal.",
+            "../images/avatar/tommaso_avatar.png"
         );
     });
 
@@ -89,17 +90,17 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            "Here’s the irony—where Chicago’s firefighters train today,the fire itself was born.",
+             `Here’s the irony—where Chicago’s firefighters train today,the fire itself was born.`,
             true,
-            "../images/avatar/ainur_avatar_1800s.png"
+            "../images/avatar/tommaso_avatar.png"
         );
     });
     // switch to the next phrase by enter or space on keyboard or touch on mobile screen
     function goToNext() {
         listen_to_keys(
             [{
-                text: "Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow.",
-                img: "images/avatar/ainur_avatar_1800s.png"
+                text: `Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow. `,
+                img: "../images/avatar/tommaso_avatar.png"
             }],
             true
         )

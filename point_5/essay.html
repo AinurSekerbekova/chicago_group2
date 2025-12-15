@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Court House</title>
+    <title>Letter of Anna Higginson</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,23 +14,27 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">
+        Loss of cultural memory and intellectual life
+    </h1>
 
     <div class="row align-items-start g-4">
         <!-- Left column: map -->
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 text-center">
             <div class="media-wrap">
-                <iframe src="86 Washington Street/index.html" class="media-frame rounded shadow" loading="lazy"
-                        style="border: none;">
+                <iframe src="Former Historical Societal Building/index.html" class="media-frame rounded shadow"
+                        loading="lazy" style="border: none;">
                 </iframe>
             </div>
         </div>
         <!-- Right column: image -->
-        <div class="col-12 col-md-6">
-            <img src="../images/Court House Shortly.png"
-                 alt="Courthouse"
-                 class="img-fluid rounded shadow"
-                 style="width: 100%; height: 60vh; min-height: 300px; border: none;">
+        <div class="col-12 col-md-6 iframe-crop">
+            <div class="media-wrap">
+                <img src="../images/chicago museum before.jpg"
+                     alt="chicago museum before"
+                     class="media-img img-fluid rounded shadow">
+            </div>
+
         </div>
     </div>
 
@@ -39,18 +43,18 @@
             <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/" target="_blank" rel="noopener noreferrer">First link</a>
             <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank" rel="noopener noreferrer">Second link</a>
         </p>
-        <p class="mx-3 text-center">Your first letter from Jonas Hutchinson, click on it to add to your collection<br>
-            <a href="../letter_pdfs/Jonas_Hutchinson.pdf"
+        <p class="mx-3 text-center">Your next letter from Anna Higginson, click on it to add to your collection<br>
+            <a href="../letter_pdfs/Anna_Higginson.pdf"
                target="_blank"
                class="btn btn-outline-warning"
                onclick="addToCollection({
-                       name: 'Jonas Hutchinson Letter',type: 'letter',
-                       file: '../letter_pdfs/Jonas_Hutchinson.pdf',location: '86 Washington Street'
+                       name: 'Anna Higginson Letter',type: 'letter',
+                       file: '../letter_pdfs/Anna_Higginson.pdf',location: '86 Washington Street'
                })">Open PDF</a>
         </p>
     </div>
     <div class="row">
-        <a href="../point_5/map_game.html" class="btn btn-outline-warning">Next place</a>
+        <a href="../point_6/map_game.html" class="btn btn-outline-warning">Next place</a>
     </div>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
@@ -58,7 +62,7 @@
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
+        <img src="../images/characters/anna_higginson.png" alt="Character" id="character-img">
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
@@ -67,26 +71,28 @@
 <script src="../scripts/common_speak_script.js"></script>
 <script> // specific js for the speaking feature on this page
 
-    // Automatically start with first phrase at the start
+    // Automatically start with the first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `We soon saw the fire would reach our neighborhood.I packed what I most valued and clung to the buggy seat
+            `We soon saw the fire would reach our neighborhood. I packed what I most valued and clung to the buggy seat
              as the flames chased us north.`,
              true,
-             "../images/avatar/ainur_avatar_1800s.png" // todo needs to be said by Mary Fales
+             "../images/characters/anna_higginson.png"
          );
     });
 
-    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
+    // switch to the next phrase by 'enter' or 'space' on keyboard or touch on mobile screen
     function goToNext() {
         listen_to_keys(
             [{
-                text: `She was one of thousands fleeing through smoke and sparks — no time, no wagons, just chaos.`,
-                img: "../images/avatar/ehsan_avatar_1800s.png"
-            },{
-                text: `Every item you chose carries a memory. In the end, she buried her piano under the earth...
-                 and lost it anyway.`,
-                img: "../images/avatar/ehsan_avatar_1800s.png"
+                text: `Chicago has been thrown back twenty-five years, and I do not expect to see it restored as it was.
+                The greatness of the calamity cannot be described — the smoke has not yet cleared,
+                and despair will follow.`,
+                img: "../images/characters/anna_higginson.png"
+            }, {
+                text: `What grieves me most is not only the loss of homes, but the loss of memory and culture. Where
+                magnificent buildings once stood, there are now only rough shelters and silence.`,
+                img: "../images/characters/anna_higginson.png"
             }],
             true
         )

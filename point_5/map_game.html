@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna Higginson</title>
+    <title>Former Chicago Historical Society</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
@@ -17,17 +17,17 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this building is?</h1>
     <div class="row g-4 align-items-stretch">
         <div class="col-12 col-md-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
             <div id="map" class="rounded shadow-sm" style="height: 90%;"></div>
-            <button class="btn btn-warning mt-2 px-5" id="submit-button">Check my guess</button>
+            <button class="btn btn-outline-warning mt-2 px-5" id="submit-button">Check my guess</button>
         </div>
 
         <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
-            <iframe id="next-to-map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
+            <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1762181384915!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQ5b0hhZ1FF!2m2!1d41.88325328070925!2d-87.63061808105044!3f181.2294254331153!4f-25.401150042407195!5f0.7820865974627469">
+                    src="https://www.google.com/maps/embed?pb=!4v1765735355939!6m8!1m7!1sq0prkR04k2qWVvtY-r9lDw!2m2!1d41.91137706519027!2d-87.63151353084524!3f357.03447148785256!4f12.08595374704224!5f0.7820865974627469">
             </iframe>
         </div>
     </div>
@@ -54,7 +54,7 @@
 <script src="../scripts/common_game_script.js"></script>
 <script>
     // specific js for this map
-    var targetLatLng = [41.88368053652241, -87.63064605984985];
+    var targetLatLng = [41.91137706519027, -87.63151353084524];
     var userMarker = null;
     var map = L.map('map').setView(targetLatLng, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -74,10 +74,10 @@
     // handle form submission
     const submit_button = document.getElementById('submit-button');
     submit_button.addEventListener('click', function (e) {
-        console.log("Кнопка нажата!");
         form_submitted(
-            "You got it. The Court House.",
-            "Close—but this plaza didn’t always shine like this. Try again, pal."
+            `You got it. This was the Chicago Historical Society.`,
+            `Nope... This was not a home or a business, but a place of records and remembrance. Try again, pal.`,
+            "../images/avatar/ainur_avatar.png"
         );
     });
 
@@ -89,9 +89,10 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            "Here’s the irony—where Chicago’s firefighters train today,the fire itself was born.",
+             `This place was built to protect Chicago’s memory. Its books, records, and letters told the story of
+             the city. But the Museum you see now is not the same as it was before.`,
             true,
-            "../images/avatar/ainur_avatar_1800s.png"
+            "../images/avatar/ainur_avatar.png"
         );
     });
 
@@ -99,8 +100,8 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: "Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow.",
-                img: "images/avatar/ainur_avatar_1800s.png"
+                text: `During the fire of 1871, all of it was lost. Can you find where that history once stood?`,
+                img: "../images/avatar/ainur_avatar.png"
             }],
             true
         )

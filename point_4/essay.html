@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Court House</title>
+    <title>Letter of Aurelia King</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,23 +14,24 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</h1>
-
-    <div class="row align-items-start g-4">
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">The Water tower</h1>
+    <div class="row g-4 align-items-stretch">
         <!-- Left column: map -->
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 text-center">
             <div class="media-wrap">
-                <iframe src="86 Washington Street/index.html" class="media-frame rounded shadow" loading="lazy"
+                <iframe src="6E Lake Street/index.html" class="media-frame rounded shadow" loading="lazy"
                         style="border: none;">
                 </iframe>
             </div>
         </div>
-        <!-- Right column: image -->
-        <div class="col-12 col-md-6">
-            <img src="../images/Court House Shortly.png"
-                 alt="Courthouse"
-                 class="img-fluid rounded shadow"
-                 style="width: 100%; height: 60vh; min-height: 300px; border: none;">
+        <!-- Right column: current view -->
+        <div class="col-12 col-md-6 iframe-crop">
+            <div class="media-wrap">
+                <iframe class="media-frame rounded shadow" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
+                        src="https://www.google.com/maps/embed?pb=!4v1765733165214!6m8!1m7!1sbJOJVjPbF1rCpZ7Pf1PerA!2m2!1d41.89733260119461!2d-87.62414292449925!3f238.70439283545025!4f24.465621532248818!5f0.7820865974627469">
+                </iframe>
+            </div>
         </div>
     </div>
 
@@ -39,13 +40,13 @@
             <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/" target="_blank" rel="noopener noreferrer">First link</a>
             <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank" rel="noopener noreferrer">Second link</a>
         </p>
-        <p class="mx-3 text-center">Your first letter from Jonas Hutchinson, click on it to add to your collection<br>
-            <a href="../letter_pdfs/Jonas_Hutchinson.pdf"
+        <p class="mx-3 text-center">The letter from Aurelia King, click to add the 4-th letter to your collection<br>
+            <a href="../letter_pdfs/Aurelia_King.pdf"
                target="_blank"
                class="btn btn-outline-warning"
                onclick="addToCollection({
-                       name: 'Jonas Hutchinson Letter',type: 'letter',
-                       file: '../letter_pdfs/Jonas_Hutchinson.pdf',location: '86 Washington Street'
+                       name: 'Aurelia King Letter',type: 'letter',
+                       file: '../letter_pdfs/Aurelia_King.pdf',location: '86 Washington Street'
                })">Open PDF</a>
         </p>
     </div>
@@ -58,7 +59,7 @@
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
+        <img src="../images/characters/aurelia_king.png" alt="Character" id="character-img">
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
@@ -70,10 +71,11 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `We soon saw the fire would reach our neighborhood.I packed what I most valued and clung to the buggy seat
-             as the flames chased us north.`,
+            `I am Aurelia King, the wife of a wholesale clothing merchant; a fortnight ago I was settled in a new house,
+             thinking only of winter comforts, and now I learn to live lightly, with my little children clinging to me
+              and ashes in my hair.`,
              true,
-             "../images/avatar/ainur_avatar_1800s.png" // todo needs to be said by Mary Fales
+             "../images/characters/aurelia_king.png"
          );
     });
 
@@ -81,12 +83,26 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: `She was one of thousands fleeing through smoke and sparks — no time, no wagons, just chaos.`,
-                img: "../images/avatar/ehsan_avatar_1800s.png"
+                text: `My husband’s store on Lake Street, crowded with goods and account books — was consumed so swiftly
+                 that even the figures in the ledgers had scarcely time to be frightened. Henry counts $200,000 lost`,
+                img: "../images/characters/aurelia_king.png"
             },{
-                text: `Every item you chose carries a memory. In the end, she buried her piano under the earth...
-                 and lost it anyway.`,
-                img: "../images/avatar/ehsan_avatar_1800s.png"
+                text: `Even after that we did not realize the danger to our home until we saw our water pump (which
+                were beyond us) were burning, when we gave up all hope, knowing that the water supply must soon be cut off.`,
+                img: "../images/characters/aurelia_king.png"
+            },{
+                text: `I find myself the owner of an India shawl worth a thousand dollars, and yet without so much as a
+                chemise to my back—a luxury, I assure you, of the most inconvenient kind.”`,
+                img: "../images/characters/aurelia_king.png"
+            },{
+                text: `We knew our friends only by a look of the eye or a motion, all being blackened with smoke;
+                ladies fled in night‑gowns and slippers, gentlemen in night‑shirts and pantaloons, and Chicago for that
+                night was wonderfully democratic.`,
+                img: "../images/characters/aurelia_king.png"
+            },{
+                text: `There is no trace left of the burned water pump that Aurelia speaks of, but there is the
+                Water Tower that survived the night. You can still visit it today`,
+                img: "../images/avatar/tommaso_avatar.png"
             }],
             true
         )
