@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
 
 <head>
     <meta charset="UTF-8">
@@ -21,11 +21,12 @@
 
     <div class="row justify-content-center g-4">
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/Court House Shortly.png"
+            <img src="../images/court house befo.jpg"
                  alt="Court House"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="true"
-                 style="cursor: pointer;">
+                 data-name="Court House"
+                 data-src="images/Court House Shortly.png">
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
@@ -33,7 +34,8 @@
                  alt="Old Water Tower"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="false"
-                 style="500px; cursor: pointer;">
+                 data-name="Old Water Tower"
+                 data-src="images/old water tower.jpg">
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
@@ -41,16 +43,17 @@
                  alt="chicago museum"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="false"
-                 style="cursor: pointer;">
+                 data-name="chicago museum"
+                 data-src="images/chicago museum before.jpg">
         </div>
     </div>
 
     <!-- result and next button MUST exist so JS can update them -->
-    <div class="row mt-5 bg-white bg-opacity-50 rounded shadow p-4">
+    <div class="row mt-5 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
         <div class="d-flex">
             <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
             <p id="result" class="fs-4 fw-bold m-3">Before the fire, this block was the city’s pride—massive
-                limestone, clocktower shining.<br> Can you guess which picture shows it before the flames?
+                limestone, clocktower shining.<br><br> Can you guess which picture shows it before the flames?
             </p>
         </div>
         <a href="essay.html" class="btn btn-warning m-4 d-none" id="nextButton">Discover the History</a>
@@ -67,41 +70,39 @@
 <script>
     // Wait until DOM is ready to be safe
     document.addEventListener('DOMContentLoaded', () => {
-      const photos = document.querySelectorAll('.guess-photo');
-      const result = document.getElementById('result');
-      const nextButton = document.getElementById('nextButton');
-      const character_img = document.getElementById('character-img');
+        const photos = document.querySelectorAll('.guess-photo');
+        const result = document.getElementById('result');
+        const nextButton = document.getElementById('nextButton');
 
-      photos.forEach(photo => {
-        photo.addEventListener('click', () => {
-          // safety: ensure DOM elements exist
-          if (!result || !nextButton) return;
+        photos.forEach(photo => {
+            photo.addEventListener('click', () => {
+                // safety: ensure DOM elements exist
+                if (!result || !nextButton) return;
 
-          if (photo.dataset.correct === "true") {
-            // update UI
-            result.textContent = "✅ Correct! This is the Court House. Now let's go hear the history of this place!";
-            result.style.color = "green";
-            nextButton.classList.remove('d-none');
-            character_img.classList.remove('d-none');
+                if (photo.dataset.correct === "true") {
+                    // update UI
+                    result.innerHTML = `✅ Correct! This is the Court House. <br>But by the time of the fire the Court House had
+                    also added east and west wings, a brand-new clock, and a 10,849-pound bronze bell that for over five hours
+                    would ring out the alarm until it fell through the collapsing building  .  .  .  let's hear the history of this place from the survivor`;
+                    nextButton.classList.remove('d-none');
 
-            // prepare item object (image + name)
-            const item = {
-              name: photo.dataset.name || photo.alt || "Unknown Building",
-              image: photo.dataset.src || photo.src
-            };
+                    // prepare item object (image + name)
+                    const item = {
+                        name: photo.dataset.name || photo.alt || "Unknown Building",
+                        image: photo.dataset.src || photo.src
+                    };
 
-            // add to collection (myCollection.js exposes addToCollection)
-            if (typeof addToCollection === 'function') {
-              addToCollection(item);
-            } else {
-              console.warn('addToCollection not available yet.');
-            }
-          } else {
-            result.textContent = "❌ Try again!";
-            result.style.color = "red";
-          }
+                    // add to collection (myCollection.js exposes addToCollection)
+                    if (typeof addToCollection === 'function') {
+                        addToCollection(item);
+                    } else {
+                        console.warn('addToCollection not available yet.');
+                    }
+                } else {
+                    result.textContent = " Nope ❌ Try again!";
+                }
+            });
         });
-      });
     });
 </script>
 

@@ -18,6 +18,7 @@
             padding: 0;
             margin: 0;
         }
+
         </style>
         <title></title>
     </head>
@@ -39,11 +40,9 @@
         <script src="data/Courthouse86WashingtnStreet_2.js"></script>
         <script>
         var map = L.map('map', {
-    zoomControl: false, 
-    maxZoom: 28, 
-    minZoom: 1
-}).setView([41.8839, -87.6306], 17); 
-
+            zoomControl:false, maxZoom:28, minZoom:1
+        }).fitBounds([[41.84465037169611,-87.73336231683206],[41.93158281015803,-87.5492976193272]]);
+        map.setZoom(map.getZoom() + 1.5);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -126,9 +125,10 @@
             maxNativeZoom: 19
         });
         layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
         map.createPane('pane_Great_Chicago_Fire_map_modificato_1');
         map.getPane('pane_Great_Chicago_Fire_map_modificato_1').style.zIndex = 401;
-        var img_Great_Chicago_Fire_map_modificato_1 = 'data/Great_Chicago_Fire_map_modificato_0.jpeg';
+        var img_Great_Chicago_Fire_map_modificato_1 = 'data/Great_Chicago_Fire_map.jpg';
         var img_bounds_Great_Chicago_Fire_map_modificato_1 = [[41.82150213628991,-87.68703377544391],[41.92673511307586,-87.59513272727192]];
         var layer_Great_Chicago_Fire_map_modificato_1 = new L.imageOverlay(img_Great_Chicago_Fire_map_modificato_1,
                                               img_bounds_Great_Chicago_Fire_map_modificato_1,
@@ -138,19 +138,10 @@
         function pop_Courthouse86WashingtnStreet_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Lnkd_Site'] !== null ? autolinker.link(String(feature.properties['Lnkd_Site']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Distance'] !== null ? autolinker.link(String(feature.properties['Distance']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Descriptio'] !== null ? autolinker.link(String(feature.properties['Descriptio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -173,7 +164,7 @@
             return {
                 pane: 'pane_Courthouse86WashingtnStreet_2',
                 shape: 'triangle',
-                radius: 8.0,
+                radius: 16.000000000000007,
                 opacity: 1,
                 color: 'rgba(50,87,128,1.0)',
                 dashArray: '',
@@ -182,7 +173,7 @@
                 weight: 2.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(72,123,182,1.0)',
+                fillColor: 'rgba(248,90,22,1.0)',
                 interactive: true,
             }
         }
@@ -213,7 +204,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 10pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Courthouse86WashingtnStreet_2'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 10pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Courthouse86WashingtnStreet_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;

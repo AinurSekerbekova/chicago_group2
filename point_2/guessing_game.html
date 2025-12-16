@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
 
 <head>
     <meta charset="UTF-8">
@@ -14,48 +14,53 @@
 <body>
 <div class="container-fluid">
     <div class="text-center mb-4 text-white">
-        <h2 class="text-white">Guess the Correct Building</h2>
-        <p class="text-white-50">Click on the correct photo of the <strong>place</strong></p>
+        <h2 class="text-white">Guess the correct picture of the business district</h2>
+        <p class="text-white-50">Click on what you think the <strong>Portland Block</strong> looked like in 1878 after the reconstruction </p>
     </div>
 
 
     <div class="row justify-content-center g-4">
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/Court House Shortly.png"
-                 alt="Court House"
-                 class="img-fluid rounded shadow guess-photo"
-                 data-correct="true"
-                 style="cursor: pointer;">
-        </div>
-
-        <div class="col-md-4 d-flex justify-content-center">
             <img src="../images/old water tower.jpg"
                  alt="Old Water Tower"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="false"
-                 style="cursor: pointer;">
+                 data-name="Old Water Tower"
+                 data-src="images/old water tower.jpg">
         </div>
 
-        <div class="col-md-4 d-flex justify-content-center"> <!-- todo -->
+        <div class="col-md-4 d-flex justify-content-center">
+            <img src="../images/Portland_Block.jpg"
+                 alt="David Fales's office"
+                 class="img-fluid rounded shadow guess-photo"
+                 data-correct="true"
+                 data-name="David Fales's office"
+                 data-src="images/Portland_Block.jpg">
+        </div>
+        <!-- taken from https://images.chicagohistory.org/search/?searchQuery=Portland+Block+Chicago -->
+
+        <div class="col-md-4 d-flex justify-content-center">
             <img src="../images/chicago museum before.jpg"
                  alt="chicago museum"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="false"
-                 style="cursor: pointer;">
+                 data-name="chicago museum"
+                 data-src="images/chicago museum before.jpg">
         </div>
     </div>
 
     <!-- result and next button MUST exist so JS can update them -->
-    <div class="row mt-5 bg-white bg-opacity-50 rounded shadow p-4">
+    <div class="row mt-5 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
         <div class="d-flex">
             <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
-            <p id="result" class="fs-4 fw-bold m-3">So… which of these stood here before it all began?</p>
+            <p id="result" class="fs-4 fw-bold m-3">Unfortunately, we don't have saved pictures of that place before
+                the fire. But we know how it looked in 1878 after the reconstruction. Can you guess which one?</p>
         </div>
         <a href="essay.html" class="btn btn-warning m-4 d-none" id="nextButton">Discover the History</a>
     </div>
 
 </div>
-<!-- Load My Collection helper first so addToCollection exists for the following script -->
+<!-- Load My Collection helper first, so addToCollection exists for the following script -->
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>
 <script src="../scripts/goBackButton.js"></script>
@@ -75,8 +80,8 @@
 
           if (photo.dataset.correct === "true") {
             // update UI
-            result.textContent = "✅ Correct! This is the Court House.";
-            result.style.color = "green";
+            result.innerHTML = `✅ Yes! Mary wasn’t here when it burned. She was waiting at home —
+                hoping the fire would stop before it reached them.<br><br> It didn’t.`;
             nextButton.classList.remove('d-none');
 
             // prepare item object (image + name)
@@ -85,15 +90,14 @@
               image: photo.dataset.src || photo.src
             };
 
-            // add to collection (myCollection.js exposes addToCollection)
+            // add to the collection (myCollection.js exposes addToCollection)
             if (typeof addToCollection === 'function') {
               addToCollection(item);
             } else {
               console.warn('addToCollection not available yet.');
             }
           } else {
-            result.textContent = "❌ Try again!";
-            result.style.color = "red";
+            result.innerHTML = "❌ Try again!";
           }
         });
       });

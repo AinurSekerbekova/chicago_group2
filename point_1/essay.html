@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Court House</title>
+    <title>Letter of Jonas Hutchinson</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,65 +14,56 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center m-4 rounded shadow text-white">
-        The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)
-    </h1>
+    <h1 class="fw-bold text-center m-4 rounded shadow text-white">The Past Revealed</h1>
 
-    <div class="row align-items-start g-4">
-
+    <div class="row g-4">
         <!-- Left column: map -->
-        <div class="col-md-6 position-relative">
-            <iframe
-                    src="86 Washington Street/index.html"
-                    class="rounded shadow"
-                    style="width: 100%; height: 50vh; min-height: 300px; border: none;">
-            </iframe>
-
-            <!-- 🗺️ Legend / Map Info -->
-            <div class="position-absolute bottom-0 start-0 m-3 p-3 rounded shadow-lg bg-dark bg-opacity-75 text-light small">
-                <strong>Map legend:</strong><br>
-                Historical basemap of <em>Old Chicago</em> created by the authors using <strong>QGIS</strong>.<br>
-                It shows the <span class="text-danger fw-bold">burned area</span> of the 1871 Great Chicago Fire and the
-                exact
-                <span class="text-warning fw-bold">location</span> of <em>Jonas Hutchinson</em>, the author of the
-                letter you are collecting.
+        <div class="col-12 col-md-6">
+            <div class="media-wrap">
+                <iframe src="86 Washington Street/index.html" class="media-frame rounded shadow" loading="lazy"
+                        style="border: none;">
+                </iframe>
             </div>
         </div>
-
-
         <!-- Right column: image -->
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <img src="../images/Court House Shortly.png"
-                 alt="Courthouse"
-                 class="img-fluid rounded shadow">
-            <p>The Court House Shortly Before the Fire; Lovejoy & Foster, Stereograph, 1871 (ichi-64281)</p>
+        <div class="col-12 col-md-6">
+            <div class="media-wrap">
+                <img src="../images/court house 5.jpg"
+                     alt="Courthouse"
+                     class="media-img img-fluid rounded shadow">
+            </div>
         </div>
     </div>
 
-    <div class="m-4 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
+    <div class="m-2 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
         <p class="mx-3 text-center">More information about the Court House before and after<br>
-            <a class="btn btn-warning" href="https://greatchicagofire.org/landmarks/court-house/">First link</a>
-            <a class="btn btn-warning" href="https://chicagology.com/prefire/prefire003/">Second link</a>
+            <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/">First link</a>
+            <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/">Second link</a>
         </p>
         <p class="mx-3 text-center">Your first letter from Jonas Hutchinson, click on it to add to your collection<br>
             <a href="../letter_pdfs/Jonas_Hutchinson.pdf"
                target="_blank"
-               class="btn btn-warning"
+               class="btn btn-outline-warning"
                onclick="addToCollection({
                        name: 'Jonas Hutchinson Letter',type: 'letter',
                        file: '../letter_pdfs/Jonas_Hutchinson.pdf',location: '86 Washington Street'
                })">Open PDF</a>
         </p>
     </div>
-    <!-- Text content below -->
-    <div class="row mt-5" id="result-container">
-        <div class="d-flex">
-            <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
-            <h2 id="speech-text" class=" py-2 m-3"></h2>
-        </div>
-        <a href="../point_2/map_game.html" class="btn btn-warning m-4">Next place</a>
+    <div class="row">
+        <a href="../point_2/map_game.html" class="btn btn-outline-warning">Next place</a>
     </div>
 </div>
+<div id="dialogue-overlay" class="d-none"></div>
+
+<!-- Text content below -->
+<div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
+    <div class="d-flex">
+        <img src="../images/avatar/tarlan_avatar_1800s.png" alt="Character" id="character-img">
+        <p class="fs-4 fw-bold m-3" id="speech-text"></p>
+    </div>
+</div>
+
 
 <!-- Scripts -->
 <script src="../scripts/common_speak_script.js"></script>
@@ -81,39 +72,47 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `By the time of the fire the Court House had also added east and west wings, a brand-new clock, and a
-             10,849-pound bronze bell that for over five hours would ring out the alarm until it fell through the
-             collapsing building.`,
-             false,
-             "../images/avatar/ainur_avatar_1800s.png"
+            `Above on the left side you can see the historical basemap of Old Chicago created by the narrators.
+             It shows the burned area of the 1871 Great Chicago Fire and the exact location of Jonas Hutchinson,
+             the author of the letter you are collecting.`,
+             true,
+             "../images/avatar/tarlan_avatar_1800s.png"
          );
     });
 
-    // switch to the next phrase by enter or  space key
-    document.addEventListener("keydown", (e) => {
+    // switch to the next phrase by enter/space on keyboard or touch on mobile screen
+    function goToNext() {
         listen_to_keys(
-            e,
             [{
-                text: `It housed virtually all city and country offices, from the jail in its basement
-                    to the mayor’s quarters, the debtors’ prison, the city council, the board of public works, and the
-                    courtrooms on the upper floors.`,
-                img: "../images/avatar/ainur_avatar_1800s.png"
+                text: `And on the right side you can see the restored images of the Courthouse right before the fire.`,
+                img: "../images/avatar/tarlan_avatar_1800s.png"
             },{
-                text: `Had you been with me all night, seeing this hell of fire doing its awful mission,
-                    you would know what ruin means. The courthouse—records—all are gone.`,
-                img: "../images/avatar/tommaso_avatar_1800s.png" // todo needs to be said by Jonas Hutchinson
+                text: `I am Jonas Hutchinson, a lawyer and notary public who kept his office in the Chicago Court House,
+                 the center of our city’s records and public life.`,
+                img: "../images/characters/jonas_hutchinson.png"
+            },{
+                text: `On the night of the Great Fire, I barely escaped as the Court House and everything within it —
+                 my papers, my library, my work — were swallowed by the flames.`,
+                img: "../images/characters/jonas_hutchinson.png"
+            },{
+                text: `I ran through smoke-filled streets with nothing but the clothes on my back,
+                watching the heart of Chicago collapse into burning rubble.`,
+                img: "../images/characters/jonas_hutchinson.png"
+            },{
+                text: `Now I speak to you as a survivor, trying to make sense of a night when an entire city,
+                and the life I knew, vanished at once.`,
+                img: "../images/characters/jonas_hutchinson.png"
             }],
-            false
+            true
         )
-    });
+    }
 
 </script>
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../scripts/goBackButton.js"></script>
-
-
-<!-- ✅ Add this AFTER loading myCollection.js -->
+<audio id="fireSound" src="../mp3/fire_sounds.mp3" loop></audio>
+<script src="../scripts/flames.js"></script>
 </body>
 </html>

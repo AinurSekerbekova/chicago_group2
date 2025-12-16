@@ -1,45 +1,82 @@
 /* ================== common STYLES used on all the pages ================== */
 body {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* make it darker */
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), /* make it darker */
     url('../images/fire_background.jpg'); /* picture itself */
-  background-size: 100vw auto;
-  /* width is automatically == widthof window */
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  color: black;
-  background-size: cover;
-  background-position: center;
-  font-family: 'Cinzel', serif;
+    background-size: 100vw auto;
+    /* width is automatically == widthof window */
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    color: black;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Cinzel', serif;
 }
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-  z-index: 0;s
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;s
 }
 
-h1,h2 {
-  font-family: 'Cinzel', serif;
-}
-
-.btn-warning {
-  background: linear-gradient(135deg, #d94e1f, #f29f05);
-  border: none;
-  transition: all 0.3s ease;
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Cinzel', serif;
 }
 
 .container-fluid{
-  border-radius: 12px;
-  z-index: 1;
+    z-index: 1;
 }
+.container{
+    z-index: 1;
+}
+
+
+/* ================== the research and about pages STYLES ================== */
+.accordion-button {
+    font-weight: 600;
+    color: #ffc107 !important;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.accordion-item {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #ffc107;
+    border-radius: 0.5rem;
+}
+.accordion-body {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+}
+
+
+/* ================== the index page STYLES ================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-bg {
+    width: 100%;
+    max-height: 80vh;
+    display: block;
+    filter: brightness(0.7);
+}
+
+.hero-section .container-fluid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 /* ================== the meet the narrators page STYLES ================== */
 .container-intro {
@@ -47,9 +84,8 @@ h1,h2 {
    border-radius: 20px;
    max-width: 650px;
    padding: 3rem;
-   box-shadow: 0 0 25px rgba(255, 193, 7, 0.2);
+   box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.5);
    margin-top: 4rem;
-   z-index: 1;
 }
 
 
@@ -58,82 +94,217 @@ h1,h2 {
    border-radius: 20px;
    border: 1px solid rgba(255, 193, 7, 0.3);
    color: #f8f9fa;
-   box-shadow: 0 0 20px rgba(255, 193, 7, 0.2);
+   box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
    padding: 1.5rem;
 }
 
 .rounded-circle {
-   border: 3px solid #f8b500;
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    width: 140px;
+    height: 140px;
+    border: 3px solid #f8b500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline;
+    overflow: hidden;
 }
 
-.narrator-group img {
-   box-shadow: 0 2px 10px rgba(255, 193, 7, 0.3);
-}
 
 /* ================== the map and the google-street-view STYLES ================== */
 @media (max-width: 768px) {
-  #map, #next_to_map {
-    height: 50vh !important;
-    z-index:1;
-  }
+    #map, #next_to_map {
+        height: 50vh !important;
+        z-index:1;
+    }
 }
-iframe#next_to_map {
-  clip-path: inset(1.8cm) !important; /* cut 2 см on all sides */
+
+.iframe-crop {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    height: 100%; /* inherits 60vh from col */
 }
+
+/* применяем смещение и увеличение ТОЛЬКО к iframe внутри контейнера */
+.iframe-crop > #next_to_map {
+    position: absolute;
+    top: -1.8cm;
+    left: -1.8cm;
+    width: calc(100% + 3.6cm);
+    height: calc(100% + 3.6cm);
+    border: none;
+    display: block;
+}
+
 iframe {
-  width: 100%;
-  border: none;
+    width: 100%;
+    border: none;
 }
+
 
 /* ==================================== SPEECH STYLES =============================== */
 #result-container {
-  padding: 1.5rem;
-  width: 100vw;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
-  z-index: 100;
+    padding: 1.5rem;
+    width: 99%;
+    border-radius: 12px;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    z-index: 100;
+    cursor: pointer;
 }
 #speech-text {
-  flex: 1;
+    flex: 1;
 }
 #character-img {
-  width: 150px;
-  height: auto;
-  border-radius: 12px;
-  z-index: 100;
-  cursor: pointer;
-  animation: float 3s ease-in-out infinite;
+    width: 150px;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 12px;
+    z-index: 100;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
 }
 
 #dialogue-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
 }
 
 .hidden {
-  opacity: 0;
-  transition: opacity 0.4s ease;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 .visible {
-  opacity: 1;
+    opacity: 1;
 }
+
+@media (max-width: 768px) {
+    #result-container .d-flex {
+        display: block;    /* disable flex on small screens */
+    }
+    #result-container h2{
+        font-size: 16px;
+    }
+    #result-container h4{
+        font-size: 15px;
+    }
+    #character-img {
+        float: left;       /* let text wrap around the image */
+        margin-right: 15px;
+        margin-bottom: 10px;
+        width: 110px;      /* keep consistent size */
+        height: 120px;
+    }
+}
+
+
+/* ================== the guessing game page STYLES ================== */
+/* Устанавливает одинаковый размер/соотношение и кремовую рамку для всех изображений-опций */
+.guess-photo {
+    display: block;
+    width: 100%;
+    max-width: 550px;          /* регулируйте при необходимости */
+    aspect-ratio: 4 / 3;       /* одинаковое соотношение для всех */
+    object-fit: cover;         /* обрезает изображение, сохраняя композицию */
+    padding: 12px;             /* толщина "рамки" (кремовый бордер) */
+    background: #ffefd6;       /* кремовый цвет рамки */
+    border-radius: 10px;       /* скругление рамки */
+    transition: transform 0.22s ease, box-shadow 0.22s ease, outline-color 0.22s ease;
+    cursor: pointer;
+}
+
+/* Эффект при наведении: лёгкое увеличение + золотистая подсветка рамки */
+.guess-photo:hover {
+    transform: scale(1.035);
+    box-shadow:
+        0 14px 30px rgba(0,0,0,0.55),
+        0 0 0 6px rgba(255,193,7,0.12); /* золотая подсветка вокруг */
+    outline: 2px solid rgba(255,193,7,0.12);
+}
+
+/* Мобильная оптимизация */
+@media (max-width: 768px) {
+    .guess-photo {
+        max-width: 280px;
+        aspect-ratio: 3 / 2;
+        padding: 10px;
+    }
+}
+
+
+/* ================== the essay page STYLES ================== */
+.media-wrap {
+    height: 50vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.media-frame, .media-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    border: none;
+    display: block;
+}
+
+/* Не обрезать картинку, показывать полностью с буквой/полями */
+.media-img {
+    object-fit: cover;
+}
+
+/* На мобильных — высота становится авто */
+@media (max-width: 768px) {
+    .media-wrap {
+        height: auto;
+        min-height: 180px;
+    }
+    .media-frame,
+    .media-img {
+        height: auto;
+        max-height: 50vh;
+    }
+}
+
+/* частицы искр */
+#dialogue-overlay .spark {
+  position: absolute;
+  bottom: 8%;
+  border-radius: 50%;
+  pointer-events: none;
+  transform-origin: center;
+  animation: spark-rise linear forwards;
+  filter: drop-shadow(0 0 6px rgba(181,76,2,0.7));
+}
+
+/* движение вверх + растворение */
+@keyframes spark-rise {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  60% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-260px) translateX(var(--dx, 0px)) scale(0.35) rotate(var(--rot, 0deg));
+  }
+}
+
 
 /* ================== the collection STYLES ================== */
-
 #collectionModal::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 #collectionModal::-webkit-scrollbar-thumb {
-  background: #ffc107;
-  border-radius: 3px;
+    background: #ffc107;
+    border-radius: 3px;
 }
-

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O’Leary’s Barn</title>
+    <title>Letter of Mary Fales</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,49 +14,56 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">O’Leary’s Barn</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">From office to home</h1>
 
-    <div class="row align-items-start g-4">
+    <div class="row g-4">
         <!-- Left column: map -->
-        <div class="col-md-6">
-            <iframe
-                    src="35 S Dearborn Street/index.html"
-                    class="rounded shadow"
-                    style="width: 100%; height: 60vh; min-height: 300px; border: none;">
-            </iframe>
+        <div class="col-12 col-md-6">
+            <div class="media-wrap">
+                <iframe src="35 S Dearborn Street/index.html" class="media-frame rounded shadow" loading="lazy"
+                        style="border: none;">
+                </iframe>
+            </div>
         </div>
-
         <!-- Right column: image -->
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <img src="../images/Court House Shortly.png"
-                 alt="Courthouse"
-                 class="img-fluid rounded shadow"><!-- todo -->
+        <div class="col-12 col-md-6">
+            <div class="media-wrap">
+                <img src="../images/Near North Side ruins.png"
+                     alt="Fales house area"
+                     class="media-img img-fluid rounded shadow" style="object-fit: contain">
+                <!-- taken from https://images.chicagohistory.org/search/?searchQuery=Near+North+Side+1871 -->
+            </div>
         </div>
     </div>
 
-    <div class="m-4 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
+    <div class="m-2 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
         <p class="mx-3 text-center">More information about the Court House before and after<br>
-            <a class="btn btn-warning" href="https://greatchicagofire.org/landmarks/court-house/">First link</a>
-            <a class="btn btn-warning" href="https://chicagology.com/prefire/prefire003/">Second link</a>
+            <a class="btn btn-warning" href="https://greatchicagofire.org/landmarks/oleary-home/">First link</a>
+            <a class="btn btn-warning" href="https://chicagology.com/chicago-fire/fire052/">Second link</a>
         </p>
         <p class="mx-3 text-center">Your second letter is from Mary Fales, click on it to add to your collection<br>
             <a href="../letter_pdfs/Mary_Fales.pdf"
                target="_blank"
                class="btn btn-warning"
                onclick="addToCollection({
-                       name: 'Jonas Hutchinson Letter',type: 'letter',
-                       file: '../letter_pdfs/Mary_Fales.pdf',location: '86 Washington Street'
+                       name: 'Mary Fales Letter',type: 'letter',
+                       file: '../letter_pdfs/Mary_Fales.pdf',location: '135 Dearborn Street'
                })">Open PDF</a>
         </p>
     </div>
 
-    <!-- Text content below -->
-    <div class="row mt-5" id="result-container">
-        <div class="d-flex">
-            <img src="../images/avatar/ainur_avatar_1800s.png" alt="Character" id="character-img">
-            <h2 id="speech-text" class=" py-2 m-3"></h2>
-        </div>
-        <a href="../point_3/map_game.html" class="btn btn-warning m-4">Next place</a>
+    <div class="row">
+        <a href="../point_3/map_game.html" class="btn btn-outline-warning">Next place</a>
+    </div>
+
+</div>
+<div id="dialogue-overlay" class="d-none"></div>
+
+<!-- Text content below -->
+<div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
+    <div class="d-flex">
+        <img src="../images/characters/mary_fales.png" alt="Character" id="character-img">
+        <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
 
@@ -67,35 +74,52 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `We soon saw the fire would reach our neighborhood.I packed what I most valued and clung to the buggy seat
-             as the flames chased us north.`,
-             false,
-             "../images/avatar/ainur_avatar_1800s.png" // todo needs to be said by Mary Fales
-         );
+            `My name is  Mary Fales. My husband, David, was a lawyer whose office stood on Dearborn Street, while our home
+            was north of the river.`,
+             true,
+             "../images/characters/mary_fales.png"
+        );
     });
 
-    // switch to the next phrase by enter or  space key
-    document.addEventListener("keydown", (e) => {
+    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
+    function goToNext() {
         listen_to_keys(
-            e,
             [{
-                text: `She was one of thousands fleeing through smoke and sparks — no time, no wagons, just chaos.`,
-                img: "../images/avatar/ehsan_avatar_1800s.png"
+                text: `We believed the fire would be stopped by the river — so many of us did`,
+                img: "../images/characters/mary_fales.png"
             },{
-                text: `Every item you chose carries a memory. In the end, she buried her piano under the earth...
-                 and lost it anyway.`,
-                img: "../images/avatar/ehsan_avatar_1800s.png"
+                text: `When it did not, we fled from place to place, burying our belongings in the earth, only to lose
+                them all the same as the flames chased us north.`,
+                img: "../images/characters/mary_fales.png"
+            },{
+                text: `She was one of thousands fleeing through smoke and sparks — no time, no wagons, just chaos.`,
+                img: "../images/avatar/ehsan_avatar.png"
+            },{
+                text: `In the 19th century, a piano was a sign of wealth and family culture, not just furniture.
+                Losing a piano meant losing a home, a normal life, a past.`,
+                img: "../images/avatar/ehsan_avatar.png"
+            },{
+                text: `Every item you chose to take with you carries a memory. In the end, she buried her piano
+                 under the earth as she could no bring it... but lost it to fire anyway.`,
+                img: "../images/avatar/ehsan_avatar.png"
+            },{
+                text: `That's why this episode is often cited by historians—it shows that people lost not only buildings
+                 but also their identity.`,
+                img: "../images/avatar/ehsan_avatar.png"
+            },{
+                text: `Above you can see the historic map with the point where the fire took her husband's office.
+                And some pictures of how the ruins left of their house ares after the fire`,
+                img: "../images/avatar/ehsan_avatar.png"
             }],
-            false
+            true
         )
-    });
+    }
 </script>
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../scripts/goBackButton.js"></script>
-
-
-<!-- ✅ Add this AFTER loading myCollection.js -->
+<audio id="fireSound" src="../mp3/fire_sounds.mp3" loop></audio>
+<script src="../scripts/flames.js"></script>
 </body>
 </html>
