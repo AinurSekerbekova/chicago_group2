@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurelia King</title>
+    <title>Henry W. King's shop</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
@@ -76,20 +76,21 @@
     submit_button.addEventListener('click', function (e) {
         console.log("Кнопка нажата!");
         form_submitted(
-            "You got it. The 6 Lake Street! right where the 4-th writer's husband had the clothing shop",
+            `You got it. The 6 Lake Street! right where the Mr. Henry W. King had the clothing shop, but our
+            letter is from his wife Mrs. Aurelia King`,
             "Close — but not quite there. Try again, pal.",
             "../images/avatar/tommaso_avatar.png"
         );
     });
 </script>
-<!-- todo fix speech text -->
 <script src="../scripts/common_speak_script.js"></script>
 <script>// specific js for the speaking feature on this page
 
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-             `Here’s the irony—where Chicago’s firefighters train today,the fire itself was born.`,
+             `Once, this spot was home to a wholesale clothing store — two adjoining buildings filled with bolts of
+             fabric and heavy account books.`,
             true,
             "../images/avatar/tommaso_avatar.png"
         );
@@ -98,8 +99,15 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: `Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow. `,
-                img: ".. /images/avatar/tommaso_avatar.png"
+                text: `It stood in the very heart of Chicago’s commercial district, where trade began early
+                and ended late.`,
+                img: "../images/avatar/tommaso_avatar.png"
+            },{
+                text: `On the night of the Great Fire, the flames swept down this street first, leaving nothing of the shops behind.`,
+                img: "../images/avatar/tommaso_avatar.png"
+            },{
+                text: `What you see now is a different city — find on the map the place that was once Mr.Henry W. King's shop`,
+                img: "../images/avatar/tommaso_avatar.png"
             }],
             true
         )
