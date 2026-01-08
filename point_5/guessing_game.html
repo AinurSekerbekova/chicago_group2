@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Right Place</title>
+    <title>Guess the Right Museum</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,32 +13,24 @@
 
 <body>
 <div class="container-fluid">
-    <div class="text-center mb-4 text-white">
-        <h2 class="text-white">Guess the Correct Building</h2>
-        <p class="text-white-50">Click on the correct photo of the <strong>place</strong></p>
+    <div class="text-center mb-4">
+        <h2>Guess the Correct Building</h2>
+        <p class="text-muted">Click on the correct photo of the <strong>Chicago History Museum</strong></p>
     </div>
+
 
     <div class="row justify-content-center g-4">
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/courthouse 4july1855hesler.jpg"
+            <img src="../images/court%20house%20befo.jpg"
                  alt="Court House"
                  class="img-fluid rounded shadow guess-photo"
-                 data-correct="false"
-                 data-name="Court House"
-                 data-src="../images/courthouse 4july1855hesler.jpg">
-        </div>
-
-        <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/chicago museum before.jpg"
-                 alt="chicago museum"
-                 class="img-fluid rounded shadow guess-photo"
                  data-correct="true"
-                 data-name="chicago museum"
-                 data-src="images/chicago museum before.jpg">
+                 data-name="Court House"
+                 data-src="images/Court House Shortly.png">
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/Oleary home 2.jpg"
+            <img src="../images/old%20water%20tower.jpg"
                  alt="Old Water Tower"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="false"
@@ -46,23 +38,28 @@
                  data-src="images/old water tower.jpg">
         </div>
 
+        <div class="col-md-4 d-flex justify-content-center"> <!-- todo add new images-->
+            <img src="../images/chicago%20museum%20before.jpg"
+                 alt="chicago museum"
+                 class="img-fluid rounded shadow guess-photo"
+                 data-correct="false"
+                 data-name="chicago museum"
+                 data-src="images/chicago museum before.jpg">
+        </div>
     </div>
 
 
-</div>
-
-<!-- result and next button MUST exist so JS can update them -->
+    <!-- result and next button MUST exist so JS can update them -->
     <div class="row mt-5 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
-    <div class="d-flex">
-        <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
-        <p id="result" class="fs-4 fw-bold m-3">Before the fire, the Society’s old home kept maps, portraits, and
-            letters. <br>Which of these pictures shows its pre-fire library?
-        </p>
+        <div class="d-flex">
+            <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
+            <p id="result" class="fs-4 fw-bold m-3">What did this shoreline look like in 1871?</p>
+        </div>
+        <a href="../point_6/essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
     </div>
-    <a href="essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
 </div>
 
-<!-- Load My Collection helper first, so addToCollection exists for the following script -->
+<!-- Load My Collection helper first so addToCollection exists for the following script -->
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>
 <script src="../scripts/goBackButton.js"></script>
@@ -82,7 +79,7 @@
 
           if (photo.dataset.correct === "true") {
             // update UI
-            result.textContent = "✅ Yes—that’s the one! It all burned ... except seven letters.";
+            result.textContent = "✅ Correct! Gothic spires, stone arches—sanctuary of hope";
             nextButton.classList.remove('d-none');
 
             // prepare item object (image + name)
@@ -91,7 +88,7 @@
               image: photo.dataset.src || photo.src
             };
 
-            // add to the collection (myCollection.js exposes addToCollection)
+            // add to collection (myCollection.js exposes addToCollection)
             if (typeof addToCollection === 'function') {
               addToCollection(item);
             } else {

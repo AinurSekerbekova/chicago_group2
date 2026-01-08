@@ -27,21 +27,21 @@
         <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
             <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1765739982547!6m8!1m7!1sy4oDaYRsHOUXynSJepeuIw!2m2!1d41.81754588808597!2d-87.68289236782914!3f207.16085217114275!4f2.6685180368255885!5f0.7820865974627469">
-                  </iframe>
+                    src="https://www.google.com/maps/embed?pb=!4v1765735355939!6m8!1m7!1sq0prkR04k2qWVvtY-r9lDw!2m2!1d41.91137706519027!2d-87.63151353084524!3f357.03447148785256!4f12.08595374704224!5f0.7820865974627469">
+            </iframe>
         </div>
     </div>
 </div>
 
 <div class="row mt-5 mx-1 p-4 bg-dark bg-opacity-50 rounded shadow text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/ainur_avatar.png" alt="Character" id="character-img">
+        <img src="../images/avatar/ehsan_avatar.png" alt="Character" id="character-img">
         <div>
             <h3 id="speech-text" class=" py-2 m-3"></h3>
             <h4 id="hint"></h4>
         </div>
     </div>
-    <a href="guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
+    <a href="../point_7/guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
 
@@ -87,8 +87,8 @@
     // Automatically start with the first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `The river that reflected fire now mirrors steel and sky.Guess this place of endings and beginnings.`,
-            true,
+             `This place was built to protect Chicago’s memory. Its books, records, and letters told the story of
+             the city. But the Museum you see now is not the same as it was before.`,
             "../images/avatar/ehsan_avatar.png"
         );
     });
@@ -98,11 +98,7 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: `Can you guess it? Small alley, red brick, a plaque marks the legend of Mrs. O’Leary’s cow.`,
-                img: "../images/avatar/ehsan_avatar.png"
-            },{
-                text: `Alright, player — look around. Try to guess where we’re standing. Somewhere in this square,
-                 a bell once sounded an alarm that no one could silence.`,
+                text: `During the fire of 1871, all of it was lost. Can you find where that history once stood?`,
                 img: "../images/avatar/ehsan_avatar.png"
             }],
             true

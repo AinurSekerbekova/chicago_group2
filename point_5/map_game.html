@@ -41,7 +41,7 @@
             <h4 id="hint"></h4>
         </div>
     </div>
-    <a href="guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
+    <a href="../point_5/guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
 
@@ -76,7 +76,7 @@
     submit_button.addEventListener('click', function (e) {
         form_submitted(
             `You got it. This was the Chicago Historical Society.`,
-            `Nope... This was not a home or a business, but a place of records and remembrance. Try again, pal.`,
+            `Nope... This was not a home or a business, the heart of Chicago’s civic life. Try again, pal.`,
             "../images/avatar/ainur_avatar.png"
         );
     });
@@ -89,8 +89,7 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-             `This place was built to protect Chicago’s memory. Its books, records, and letters told the story of
-             the city. But the Museum you see now is not the same as it was before.`,
+             `his was the heart of Chicago’s civic life — a place of law, order, and record.`,
             true,
             "../images/avatar/ainur_avatar.png"
         );
