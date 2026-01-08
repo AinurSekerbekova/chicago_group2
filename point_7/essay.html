@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter of Samuel Stone</title>
+    <title>Letter of George Howland</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,62 +14,57 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">
-        Loss of cultural memory and intellectual life
-    </h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Temporary courthouse and a shelter for the homeless</h1>
 
-    <div class="row align-items-start g-4">
+    <div class="row  g-4">
         <!-- Left column: map -->
         <div class="col-12 col-md-6">
             <div class="media-wrap">
-                <iframe src="../point_7/Former Historical Societal Building/index.html"
-                        class="media-frame rounded shadow" loading="lazy"
+                <iframe src="Central High School/index.html" class="media-frame rounded shadow" loading="lazy"
                         style="border: none;">
                 </iframe>
             </div>
         </div>
         <!-- Right column: image -->
-        <div class="col-12 col-md-6 iframe-crop">
+        <div class="col-12 col-md-6">
             <div class="media-wrap">
-                <img src="../images/chicago museum before.jpg"
-                     alt="chicago museum before"
-                     class="media-img img-fluid rounded shadow">
+                <img src="../images/to the people.png"
+                     alt="TO THE PEOPLE OF ROCK ISLAND"
+                     class="media-img img-fluid rounded shadow" style="object-fit: contain">
             </div>
         </div>
-
     </div>
 
     <div class="m-2 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
         <p class="mx-3 text-center">More information about the Court House before and after<br>
-            <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/"
-               target="_blank" rel="noopener noreferrer">First link</a>
-            <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank"
-               rel="noopener noreferrer">Second link</a>
+            <a class="btn btn-warning" href="https://greatchicagofire.org/landmarks/court-house/" target="_blank" rel="noopener noreferrer">First link</a>
+            <a class="btn btn-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank" rel="noopener noreferrer">Second link</a>
         </p>
-        <p class="mx-3 text-center">Your last letter from Samuel Stone, click on it to add to your collection<br>
-            <a href="../letter_pdfs/Samuel_Stone.pdf"
+        <p class="mx-3 text-center">Your last letter is from George Howland, click on it to read about the coffee and the school<br>
+            <a href="../letter_pdfs/George_Howland.pdf"
                target="_blank"
-               class="btn btn-outline-warning"
+               class="btn btn-warning"
                onclick="addToCollection({
-                       name: 'Samuel Stone Letter',type: 'letter',
-                       file: '../letter_pdfs/Samuel_Stone.pdf',location: '86 Washington Street'
+                       name: 'George Howland Letter',type: 'letter',
+                       file: '../letter_pdfs/George_Howland.pdf',location: 'Central High School'
                })">Open PDF</a>
         </p>
     </div>
+
     <div class="row">
-        <a href="../final_page.html" class="btn btn-outline-warning">Next place</a>
+        <a href="../final_page.html" class="btn btn-outline-warning">Finish the game</a>
     </div>
+
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
 
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/characters/samuel_stone.png" alt="Character" id="character-img">
+        <img src="../images/characters/Howland.png" alt="Character" id="character-img">
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
-
 <!-- Scripts -->
 <script src="../scripts/common_speak_script.js"></script>
 <script> // specific js for the speaking feature on this page
@@ -77,9 +72,10 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `My name is Samuel Stone. I was the assistant librarian of the Chicago Historical Society.`,
+            `I am George Howland, Principal of Central High School. My school is currently closed to students,
+             serving instead as a temporary courthouse and a shelter for the homeless.`,
              true,
-             "../images/characters/samuel_stone.png"
+             "../images/characters/Howland.png"
          );
     });
 
@@ -87,18 +83,14 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: `When the fire came, others believed the building was safe, but I returned to this building to guard what remained.`,
-                img: "../images/characters/samuel_stone.png"
+                text: ` watched that night as the fire engines seemed entirely useless against long tongues of flame
+                that melted iron and stone as if in a blast furnace.`,
+                img: "../images/characters/Howland.png"
             },{
-                text: `Sparks filled the air, the windows burned, and the walls began to glow with heat.`,
-                img: "../images/characters/samuel_stone.png"
-            },{
-                text: `As the fire closed in, I guarded the door, refused entry, and tried to save our records.`,
-                img: "../images/characters/samuel_stone.png"
-            },{
-                text: `When the flames reached the walls and the air itself burned, I fled — the last, I believe,
-                to leave that place alive.`,
-                img: "../images/characters/samuel_stone.png"
+                text: `It seems a strange madness now, but amidst the panic, I was calmly pouring myself a cup of coffee
+                 to prepare for the night when I heard a crackling, only to discover my own roof was on fire, forcing
+                 me to seize my trunk and run for my life.`,
+                img: "../images/characters/Howland.png"
             }],
             true
         )

@@ -18,48 +18,47 @@
         <p class="text-white-50">Click on the correct photo of the <strong>place</strong></p>
     </div>
 
+
     <div class="row justify-content-center g-4">
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/courthouse%204july1855hesler.jpg"
-                 alt="Court House"
-                 class="img-fluid rounded shadow guess-photo"
-                 data-correct="false"
-                 data-name="Court House"
-                 data-src="../images/courthouse 4july1855hesler.jpg">
-        </div>
-
-        <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/chicago%20museum%20before.jpg"
-                 alt="chicago museum"
-                 class="img-fluid rounded shadow guess-photo"
-                 data-correct="true"
-                 data-name="chicago museum"
-                 data-src="images/chicago museum before.jpg">
-        </div>
-
-        <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/Oleary%20home%202.jpg"
+            <img src="../images/old water tower.jpg"
                  alt="Old Water Tower"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="false"
                  data-name="Old Water Tower"
-                 data-src="images/old water tower.jpg">
+                 data-src="../images/old water tower.jpg">
         </div>
 
+        <div class="col-md-4 d-flex justify-content-center">
+            <img src="../images/centralhighschool1857.jpg"
+                 alt="Central High School"
+                 class="img-fluid rounded shadow guess-photo"
+                 data-correct="true"
+                 data-name="Central High School"
+                 data-src="../images/centralhighschool1857.jpg">
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-center">
+            <img src="../images/chicago museum before.jpg"
+                 alt="chicago museum"
+                 class="img-fluid rounded shadow guess-photo"
+                 data-correct="false"
+                 data-name="chicago museum"
+                 data-src="../images/chicago museum before.jpg">
+        </div>
     </div>
 
-
-</div>
-
-<!-- result and next button MUST exist so JS can update them -->
+    <!-- result and next button MUST exist so JS can update them -->
     <div class="row mt-5 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
-    <div class="d-flex">
-        <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
-        <p id="result" class="fs-4 fw-bold m-3">Before the fire, the Society’s old home kept maps, portraits, and
-            letters. <br>Which of these pictures shows its pre-fire library?
-        </p>
+        <div class="d-flex">
+            <img src="../images/avatar/tommaso_avatar.png" alt="Character" id="character-img">
+            <p id="result" class="fs-4 fw-bold m-3">Back in the days, this street was lined with bookshops and lecture
+                halls. <br> Which picture shows its peaceful days?
+            </p>
+        </div>
+        <a href="essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
     </div>
-    <a href="../point_7/essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
+
 </div>
 
 <!-- Load My Collection helper first, so addToCollection exists for the following script -->
@@ -82,7 +81,7 @@
 
           if (photo.dataset.correct === "true") {
             // update UI
-            result.textContent = "✅ Yes—that’s the one! It all burned ... except seven letters.";
+            result.textContent = "✅ Yes! Those windows once echoed with lessons. That night, it had to accept the burned court.";
             nextButton.classList.remove('d-none');
 
             // prepare item object (image + name)
@@ -91,7 +90,7 @@
               image: photo.dataset.src || photo.src
             };
 
-            // add to the collection (myCollection.js exposes addToCollection)
+            // add to collection (myCollection.js exposes addToCollection)
             if (typeof addToCollection === 'function') {
               addToCollection(item);
             } else {

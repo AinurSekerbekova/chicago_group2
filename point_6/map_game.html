@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Presbyterian Church</title>
+    <title>Samuel Stone</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
@@ -27,26 +27,23 @@
         <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
             <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1765739982547!6m8!1m7!1sy4oDaYRsHOUXynSJepeuIw!2m2!1d41.81754588808597!2d-87.68289236782914!3f207.16085217114275!4f2.6685180368255885!5f0.7820865974627469">
-                  </iframe>
+                    src="https://www.google.com/maps/embed?pb=!4v1765735355939!6m8!1m7!1sq0prkR04k2qWVvtY-r9lDw!2m2!1d41.91137706519027!2d-87.63151353084524!3f357.03447148785256!4f12.08595374704224!5f0.7820865974627469">
+            </iframe>
         </div>
     </div>
 </div>
 
 <div class="row mt-5 mx-1 p-4 bg-dark bg-opacity-50 rounded shadow text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
+        <img src="../images/avatar/ehsan_avatar.png" alt="Character" id="character-img">
         <div>
             <h3 id="speech-text" class=" py-2 m-3"></h3>
             <h4 id="hint"></h4>
         </div>
     </div>
-    <a href="guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">
-        Next Challenge
-    </a>
+    <a href="guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
-
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -56,7 +53,7 @@
 <script src="../scripts/common_game_script.js"></script>
 <script>
     // specific js for this map
-    var targetLatLng = [41.81754588808597, -87.68289236782914];
+    var targetLatLng = [41.91137706519027, -87.63151353084524];
     var userMarker = null;
     var map = L.map('map').setView(targetLatLng, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -65,20 +62,21 @@
 
     // allows user to place a marker
     map.on('click', function (e) {
-        if (userMarker) {
-            map.removeLayer(userMarker);
-        }
-        userMarker = L.marker(e.latlng).addTo(map);
-        userMarker.userLatLng = e.latlng;
+      if (userMarker) {
+        map.removeLayer(userMarker);
+      }
+      userMarker = L.marker(e.latlng).addTo(map);
+      userMarker.userLatLng = e.latlng;
     });
 
     // handle form submission
     const submit_button = document.getElementById('submit-button');
     submit_button.addEventListener('click', function (e) {
         console.log("Кнопка нажата!");
-        form_submitted(`You got it. A church once stood here.`,
-            "Not quite. This place mattered because people came here to help others. Try again, pal.",
-            "../images/avatar/tarlan_avatar.png"
+        form_submitted(
+            `You got it. This was the Chicago Historical Society.`,
+            "Close—but this plaza didn’t always shine like this. Try again, pal.",
+            "../images/avatar/ehsan_avatar.png"
         );
     });
 
@@ -90,19 +88,19 @@
     // Automatically start with the first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `This place once gathered people together. Not for business, not for profit — but to help those who had
-            lost everything.`,
-            true,
-            "../images/avatar/tarlan_avatar.png"
+             `This place was built to protect Chicago’s memory. Its books, records, and letters told the story of
+             the city. But the Museum you see now is not the same as it was before.`,
+            "../images/avatar/ehsan_avatar.png"
         );
     });
+
 
     // switch to the next phrase by 'enter' or space on keyboard or touch on mobile screen
     function goToNext() {
         listen_to_keys(
             [{
-                text: "Look closely. Can you find where that refuge once stood?",
-                img: "../images/avatar/tarlan_avatar.png"
+                text: `During the fire of 1871, all of it was lost. Can you find where that history once stood?`,
+                img: "../images/avatar/ehsan_avatar.png"
             }],
             true
         )

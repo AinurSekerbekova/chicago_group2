@@ -21,21 +21,21 @@
 
     <div class="row justify-content-center g-4">
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/old water tower.jpg"
-                 alt="Old Water Tower"
+            <img src="../images/secondpresbyterianchurchwabashwashington.jpg"
+                 alt="Church"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="false"
-                 data-name="Old Water Tower"
-                 data-src="../images/old water tower.jpg">
+                 data-name="Church"
+                 data-src="../images/secondpresbyterianchurchwabashwashington.jpg">
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/centralhighschool1857.jpg"
-                 alt="Central High School"
+            <img src="../images/old water tower.jpg"
+                 alt="Old Water Tower"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="true"
-                 data-name="Central High School"
-                 data-src="../images/centralhighschool1857.jpg">
+                 data-name="Old Water Tower"
+                 data-src="../images/old water tower.jpg">
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
@@ -51,16 +51,13 @@
     <!-- result and next button MUST exist so JS can update them -->
     <div class="row mt-5 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
         <div class="d-flex">
-            <img src="../images/avatar/tommaso_avatar.png" alt="Character" id="character-img">
-            <p id="result" class="fs-4 fw-bold m-3">Back in the days, this street was lined with bookshops and lecture
-                halls. <br> Which picture shows its peaceful days?
-            </p>
+            <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
+            <p id="result" class="fs-4 fw-bold m-3">Before the fire, what surrounded this tower?</p>
         </div>
         <a href="essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
     </div>
 
 </div>
-
 <!-- Load My Collection helper first, so addToCollection exists for the following script -->
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>
@@ -81,7 +78,7 @@
 
           if (photo.dataset.correct === "true") {
             // update UI
-            result.textContent = "✅ Yes! Those windows once echoed with lessons. That night, it had to accept the burned court.";
+            result.textContent = "✅ Correct! Wooden mansions—ironic, isn’t it? Wood protecting stone...";
             nextButton.classList.remove('d-none');
 
             // prepare item object (image + name)

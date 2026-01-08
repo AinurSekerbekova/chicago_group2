@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter of George Howland</title>
+    <title>Letter of Aurelia King</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,57 +14,56 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Temporary courthouse and a shelter for the homeless</h1>
-
-    <div class="row  g-4">
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">The Water tower</h1>
+    <div class="row g-4 align-items-stretch">
         <!-- Left column: map -->
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 text-center">
             <div class="media-wrap">
-                <iframe src="Central High School/index.html" class="media-frame rounded shadow" loading="lazy"
+                <iframe src="6E Lake Street/index.html" class="media-frame rounded shadow" loading="lazy"
                         style="border: none;">
                 </iframe>
             </div>
         </div>
-        <!-- Right column: image -->
-        <div class="col-12 col-md-6">
+        <!-- Right column: current view of the water tower-->
+        <div class="col-12 col-md-6 iframe-crop">
             <div class="media-wrap">
-                <img src="../images/to the people.png"
-                     alt="TO THE PEOPLE OF ROCK ISLAND"
-                     class="media-img img-fluid rounded shadow" style="object-fit: contain">
+                <iframe class="media-frame rounded shadow" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
+                        src="https://www.google.com/maps/embed?pb=!4v1765733165214!6m8!1m7!1sbJOJVjPbF1rCpZ7Pf1PerA!2m2!1d41.89733260119461!2d-87.62414292449925!3f238.70439283545025!4f24.465621532248818!5f0.7820865974627469">
+                </iframe>
             </div>
         </div>
     </div>
 
     <div class="m-2 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
         <p class="mx-3 text-center">More information about the Court House before and after<br>
-            <a class="btn btn-warning" href="https://greatchicagofire.org/landmarks/court-house/" target="_blank" rel="noopener noreferrer">First link</a>
-            <a class="btn btn-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank" rel="noopener noreferrer">Second link</a>
+            <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/" target="_blank" rel="noopener noreferrer">First link</a>
+            <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank" rel="noopener noreferrer">Second link</a>
         </p>
-        <p class="mx-3 text-center">Your third letter is from George Howland, click on it to read about the coffee and the school<br>
-            <a href="../letter_pdfs/George_Howland.pdf"
+        <p class="mx-3 text-center">The letter from Aurelia King, click to add the 4-th letter to your collection<br>
+            <a href="../letter_pdfs/Aurelia_King.pdf"
                target="_blank"
-               class="btn btn-warning"
+               class="btn btn-outline-warning"
                onclick="addToCollection({
-                       name: 'George Howland Letter',type: 'letter',
-                       file: '../letter_pdfs/George_Howland.pdf',location: '86 Washington Street'
+                       name: 'Aurelia King Letter',type: 'letter',
+                       file: '../letter_pdfs/Aurelia_King.pdf',location: '6E Lake Street'
                })">Open PDF</a>
         </p>
     </div>
-
     <div class="row">
         <a href="../point_4/map_game.html" class="btn btn-outline-warning">Next place</a>
     </div>
-
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
 
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/characters/Howland.png" alt="Character" id="character-img">
+        <img src="../images/characters/aurelia_king.png" alt="Character" id="character-img">
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
+
 <!-- Scripts -->
 <script src="../scripts/common_speak_script.js"></script>
 <script> // specific js for the speaking feature on this page
@@ -72,10 +71,11 @@
     // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `I am George Howland, Principal of Central High School. My school is currently closed to students,
-             serving instead as a temporary courthouse and a shelter for the homeless.`,
+            `I am Aurelia King, the wife of a wholesale clothing merchant; a fortnight ago I was settled in a new house,
+             thinking only of winter comforts, and now I learn to live lightly, with my little children clinging to me
+              and ashes in my hair.`,
              true,
-             "../images/characters/Howland.png"
+             "../images/characters/aurelia_king.png"
          );
     });
 
@@ -83,14 +83,26 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: ` watched that night as the fire engines seemed entirely useless against long tongues of flame
-                that melted iron and stone as if in a blast furnace.`,
-                img: "../images/characters/Howland.png"
+                text: `My husband’s store on Lake Street, crowded with goods and account books — was consumed so swiftly
+                 that even the figures in the ledgers had scarcely time to be frightened. Henry counts $200,000 lost`,
+                img: "../images/characters/aurelia_king.png"
             },{
-                text: `It seems a strange madness now, but amidst the panic, I was calmly pouring myself a cup of coffee
-                 to prepare for the night when I heard a crackling, only to discover my own roof was on fire, forcing
-                 me to seize my trunk and run for my life.`,
-                img: "../images/characters/Howland.png"
+                text: `Even after that we did not realize the danger to our home until we saw our water pump (which
+                were beyond us) were burning, when we gave up all hope, knowing that the water supply must soon be cut off.`,
+                img: "../images/characters/aurelia_king.png"
+            },{
+                text: `I find myself the owner of an India shawl worth a thousand dollars, and yet without so much as a
+                chemise to my back—a luxury, I assure you, of the most inconvenient kind.”`,
+                img: "../images/characters/aurelia_king.png"
+            },{
+                text: `We knew our friends only by a look of the eye or a motion, all being blackened with smoke;
+                ladies fled in night‑gowns and slippers, gentlemen in night‑shirts and pantaloons, and Chicago for that
+                night was wonderfully democratic.`,
+                img: "../images/characters/aurelia_king.png"
+            },{
+                text: `There is no trace left of the burned water pump that Aurelia speaks of, but there is the
+                Water Tower that survived the night. You can still visit it today`,
+                img: "../images/avatar/tommaso_avatar.png"
             }],
             true
         )

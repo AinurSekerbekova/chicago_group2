@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter from Adeline Rossiter Judd</title>
+    <title>Letter of Samuel Stone</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,13 +14,16 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Compassion, relief, and rebuilding</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">
+        Loss of cultural memory and intellectual life
+    </h1>
 
     <div class="row align-items-start g-4">
         <!-- Left column: map -->
-        <div class="col-12 col-md-6 text-center">
+        <div class="col-12 col-md-6">
             <div class="media-wrap">
-                <iframe src="W 42nd Street/index.html" class="media-frame rounded shadow" loading="lazy"
+                <iframe src="Former Historical Societal Building/index.html"
+                        class="media-frame rounded shadow" loading="lazy"
                         style="border: none;">
                 </iframe>
             </div>
@@ -28,25 +31,28 @@
         <!-- Right column: image -->
         <div class="col-12 col-md-6 iframe-crop">
             <div class="media-wrap">
-                <img src="../images/Second Presbyterian Church.jpg"
-                     alt="Second Presbyterian Church"
-                     class="media-img img-fluid rounded shadow">
+                <img src="../images/chicago museum before.jpg"
+                     alt="chicago museum before"
+                     class="media-img img-fluid rounded shadow" style="object-fit: contain">
             </div>
         </div>
+
     </div>
 
     <div class="m-2 p-4 rounded shadow bg-dark text-white bg-opacity-50 shadow d-flex justify-content-between">
         <p class="mx-3 text-center">More information about the Court House before and after<br>
-            <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/" target="_blank" rel="noopener noreferrer">First link</a>
-            <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank" rel="noopener noreferrer">Second link</a>
+            <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/"
+               target="_blank" rel="noopener noreferrer">First link</a>
+            <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank"
+               rel="noopener noreferrer">Second link</a>
         </p>
-        <p class="mx-3 text-center">This letter is from Adeline Rossiter Jude, click on it to add to your collection<br>
-            <a href="../letter_pdfs/Adeline_Jude.pdf"
+        <p class="mx-3 text-center">Your next letter from Samuel Stone, click on it to add to your collection<br>
+            <a href="../letter_pdfs/Samuel_Stone.pdf"
                target="_blank"
                class="btn btn-outline-warning"
                onclick="addToCollection({
-                       name: 'Adeline Rossiter Jude Letter',type: 'letter',
-                       file: '../letter_pdfs/Adeline_Jude.pdf',location: '86 Washington Street'
+                       name: 'Samuel Stone Letter',type: 'letter',
+                       file: '../letter_pdfs/Samuel_Stone.pdf',location: 'Former Historical Societal Building'
                })">Open PDF</a>
         </p>
     </div>
@@ -59,7 +65,7 @@
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/characters/adeline_judd.png" alt="Character" id="character-img">
+        <img src="../images/characters/samuel_stone.png" alt="Character" id="character-img">
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
@@ -68,12 +74,12 @@
 <script src="../scripts/common_speak_script.js"></script>
 <script> // specific js for the speaking feature on this page
 
-    // Automatically start with the first phrase at the start
+    // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `My name is Adeline Rossiter Judd. My family was spared by the fire, but many others were not.`,
+            `My name is Samuel Stone. I was the assistant librarian of the Chicago Historical Society.`,
              true,
-             "../images/characters/adeline_judd.png"
+             "../images/characters/samuel_stone.png"
          );
     });
 
@@ -81,13 +87,18 @@
     function goToNext() {
         listen_to_keys(
             [{
-                text: `When the flames passed, the work began. This church became a place where clothing was given,
-                supplies were shared, and the suffering were cared for.`,
-                img: "../images/characters/adeline_judd.png"
+                text: `When the fire came, others believed the building was safe, but I returned to this building to guard what remained.`,
+                img: "../images/characters/samuel_stone.png"
             },{
-                text: `We who still had homes felt it was our duty to remain — and to help rebuild what
-                the fire had broken.`,
-                img: "../images/characters/adeline_judd.png"
+                text: `Sparks filled the air, the windows burned, and the walls began to glow with heat.`,
+                img: "../images/characters/samuel_stone.png"
+            },{
+                text: `As the fire closed in, I guarded the door, refused entry, and tried to save our records.`,
+                img: "../images/characters/samuel_stone.png"
+            },{
+                text: `When the flames reached the walls and the air itself burned, I fled — the last, I believe,
+                to leave that place alive.`,
+                img: "../images/characters/samuel_stone.png"
             }],
             true
         )

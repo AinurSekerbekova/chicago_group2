@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central High School</title>
+    <title>Henry W. King's shop</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
@@ -17,7 +17,7 @@
 
 <body>
 <div class="container-fluid">
-<h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where we are now?</h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Try to guess where you stand</h1>
     <div class="row g-4 align-items-stretch">
         <div class="col-12 col-md-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
             <div id="map" class="rounded shadow-sm" style="height: 90%;"></div>
@@ -27,22 +27,21 @@
         <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
             <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1765650140680!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJREUtTUthVlE.!2m2!1d41.87879609377952!2d-87.64648130665552!3f47.53902564016777!4f6.445745932882161!5f0.7820865974627469">
+                    src="https://www.google.com/maps/embed?pb=!4v1765726265065!6m8!1m7!1sNSA5H4l-R14GxElJCBdr7g!2m2!1d41.88574061819993!2d-87.62879211033987!3f4.100061889975068!4f7.487426095947768!5f0.7820865974627469">
             </iframe>
         </div>
     </div>
-
 </div>
 
 <div class="row mt-5 mx-1 p-4 bg-dark bg-opacity-50 rounded shadow text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
+        <img src="../images/avatar/tommaso_avatar.png" alt="Character" id="character-img">
         <div>
             <h3 id="speech-text" class=" py-2 m-3"></h3>
             <h4 id="hint"></h4>
         </div>
     </div>
-    <a href="guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
+    <a href="guessing_game.html" class="btn btn-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
 
@@ -55,7 +54,7 @@
 <script src="../scripts/common_game_script.js"></script>
 <script>
     // specific js for this map
-    var targetLatLng = [41.87879609377952, -87.64648130665552];
+    var targetLatLng = [41.88574061819993, -87.62879211033987];
     var userMarker = null;
     var map = L.map('map').setView(targetLatLng, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -70,48 +69,50 @@
       userMarker = L.marker(e.latlng).addTo(map);
       userMarker.userLatLng = e.latlng;
     });
+    console.log("Ищу кнопку:", document.getElementById('submit-button'));
 
     // handle form submission
     const submit_button = document.getElementById('submit-button');
     submit_button.addEventListener('click', function (e) {
         console.log("Кнопка нажата!");
         form_submitted(
-            "You got it. ",
-            "Close. Try again, pal.",
-            "../images/avatar/tarlan_avatar.png"
+            `You got it. The 6 Lake Street! right where the Mr. Henry W. King had the clothing shop, but our
+            letter is from his wife Mrs. Aurelia King`,
+            "Close — but not quite there. Try again, pal.",
+            "../images/avatar/tommaso_avatar.png"
         );
     });
-
-
 </script>
 <script src="../scripts/common_speak_script.js"></script>
 <script>// specific js for the speaking feature on this page
 
-    // Automatically start with the first phrase at the start
+    // Automatically start with first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `You can see the Old St. Patrick's Church across the street.
-            It actually survived the fire. And is still standing up intill today.`,
+             `Once, this spot was home to a wholesale clothing store — two adjoining buildings filled with bolts of
+             fabric and heavy account books.`,
             true,
-            "../images/avatar/tarlan_avatar.png"
+            "../images/avatar/tommaso_avatar.png"
         );
     });
-
-    // switch to the next phrase by 'enter' or space on keyboard or touch on mobile screen
+    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
     function goToNext() {
         listen_to_keys(
             [{
-                text: `Although the fire did not reach this place, and it survived the fire, unfortunately unlike
-                the church, the point where we are standing did not survive the pass of time,
-                now it looks completely different from before.`,
-                img: "../images/avatar/tarlan_avatar.png"
+                text: `It stood in the very heart of Chicago’s commercial district, where trade began early
+                and ended late.`,
+                img: "../images/avatar/tommaso_avatar.png"
             },{
-                text: "Guess where we stand — the place of hope for chicago citizens in 1871",
-                img: "../images/avatar/tarlan_avatar.png"
+                text: `On the night of the Great Fire, the flames swept down this street first, leaving nothing of the shops behind.`,
+                img: "../images/avatar/tommaso_avatar.png"
+            },{
+                text: `What you see now is a different city — find on the map the place that was once Mr.Henry W. King's shop`,
+                img: "../images/avatar/tommaso_avatar.png"
             }],
             true
         )
     }
+
 </script>
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>

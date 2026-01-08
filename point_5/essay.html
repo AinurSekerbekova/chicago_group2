@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter of Anna Higginson</title>
+    <title>Letter from Adeline Rossiter Judd</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -14,27 +14,24 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">
-        The Court House
-    </h1>
+    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Compassion, relief, and rebuilding</h1>
 
     <div class="row align-items-start g-4">
         <!-- Left column: map -->
         <div class="col-12 col-md-6 text-center">
             <div class="media-wrap">
-                <iframe src="../point_5/Courthouse Square/index.html" class="media-frame rounded shadow"
-                        loading="lazy" style="border: none;">
+                <iframe src="W 42nd Street/index.html" class="media-frame rounded shadow" loading="lazy"
+                        style="border: none;">
                 </iframe>
             </div>
         </div>
         <!-- Right column: image -->
         <div class="col-12 col-md-6 iframe-crop">
             <div class="media-wrap">
-                <img src="../images/chicago museum before.jpg"
-                     alt="chicago museum before"
-                     class="media-img img-fluid rounded shadow">
+                <img src="../images/Second Presbyterian Church.jpg"
+                     alt="Second Presbyterian Church"
+                     class="media-img img-fluid rounded shadow" style="object-fit: contain">
             </div>
-
         </div>
     </div>
 
@@ -43,13 +40,13 @@
             <a class="btn btn-outline-warning" href="https://greatchicagofire.org/landmarks/court-house/" target="_blank" rel="noopener noreferrer">First link</a>
             <a class="btn btn-outline-warning" href="https://chicagology.com/prefire/prefire003/" target="_blank" rel="noopener noreferrer">Second link</a>
         </p>
-        <p class="mx-3 text-center">Your next letter from Anna Higginson, click on it to add to your collection<br>
-            <a href="../letter_pdfs/Anna_Higginson.pdf"
+        <p class="mx-3 text-center">This letter is from Adeline Rossiter Jude, click on it to add to your collection<br>
+            <a href="../letter_pdfs/Adeline_Jude.pdf"
                target="_blank"
                class="btn btn-outline-warning"
                onclick="addToCollection({
-                       name: 'Anna Higginson Letter',type: 'letter',
-                       file: '../letter_pdfs/Anna_Higginson.pdf',location: '86 Washington Street'
+                       name: 'Adeline Rossiter Jude Letter',type: 'letter',
+                       file: '../letter_pdfs/Adeline_Jude.pdf',location: '86 Washington Street'
                })">Open PDF</a>
         </p>
     </div>
@@ -62,7 +59,7 @@
 <!-- Text content below -->
 <div class="row my-3 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/characters/anna_higginson.png" alt="Character" id="character-img">
+        <img src="../images/characters/adeline_judd.png" alt="Character" id="character-img">
         <p class="fs-4 fw-bold m-3" id="speech-text"></p>
     </div>
 </div>
@@ -74,25 +71,23 @@
     // Automatically start with the first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-            `We soon saw the fire would reach our neighborhood. I packed what I most valued and clung to the buggy seat
-             as the flames chased us north.`,
+            `My name is Adeline Rossiter Judd. My family was spared by the fire, but many others were not.`,
              true,
-             "../images/characters/anna_higginson.png"
+             "../images/characters/adeline_judd.png"
          );
     });
 
-    // switch to the next phrase by 'enter' or 'space' on keyboard or touch on mobile screen
+    // switch to the next phrase by enter or space on keyboard or touch on mobile screen
     function goToNext() {
         listen_to_keys(
             [{
-                text: `Chicago has been thrown back twenty-five years, and I do not expect to see it restored as it was.
-                The greatness of the calamity cannot be described — the smoke has not yet cleared,
-                and despair will follow.`,
-                img: "../images/characters/anna_higginson.png"
-            }, {
-                text: `What grieves me most is not only the loss of homes, but the loss of memory and culture. Where
-                magnificent buildings once stood, there are now only rough shelters and silence.`,
-                img: "../images/characters/anna_higginson.png"
+                text: `When the flames passed, the work began. This church became a place where clothing was given,
+                supplies were shared, and the suffering were cared for.`,
+                img: "../images/characters/adeline_judd.png"
+            },{
+                text: `We who still had homes felt it was our duty to remain — and to help rebuild what
+                the fire had broken.`,
+                img: "../images/characters/adeline_judd.png"
             }],
             true
         )

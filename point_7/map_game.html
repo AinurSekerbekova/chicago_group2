@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samuel Stone</title>
+    <title>Central High School</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
@@ -17,7 +17,7 @@
 
 <body>
 <div class="container-fluid">
-    <h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where this is?</h1>
+<h1 class="fw-bold text-center my-2 rounded shadow text-white my-5">Can you guess where we are now?</h1>
     <div class="row g-4 align-items-stretch">
         <div class="col-12 col-md-6 text-center" style="height: 60vh; min-height: 300px; z-index: 5;">
             <div id="map" class="rounded shadow-sm" style="height: 90%;"></div>
@@ -27,23 +27,25 @@
         <div class="col-12 col-md-6 iframe-crop" style="height: 60vh; overflow: hidden;">
             <iframe id="next_to_map" class="w-100 rounded shadow-sm" style="height: 100%;" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""
-                    src="https://www.google.com/maps/embed?pb=!4v1765735355939!6m8!1m7!1sq0prkR04k2qWVvtY-r9lDw!2m2!1d41.91137706519027!2d-87.63151353084524!3f357.03447148785256!4f12.08595374704224!5f0.7820865974627469">
+                    src="https://www.google.com/maps/embed?pb=!4v1765650140680!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJREUtTUthVlE.!2m2!1d41.87879609377952!2d-87.64648130665552!3f47.53902564016777!4f6.445745932882161!5f0.7820865974627469">
             </iframe>
         </div>
     </div>
+
 </div>
 
 <div class="row mt-5 mx-1 p-4 bg-dark bg-opacity-50 rounded shadow text-white" id="result-container">
     <div class="d-flex">
-        <img src="../images/avatar/ehsan_avatar.png" alt="Character" id="character-img">
+        <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
         <div>
             <h3 id="speech-text" class=" py-2 m-3"></h3>
             <h4 id="hint"></h4>
         </div>
     </div>
-    <a href="../point_7/guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
+    <a href="guessing_game.html" class="btn btn-outline-warning shadow-sm m-4 d-none" id="next-button">Next Challenge</a>
 </div>
 <div id="dialogue-overlay" class="d-none"></div>
+
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -53,7 +55,7 @@
 <script src="../scripts/common_game_script.js"></script>
 <script>
     // specific js for this map
-    var targetLatLng = [41.88368053652241, -87.63064605984985];
+    var targetLatLng = [41.87879609377952, -87.64648130665552];
     var userMarker = null;
     var map = L.map('map').setView(targetLatLng, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -74,8 +76,9 @@
     submit_button.addEventListener('click', function (e) {
         console.log("Кнопка нажата!");
         form_submitted(
-            "You got it. The Court House.",
-            "Close—but this plaza didn’t always shine like this. Try again, pal."
+            "You got it. ",
+            "Close. Try again, pal.",
+            "../images/avatar/tarlan_avatar.png"
         );
     });
 
@@ -87,25 +90,29 @@
     // Automatically start with the first phrase at the start
     window.addEventListener("load",function(e) {
         showDialogue(
-             `This place was built to protect Chicago’s memory. Its books, records, and letters told the story of
-             the city. But the Museum you see now is not the same as it was before.`,
-            "../images/avatar/ehsan_avatar.png"
+            `You can see the Old St. Patrick's Church across the street.
+            It actually survived the fire. And is still standing up intill today.`,
+            true,
+            "../images/avatar/tarlan_avatar.png"
         );
     });
-
 
     // switch to the next phrase by 'enter' or space on keyboard or touch on mobile screen
     function goToNext() {
         listen_to_keys(
             [{
-                text: `During the fire of 1871, all of it was lost. Can you find where that history once stood?`,
-                img: "../images/avatar/ehsan_avatar.png"
+                text: `Although the fire did not reach this place, and it survived the fire, unfortunately unlike
+                the church, the point where we are standing did not survive the pass of time,
+                now it looks completely different from before.`,
+                img: "../images/avatar/tarlan_avatar.png"
+            },{
+                text: "Guess where we stand — the place of hope for chicago citizens in 1871",
+                img: "../images/avatar/tarlan_avatar.png"
             }],
             true
         )
     }
 </script>
-<!-- todo do the whole point -->
 <script src="../scripts/myCollection.js"></script>
 <script src="../scripts/homeButton.js"></script>
 <script src="../scripts/goBackButton.js"></script>

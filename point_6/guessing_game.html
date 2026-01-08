@@ -15,50 +15,51 @@
 <div class="container-fluid">
     <div class="text-center mb-4 text-white">
         <h2 class="text-white">Guess the Correct Building</h2>
-        <p class="text-white-50">Click on the correct photo of the church</p>
+        <p class="text-white-50">Click on the correct photo of the <strong>place</strong></p>
     </div>
-
 
     <div class="row justify-content-center g-4">
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/Second Presbyterian Church.jpg"
-                 alt="Second Presbyterian Church"
+            <img src="../images/courthouse%204july1855hesler.jpg"
+                 alt="Court House"
                  class="img-fluid rounded shadow guess-photo"
-                 data-correct="true"
-                 data-name="Second Presbyterian Church"
-                 data-src="../images/Second Presbyterian Church.jpg">
+                 data-correct="false"
+                 data-name="Court House"
+                 data-src="../images/courthouse 4july1855hesler.jpg">
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/secondpresbyterianchurchwabashwashington.jpg"
-                 alt="Second Presbyterian Church"
+            <img src="../images/chicago%20museum%20before.jpg"
+                 alt="chicago museum"
                  class="img-fluid rounded shadow guess-photo"
                  data-correct="true"
-                 data-name="Second Presbyterian Church"
-                 data-src="../images/secondpresbyterianchurchwabashwashington.jpg">
+                 data-name="chicago museum"
+                 data-src="../images/chicago museum before.jpg">
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="../images/SecondPres church.jpg"
-                 alt="Second Presbyterian Church"
+            <img src="../images/Oleary%20home%202.jpg"
+                 alt="Old Water Tower"
                  class="img-fluid rounded shadow guess-photo"
-                 data-correct="true"
-                 data-name="Second Presbyterian Church"
-                 data-src="../images/SecondPres church.jpg">
+                 data-correct="false"
+                 data-name="Old Water Tower"
+                 data-src="../images/old water tower.jpg">
         </div>
+
     </div>
 
-    <!-- result and next button MUST exist so JS can update them -->
+
+</div>
+
+<!-- result and next button MUST exist so JS can update them -->
     <div class="row mt-5 bg-dark bg-opacity-50 rounded shadow p-4 text-white" id="result-container">
-        <div class="d-flex">
-            <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
-            <p id="result" class="fs-4 fw-bold m-3">
-                What do you think this church looked like back in the days? <br>
-                You need to choose one!
-            </p>
-        </div>
-        <a href="essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
+    <div class="d-flex">
+        <img src="../images/avatar/tarlan_avatar.png" alt="Character" id="character-img">
+        <p id="result" class="fs-4 fw-bold m-3">Before the fire, the Society’s old home kept maps, portraits, and
+            letters. <br>Which of these pictures shows its pre-fire library?
+        </p>
     </div>
+    <a href="essay.html" class="btn btn-warning btn-lg mt-2 d-none" id="nextButton">Discover the History</a>
 </div>
 
 <!-- Load My Collection helper first, so addToCollection exists for the following script -->
@@ -70,27 +71,37 @@
 <script>
     // Wait until DOM is ready to be safe
     document.addEventListener('DOMContentLoaded', () => {
-        const photos = document.querySelectorAll('.guess-photo');
-        const result = document.getElementById('result');
-        const nextButton = document.getElementById('nextButton');
+      const photos = document.querySelectorAll('.guess-photo');
+      const result = document.getElementById('result');
+      const nextButton = document.getElementById('nextButton');
 
-        photos.forEach(photo => {
-            photo.addEventListener('click', () => {
-                // update UI
-                result.innerHTML = `✅ Correct! Actually, I was kidding. All three are the pictures of the same church :)
-                <br>Gothic spires, stone arches—sanctuary of hope`;
-                nextButton.classList.remove('d-none');
+      photos.forEach(photo => {
+        photo.addEventListener('click', () => {
+          // safety: ensure DOM elements exist
+          if (!result || !nextButton) return;
 
-                // prepare item object (image + name)
-                const item = {
-                  name: photo.dataset.name || photo.alt || "Unknown Building",
-                  image: photo.dataset.src || photo.src
-                };
+          if (photo.dataset.correct === "true") {
+            // update UI
+            result.textContent = "✅ Yes—that’s the one! It all burned ... except seven letters.";
+            nextButton.classList.remove('d-none');
 
-                // add to the collection (myCollection.js exposes addToCollection)
-                addToCollection(item);
-            });
+            // prepare item object (image + name)
+            const item = {
+              name: photo.dataset.name || photo.alt || "Unknown Building",
+              image: photo.dataset.src || photo.src
+            };
+
+            // add to the collection (myCollection.js exposes addToCollection)
+            if (typeof addToCollection === 'function') {
+              addToCollection(item);
+            } else {
+              console.warn('addToCollection not available yet.');
+            }
+          } else {
+            result.textContent = "❌ Try again!";
+          }
         });
+      });
     });
 </script>
 
