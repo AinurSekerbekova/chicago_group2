@@ -166,6 +166,7 @@ iframe {
 
 #dialogue-overlay {
     position: fixed;
+    pointer-events: none;
     top: 0;
     left: 0;
     width: 100%;
@@ -238,6 +239,7 @@ iframe {
 
 /* ================== the essay page STYLES ================== */
 .media-wrap {
+    position: relative;
     height: 50vh;
     min-height: 300px;
     display: flex;
@@ -245,7 +247,6 @@ iframe {
     justify-content: center;
     overflow: hidden;
 }
-
 .media-frame, .media-img {
     width: 100%;
     height: 100%;
@@ -254,6 +255,27 @@ iframe {
     border: none;
     display: block;
 }
+
+.img-label {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background: rgba(0,0,0,0.75);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.media-wrap:hover .img-label {
+    opacity: 1;
+}
+
 
 /* Не обрезать картинку, показывать полностью с буквой/полями */
 .media-img {
