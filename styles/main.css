@@ -23,7 +23,7 @@ body::before {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 0;s
+    z-index: 0;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -236,6 +236,13 @@ iframe {
     }
 }
 
+.row.justify-content-center.g-4 > .col-md-4 {
+  position: relative;
+}
+.guess-photo:hover + .img-label {
+  opacity: 1;
+}
+
 
 /* ================== the essay page STYLES ================== */
 .media-wrap {
@@ -275,12 +282,6 @@ iframe {
 .media-wrap:hover .img-label {
     opacity: 1;
 }
-
-/* show label only when the IMAGE is hovered */
-.guess-photo:hover + .img-label {
-  opacity: 1;
-}
-
 
 
 /* Не обрезать картинку, показывать полностью с буквой/полями */
