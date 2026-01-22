@@ -276,6 +276,12 @@ iframe {
     opacity: 1;
 }
 
+/* show label only when the IMAGE is hovered */
+.guess-photo:hover + .img-label {
+  opacity: 1;
+}
+
+
 
 /* Не обрезать картинку, показывать полностью с буквой/полями */
 .media-img {
